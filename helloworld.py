@@ -29,10 +29,6 @@ pandas_df = spark.toPandas()
 sqlContext = SQLContext(pandas_df)
 
 
-
-df = spark.read
-.log("/home/kat_wadhwani/BigDataClass/access.log")
-
  
  
 df.show()
