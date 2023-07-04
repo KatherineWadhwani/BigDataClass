@@ -29,7 +29,7 @@ sqlContext.createDataFrame([
 ])
  
 # show table
-df.show()
+sqlContext.show()
  
 # show schema
-df.printSchema()
+sqlContext.printSchema()
