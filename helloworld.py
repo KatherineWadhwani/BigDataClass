@@ -1,16 +1,15 @@
-#!/usr/bin/env python
-import sys, re
+#!/usr/bin/env python3
+import time, datetime, sys
+import pandas as pd
+import os
 
-def main(argv):
-    line = sys.stdin.readline()
-    pattern = re.compile("[a-zA-Z][a-zA-Z0-9]*")
-    try:
-        while line:
-            for word in pattern.findall(line):
-                print ("LongValueSum:" + word.lower() + "\t" + "1")
-            line = sys.stdin.readline()
-    except EOFError as error:
-        return None
+dir_path = os.path.realpath(__file__)
 
-if __name__ == "__main__":
-    main(sys.argv)
+aapl_df = pd.read_csv(os.path.dirname(dir_path) + '/../test_datasets/aapl.csv')
+aapl_df.dropna(inplace=True)
+aapl_df = aapl_df.loc[:,['Date', 'Close/Last']]
+aapl_df = aapl_df.iloc[::-1]
+
+for _, row in aapl_df.iterrows():
+    print(row['Date'], row['Close/Last'], flush = True)
+    time.sleep(1.0)
