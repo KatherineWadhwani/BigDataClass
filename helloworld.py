@@ -7,4 +7,6 @@ from pyspark import SparkFiles
 
 spark = SparkContext.getOrCreate()
 
-spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
+file f = spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
+
+execute("SELECT * FROM f")
