@@ -7,4 +7,4 @@ from pyspark import SparkFiles
 
 spark = SparkContext.getOrCreate()
 
-spark.sparkContext.addPyFile(SparkFiles.get("access.log"))
+spark.addPyFile(SparkFiles.get("access.log"))
