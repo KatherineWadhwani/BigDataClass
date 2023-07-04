@@ -26,11 +26,11 @@ df = sqlContext.createDataFrame([
 ])
 
 pandas_df = spark.toPandas()
-sqlContext = SQLContext(pandas_df)
+dff = SQLContext(pandas_df)
 
 
  
  
-df.show()
+dff.show()
  
-df.printSchema()
+dff.printSchema()
