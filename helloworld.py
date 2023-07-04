@@ -20,10 +20,12 @@ f = open("/home/kat_wadhwani/BigDataClass/access.log", "r")
 
 text = f.read()
 rows = text.splitlines()
-print(rows[1])
 
-
-print(re.split(' - - | "| /|" ', rows[1]))
+rows.pop(0)
+counter = 0;
+for row in rows:
+ print(re.split(' - - | "| /|" ', rows[counter]))
+ counter++
 
  
  
