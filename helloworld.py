@@ -21,9 +21,9 @@ with f as input:
    for line in input:
        if '\"_\"' in line:
             break
+          print(line)
 
 
-print(f.read())
 
 
  
