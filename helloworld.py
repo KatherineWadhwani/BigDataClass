@@ -22,8 +22,10 @@ text = f.read()
 rows = text.split("\"-\"")
 print(rows[0])
 
-
-print(re.split('- -, ",  /',rows[0]))
+str1 = "- -"
+str2 = "\""
+str3 = " /"
+print(re.split(str1, str2, str3, rows[0]))
 
  
  
