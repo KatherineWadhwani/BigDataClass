@@ -14,7 +14,7 @@ spark = SparkContext.getOrCreate()
 spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
 
 
-addFile(path: "/home/kat_wadhwani/BigDataClass/access.log")
+addFile("/home/kat_wadhwani/BigDataClass/access.log")
 
 
  
