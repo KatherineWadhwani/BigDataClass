@@ -14,7 +14,7 @@ spark = SparkContext.getOrCreate()
 spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
 
 
-def textFile(path: "/home/kat_wadhwani/BigDataClass/access.log")
+def textFile(path: "/home/kat_wadhwani/BigDataClass/access.log"):Boolean
 
 
  
