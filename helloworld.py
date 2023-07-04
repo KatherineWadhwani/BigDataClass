@@ -17,8 +17,7 @@ spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
 
 sqlContext = SQLContext(spark)
 
-df = sqlContext.createDataFrame([
-  row_rdd = spark.map(row_parse_function).filter("_")
+df = sqlContext.createDataFrame([spark.map(row_parse_function).filter("_")
 ])
  
  
