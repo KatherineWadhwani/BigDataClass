@@ -5,8 +5,8 @@ import os
 from pyspark import SparkContext
 from pyspark import SparkFiles
 
-spark = SparkSession.builder.config(conf=conf) \
-            .appName(application_name) \
+spark = SparkSession.builder.config(conf=conf)
+            .appName(application_name)
             .getOrCreate()
 
 
