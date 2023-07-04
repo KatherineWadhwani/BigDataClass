@@ -7,5 +7,5 @@ conf = (SparkConf()
 sc = SparkContext(conf = conf)
 
 
-logData = sc.access(logFile).cache()
+logData = access.log
 errors = logData.filter(lambda line: "ERROR" in line)
