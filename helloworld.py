@@ -9,4 +9,4 @@ spark = SparkContext.getOrCreate()
 
 file f = spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
 
-execute("SELECT * FROM f")
+ps.read_csv()
