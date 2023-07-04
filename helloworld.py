@@ -5,5 +5,9 @@ import os
 from pyspark import SparkContext
 from pyspark import SparkFiles
 
+spark = SparkSession.builder.config(conf=conf) \
+            .appName(application_name) \
+            .getOrCreate()
+
 
 spark.sparkContext.addPyFile(SparkFiles.get("access.log"))
