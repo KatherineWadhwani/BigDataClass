@@ -23,7 +23,7 @@ rows = text.splitlines()
 print(rows[1])
 
 
-print(re.split(' - - | "| /|" ', rows[0]))
+print(re.split(' - - | "| /|" ', rows[1]))
 
  
  
