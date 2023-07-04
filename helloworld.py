@@ -3,7 +3,7 @@ import time, datetime, sys
 import pandas as pd
 import os
 
-dir_path = os.path.realpath(__file__)
+dir_path = os.path.realpath(access.log)
 
 aapl_df = pd.read_csv(os.path.dirname(dir_path) + '/../test_datasets/aapl.csv')
 aapl_df.dropna(inplace=True)
