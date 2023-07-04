@@ -1,10 +1,16 @@
-from pyspark import SparkConf, SparkContext
+#!/usr/bin/env python
+import sys, re
 
-conf = (SparkConf()
-         .setMaster("local")
-         .setAppName("My app")
-         .set(clusterproj5))
-sc = SparkContext(conf = conf)
+def main(argv):
+    line = sys.stdin.readline()
+    pattern = re.compile("[a-zA-Z][a-zA-Z0-9]*")
+    try:
+        while line:
+            for word in pattern.findall(line):
+                print ("LongValueSum:" + word.lower() + "\t" + "1")
+            line = sys.stdin.readline()
+    except EOFError as error:
+        return None
 
-
-errors = logData.filter(lambda line: "ERROR" in line)
+if __name__ == "__main__":
+    main(sys.argv)
