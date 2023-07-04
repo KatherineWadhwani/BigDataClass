@@ -18,7 +18,9 @@ spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
 sqlContext = SQLContext(spark)
 
 
-spark_df = sqlContext.createDataFrame(spark)
+
+val df = spark.read
+.json("/home/kat_wadhwani/BigDataClass/access.log")
 
  
  
