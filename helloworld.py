@@ -18,7 +18,7 @@ f = open("/home/kat_wadhwani/BigDataClass/access.log", "r")
 
 
 text = f.read()
-result = text.split("-")
+result = text.split("\"-\"")
 print(result[0])
 print ("HIYA THERE")
 
