@@ -5,6 +5,5 @@ import os
 from pyspark import SparkContext
 from pyspark import SparkFiles
 
-spark = SparkContext(conf=SparkConf())
 
 spark.sparkContext.addPyFile(SparkFiles.get("access.log"))
