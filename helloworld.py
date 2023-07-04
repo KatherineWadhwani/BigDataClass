@@ -14,7 +14,7 @@ spark = SparkContext.getOrCreate()
 spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
 
 
-df = sqlContext.createDataFrame([
+df = SQLContext.createDataFrame([
  Row(a=1, b=4., c='GFG1', d=date(2000, 8, 1),
         e=datetime(2000, 8, 1, 12, 0)),
    
