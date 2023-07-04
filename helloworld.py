@@ -20,7 +20,7 @@ f = open("/home/kat_wadhwani/BigDataClass/access.log", "r")
 
 text = f.read()
 rows = text.splitlines()
-print(rows[0])
+print(rows[1])
 
 
 print(re.split(' - - | "| /|" ', rows[0]))
