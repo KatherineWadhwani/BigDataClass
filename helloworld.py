@@ -28,8 +28,6 @@ sqlContext.createDataFrame([
         e=datetime(2000, 5, 3, 12, 0))
 ])
  
-# show table
-sqlContext.show()
  
 # show schema
 sqlContext.printSchema()
