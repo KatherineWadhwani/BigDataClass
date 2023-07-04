@@ -18,7 +18,7 @@ spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
 sqlContext = SQLContext(spark)
 
 
-spark_df = sqlContext.createDataFrame()
+spark_df = sqlContext.createDataFrame(spark)
 
  
  
