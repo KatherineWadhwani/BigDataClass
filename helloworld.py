@@ -4,6 +4,17 @@ import pandas as ps
 import os
 from pyspark import SparkContext
 from pyspark import SparkFiles
+# Need to import to use date time
+from datetime import datetime, date
+ 
+# need to import for working with pandas
+import pandas as pd
+ 
+# need to import to use pyspark
+from pyspark.sql import Row
+ 
+# need to import for session creation
+from pyspark.sql import SparkSession
 
 spark = SparkContext.getOrCreate()
 
