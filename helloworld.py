@@ -23,7 +23,7 @@ print(rows[0])
 
 
 IP = rows[0].split(" - -", "\"", " /")
-print(IP[0])
+print(IP)
 
  
  
