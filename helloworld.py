@@ -3,5 +3,6 @@ import time, datetime, sys
 import pandas as pd
 import os
 
-f = open("access.log", "r")
-print(f.read())
+from pyspark import SparkFiles
+
+spark.sparkContext.addPyFile(SparkFiles.get("access.log"))
