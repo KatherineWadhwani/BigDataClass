@@ -22,6 +22,7 @@ with f as input:
       if 'GET' in line:
          break
       print(line)
+      print (HIYA THERE)
 
 
 
