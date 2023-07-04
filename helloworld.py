@@ -18,12 +18,12 @@ f = open("/home/kat_wadhwani/BigDataClass/access.log", "r")
 
 
 text = f.read()
-result = text.split("\"-\"")
-print(result[0])
-print ("HIYA THERE")
+rows = text.split("\"-\"")
+print(rows[0])
 
 
-
+IP = rows[0].split(" - -")
+print(IP)
 
  
  
