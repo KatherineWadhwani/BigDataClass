@@ -3,6 +3,7 @@ import time, datetime, sys
 from datetime import datetime, date
 import pandas as ps
 import os
+import re 
 from pyspark import SparkContext
 from pyspark import SparkFiles
 from pyspark.sql import SQLContext
@@ -22,9 +23,7 @@ rows = text.split("\"-\"")
 print(rows[0])
 
 
-IP = rows[0].split(" - -")
-junk = rows[0][1].split("\"")
-print(junk)
+IP = re.split(" - -", "\"", " /")
 
  
  
