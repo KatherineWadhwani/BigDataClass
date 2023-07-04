@@ -5,6 +5,7 @@ import os
 from pyspark import SparkContext
 from pyspark import SparkFiles
 from pyspark.sql import SQLContext
+from pyspark.sql import Row
 
 
 spark = SparkContext.getOrCreate()
