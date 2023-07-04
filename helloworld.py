@@ -4,23 +4,18 @@ import pandas as ps
 import os
 from pyspark import SparkContext
 from pyspark import SparkFiles
-# Need to import to use date time
-from datetime import datetime, date
- 
-# need to import for working with pandas
-import pandas as pd
- 
-# need to import to use pyspark
-from pyspark.sql import Row
- 
-# need to import for session creation
-from pyspark.sql import SparkSession
+from pyspark.sql import SQLContext
+
 
 spark = SparkContext.getOrCreate()
 
 spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
 
-df = spark.createDataFrame([
+
+
+sqlContext = SQLContext(spark)
+
+sqlContext.createDataFrame([
     Row(a=1, b=4., c='GFG1', d=date(2000, 8, 1),
         e=datetime(2000, 8, 1, 12, 0)),
    
