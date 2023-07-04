@@ -29,5 +29,6 @@ sqlContext.createDataFrame([
 ])
  
  
-# show schema
+sqlContext.show()
+ 
 sqlContext.printSchema()
