@@ -13,8 +13,10 @@ spark = SparkContext.getOrCreate()
 
 spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
 
-
 addFile("/home/kat_wadhwani/BigDataClass/access.log")
+
+f = open("/home/kat_wadhwani/BigDataClass/access.log", "r")
+print(f.read())
 
 
  
