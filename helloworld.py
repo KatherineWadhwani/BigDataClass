@@ -19,7 +19,7 @@ f = open("/home/kat_wadhwani/BigDataClass/access.log", "r")
 
 with f as input:
    for line in input:
-      if '\"_\"' in line:
+      if 'asdfasdfasdfasdfdsadsf' in line:
          break
          print(line)
 
