@@ -23,9 +23,8 @@ print(rows[0])
 
 
 IP = rows[0].split(" - -")
-IP = IP.split("\"")
-IP = IP.split(" /")
-print(IP)
+junk = rows[0][1].split("\"")
+print(junk)
 
  
  
