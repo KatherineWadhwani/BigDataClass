@@ -23,7 +23,7 @@ rows = text.split("\"-\"")
 print(rows[0])
 
 
-IP = re.split(" - -", "\"", " /")
+print(re.split('- -, ",  /',rows[0]))
 
  
  
