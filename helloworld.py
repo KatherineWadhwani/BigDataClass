@@ -20,7 +20,7 @@ sqlContext = SQLContext(spark)
 
 
 df = spark.read
-.json("/home/kat_wadhwani/BigDataClass/access.log")
+.log("/home/kat_wadhwani/BigDataClass/access.log")
 
  
  
