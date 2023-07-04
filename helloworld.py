@@ -7,6 +7,6 @@ from pyspark import SparkFiles
 
 spark = SparkContext.getOrCreate()
 
-file f = spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
+spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
 
-ps.read_csv(f)
+ps.read_csv(spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log")))
