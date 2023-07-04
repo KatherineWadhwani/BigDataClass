@@ -22,7 +22,9 @@ rows = text.split("\"-\"")
 print(rows[0])
 
 
-IP = rows[0].split(" - -", "\"", " /")
+IP = rows[0].split(" - -")
+IP = IP.split("\"")
+IP = IP.split(" /")
 print(IP)
 
  
