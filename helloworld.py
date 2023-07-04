@@ -7,4 +7,4 @@ from pyspark import SparkFiles
 
 spark = SparkContext.getOrCreate()
 
-spark.addPyFile(SparkFiles.get("access.log"))
+spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
