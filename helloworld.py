@@ -45,8 +45,10 @@ for row in response:
     counter+=1
 
 
-percentile_list = pd.DataFrame(list(zip(ipAddress, requestType, response)),
+pandasDF = pd.DataFrame(list(zip(ipAddress, requestType, response)),
               columns=['ipAddress','requestType', 'response'])
- 
- 
-percentile_list.printSchema()
+
+
+sparkDF = spark.createDataFrame(pandasDF)
+sparkDF.show()
+sparkDF.printSchema()
