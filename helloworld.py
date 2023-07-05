@@ -13,10 +13,14 @@ from pyspark.sql import Row
 from pyspark.sql import SparkSession
 
 
-session = SparkSession\
-    .enableHiveSupport()\
-    .getOrCreate()\
 
+session = SparkSession \
+    .builder \
+    .appName("data_import") \
+    .config("spark.dynamicAllocation.enabled", "true") \
+    .config("spark.shuffle.service.enabled", "true") \
+    .enableHiveSupport() \
+    .getOrCreate()
 
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
