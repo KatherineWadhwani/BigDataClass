@@ -67,8 +67,13 @@ sparkDF = sqlContext.createDataFrame(pandasDF)
 #sparkDF.write.saveAsTable("sample")
 
 
-df_oversees2 = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) > 399""")
+df_errors = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) > 399""")
 
-df_oversees2.show()
-df_oversees2.printSchema()
+df_errors.show()
+df_errors.printSchema()
+
+
+rows = df_errors.count()
+print(f"The number of errors is : {rows}")
+
 
