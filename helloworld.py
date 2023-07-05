@@ -15,7 +15,6 @@ from pyspark.sql import SparkSession
 val spark = SparkSession
   .builder()
   .appName("Name")
-  .getOrCreate()
 
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
