@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import time, datetime, sys
 from datetime import datetime, date
-import pandas as ps
+import pandas as pd
 import os
 import re
 import math
