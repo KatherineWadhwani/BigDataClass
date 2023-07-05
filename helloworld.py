@@ -69,11 +69,27 @@ sparkDF = sqlContext.createDataFrame(pandasDF)
 
 df_errors = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) > 399""")
 
-df_errors.show()
-df_errors.printSchema()
+df_errors = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) > 399""")
+
+#df_errors.show()
+#df_errors.printSchema()
 
 
-rows = df_errors.count()
-print(f"The number of errors is : {rows}")
+#requestType
+
+df_GET = sqlContext.sql("""SELECT * FROM sample WHERE requestType ='GET'""")
+df_PUT= sqlContext.sql("""SELECT * FROM sample WHERE requestType ='PUT'""")
+df_POST = sqlContext.sql("""SELECT * FROM sample WHERE requestType ='POST'""")
+df_DELETE = sqlContext.sql("""SELECT * FROM sample WHERE requestType ='DELETE'""")
+
+getRows = df_GET.count()
+putRows = df_PUT.count()
+postRows = df_POST.count()
+deleteRows = df_DELETE.count()
+
+print(f"The percentage of GET requests is : {getRows/entries}")
+print(f"The percentage of PUT requests is : {putRows/entries}")
+print(f"The percentage of POST requests is : {postRows/entries}")
+print(f"The percentage of DELETE requests is : {deleteRows/entries}")
 
 
