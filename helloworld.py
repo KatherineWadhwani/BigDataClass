@@ -86,11 +86,11 @@ FourHundredRows = df_400s.count()
 FiveHundredRows = df_500s.count()
 
 
-print(f"The percentage of 100s is : {OneHundredRows/entries * 100}")
-print(f"The percentage of 200s is : {TwoHundredRows/entries * 100}")
-print(f"The percentage of 300s is : {ThreeHundredRows/entries * 100}")
-print(f"The percentage of 400s is : {FourHundredRows/entries * 100}")
-print(f"The percentage of 500s is : {FiveHundredRows/entries * 100}")
+print(f"The percentage of 100s is : {OneHundredRows* 100/entries}")
+print(f"The percentage of 200s is : {TwoHundredRows* 100/entries}")
+print(f"The percentage of 300s is : {ThreeHundredRows* 100/entries}")
+print(f"The percentage of 400s is : {FourHundredRows* 100/entries}")
+print(f"The percentage of 500s is : {FiveHundredRows* 100/entries}")
 
 #requestType
 df_GET = sqlContext.sql("""SELECT * FROM sample WHERE requestType ='GET'""")
@@ -103,9 +103,9 @@ putRows = df_PUT.count()
 postRows = df_POST.count()
 deleteRows = df_DELETE.count()
 
-print(f"The percentage of GET requests is : {getRows/entries * 100}")
-print(f"The percentage of PUT requests is : {putRows/entries * 100}")
-print(f"The percentage of POST requests is : {postRows/entries * 100}")
-print(f"The percentage of DELETE requests is : {deleteRows/entries * 100}")
+print(f"The percentage of GET requests is : {getRows* 100/entries}")
+print(f"The percentage of PUT requests is : {putRows* 100/entries}")
+print(f"The percentage of POST requests is : {postRows* 100/entries}")
+print(f"The percentage of DELETE requests is : {deleteRows* 100/entries}")
 
 
