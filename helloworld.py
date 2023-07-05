@@ -13,6 +13,7 @@ from pyspark.sql import Row
 
 
 spark = SparkContext.getOrCreate()
+sqlContext = SQLContext(sc)
 
 spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
 
@@ -49,6 +50,6 @@ pandasDF = pd.DataFrame(list(zip(ipAddress, requestType, response)),
               columns=['ipAddress','requestType', 'response'])
 
 
-sparkDF = spark.createDataFrame(pandasDF)
+sparkDF = sqlContext.createDataFrame(pandasDF)
 sparkDF.show()
 sparkDF.printSchema()
