@@ -13,7 +13,9 @@ from pyspark.sql import Row
 from pyspark.sql import SparkSession
 
 
-session = SparkSession.enableHiveSupport().getOrCreate()
+session = SparkSession\
+    .enableHiveSupport()\
+    .getOrCreate()\
 
 
 spark = SparkContext.getOrCreate()
