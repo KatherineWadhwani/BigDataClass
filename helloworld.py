@@ -30,8 +30,9 @@ for row in rows:
     re.split(' - - | "| /|" ', rows[counter])
     counter+=1
 
-
+print("down")
 print(rows[0][1])
+print("uppity")
 
 
  
