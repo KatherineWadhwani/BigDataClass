@@ -31,7 +31,7 @@ for row in rows:
     array[counter] = re.split(' - - | "| /|" ', rows[counter])
     counter+=1
 
-print(array[0]);
+print(array[0][2]);
 
 
 
