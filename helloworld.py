@@ -25,10 +25,11 @@ rows = text.splitlines()
 
 rows.pop(0)
 counter = 0
+entries = len(rows)
 
-response[]
-requestType[]
-ipAddress[]
+response = [None] * entries
+requestType = [None] * entries
+ipAddress = [None] * entries
 
 for row in rows:
     data = re.split(' - - | "| /|" ', rows[counter])
