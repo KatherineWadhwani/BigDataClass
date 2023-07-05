@@ -27,7 +27,7 @@ rows.pop(0)
 count = 0
 for row in rows:
  re.split(' - - | "| /|" ', rows[counter]
- print("hi");
+ print("hi")
 
 print(row[0][3]);
 
