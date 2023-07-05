@@ -56,5 +56,5 @@ sparkDF = sqlContext.createDataFrame(pandasDF)
 #sparkDF.show()
 #sparkDF.printSchema()
 
-session.sql("select count(*) from sparkDF").show()
+session.sql("""select count(*) from sparkDF""").show()
 
