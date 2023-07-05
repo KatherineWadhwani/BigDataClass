@@ -13,7 +13,7 @@ from pyspark.sql import Row
 
 
 spark = SparkContext.getOrCreate()
-sqlContext = SQLContext(sc)
+sqlContext = SQLContext(spark)
 
 spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/BigDataClass/access.log"))
 
