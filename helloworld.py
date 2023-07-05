@@ -48,6 +48,5 @@ for row in response:
 percentile_list = pd.DataFrame(list(zip(ipAddress, requestType, response)),
               columns=['ipAddress','requestType', 'response'])
  
-percentile_list.show()
  
 percentile_list.printSchema()
