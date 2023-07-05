@@ -66,7 +66,10 @@ sparkDF = sqlContext.createDataFrame(pandasDF)
 
 #sparkDF.write.saveAsTable("sample")
 
-df_errors = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) > 399""")
+
+#errors
+
+df_errors = sqlContext.sql("""SELECT ipAddress FROM sample WHERE CAST(response as INT) > 399""")
 
 #df_errors.show()
 #df_errors.printSchema()
@@ -107,5 +110,6 @@ print(f"The percentage of GET requests is : {getRows* 100/entries}")
 print(f"The percentage of PUT requests is : {putRows* 100/entries}")
 print(f"The percentage of POST requests is : {postRows* 100/entries}")
 print(f"The percentage of DELETE requests is : {deleteRows* 100/entries}")
+
 
 
