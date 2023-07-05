@@ -53,3 +53,6 @@ pandasDF = pd.DataFrame(list(zip(ipAddress, requestType, response)),
 sparkDF = sqlContext.createDataFrame(pandasDF)
 sparkDF.show()
 sparkDF.printSchema()
+
+sparkDF.loc[df['response'] > 399]
+
