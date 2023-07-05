@@ -38,10 +38,10 @@ for row in rows:
     ipAddress[counter] = data[0]
     counter+=1
 
-count = 0
+counter = 0
 for row in response:
     data = row.split(" ")
-    response[1] = data[0]
+    response[counter] = data[0]
     counter+=1
 
 print("down")
