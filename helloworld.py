@@ -44,12 +44,11 @@ for row in response:
     response[counter] = data[0]
     counter+=1
 
-print("down")
-print(response)
-print("uppity")
+percentile_list = pd.DataFrame({ipAddress, requestType, response}, 
+                                columns=['ipAddress','requestType', 'response'])
 
 
  
-#df.show()
+percentile_list.show()
  
-#df.printSchema()
+percentile_list.printSchema()
