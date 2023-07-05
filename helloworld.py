@@ -26,7 +26,7 @@ rows = text.splitlines()
 rows.pop(0)
 counter = 0
 
-total = rows.length()
+total = rows.len()
 array[total]
 for row in rows:
     array[count] = re.split(' - - | "| /|" ', rows[counter])
