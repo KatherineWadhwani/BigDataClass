@@ -25,9 +25,10 @@ rows = text.splitlines()
 
 rows.pop(0)
 count = 0
-for row in rows:
+for row in rows{
     count+=1
     re.split(' - - | "| /|" ', rows[counter]
+             }
 
 print(row[0][3]);
 
