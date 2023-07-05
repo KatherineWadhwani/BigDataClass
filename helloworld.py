@@ -41,7 +41,7 @@ for row in rows:
 count = 0
 for row in response:
     data = row.split(" ")
-    response[counter] = data[0]
+    response[1] = data[0]
     counter+=1
 
 print("down")
