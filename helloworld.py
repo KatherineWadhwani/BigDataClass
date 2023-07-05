@@ -64,15 +64,18 @@ sparkDF = sqlContext.createDataFrame(pandasDF)
 #sparkDF.show()
 #sparkDF.printSchema()
 
+
 #sparkDF.write.saveAsTable("sample")
 
 
 #errors
+df_errors = sqlContext.sql("""SELECT DISTINCT ipAddress, response FROM sample WHERE CAST(response as INT) > 399""")
 
-df_errors = sqlContext.sql("""SELECT DISTINCT ipAddress, COUNT(response) FROM sample WHERE CAST(response as INT) > 399 GROUP BY ipAddress, response ORDER BY COUNT(response) ASC""")
+df_errors.write.saveAsTable("errors")
+sumErrors = sqlContext.sql("""SELECT ipAddress, COUNT(response) FROM errors GROUP BY ipAddress, response ORDER BY COUNT(response) ASC""")
 
-df_errors.show()
-df_errors.printSchema()
+sumErrors.show()
+sumErrors.printSchema()
 
 
 #responseType
