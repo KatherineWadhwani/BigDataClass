@@ -56,8 +56,10 @@ sparkDF = sqlContext.createDataFrame(pandasDF)
 #sparkDF.show()
 #sparkDF.printSchema()
 
+sparDF.saveAsTable(sample)
 
-df_oversees2 = sqlContext.sql("""SELECT * FROM sparkDF WHERE response = '200'""")
+
+df_oversees2 = sqlContext.sql("""SELECT * FROM sample WHERE response = '200'""")
 
 df_oversees2.show()
 df_oversees2.printSchema()
