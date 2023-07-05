@@ -12,7 +12,7 @@ from pyspark.sql import SQLContext
 from pyspark.sql import Row
 from pyspark.sql import SparkSession
 
-session = SparkSession
+session = SparkSession.enableHiveSupport()
 
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
