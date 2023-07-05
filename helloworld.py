@@ -32,7 +32,7 @@ for row in rows:
     counter+=1
 
 
-
+print(rows[0][1])
 
 
  
