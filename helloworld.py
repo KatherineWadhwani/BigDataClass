@@ -31,7 +31,7 @@ for row in rows:
     counter+=1
 
 
-print(row[1][3]);
+print(rows[1][3]);
 
 
 
