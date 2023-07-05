@@ -28,10 +28,10 @@ counter = 0
 
 array = []
 for row in rows:
-    printf(re.split(' - - | "| /|" ', rows[counter]))
+    print(re.split(' - - | "| /|" ', rows[counter]))
     counter+=1
 
-print(array[0]);
+
 
 
 
