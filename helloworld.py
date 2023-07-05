@@ -28,7 +28,7 @@ counter = 0
 
 array = []
 for row in rows:
-    array[] = re.split(' - - | "| /|" ', rows[counter])
+    printf(re.split(' - - | "| /|" ', rows[counter]))
     counter+=1
 
 print(array[0]);
