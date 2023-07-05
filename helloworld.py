@@ -33,13 +33,13 @@ ipAddress = [None] * entries
 
 for row in rows:
     data = re.split(' - - | "| /|" ', rows[counter])
-    response[counter] = data[0]
-    requestType[counter] = data[0]
+    response[counter] = data[4]
+    requestType[counter] = data[2]
     ipAddress[counter] = data[0]
     counter+=1
 
 print("down")
-print(ipAddress)
+print(requestType)
 print("uppity")
 
 
