@@ -27,10 +27,10 @@ for row in rows:
  print(re.split(' - - | "| /|" ', rows[counter]))
  counter += 1
 
- df = sqlContext.createDataFrame(
- for row in rows:
- Row(a=1, b=4., c='GFG1', d=date(2000, 8, 1)
-)
+print(row[0][3]);
+
+
+
  
 #df.show()
  
