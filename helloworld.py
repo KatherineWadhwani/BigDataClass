@@ -44,10 +44,9 @@ for row in response:
     response[counter] = data[0]
     counter+=1
 
-percentile_list = pd.DataFrame({ipAddress, requestType, response}, 
-                                columns=['ipAddress','requestType', 'response'])
 
-
+percentile_list = pd.DataFrame(list(zip(ipAddress, requestType, response)),
+              columns=['ipAddress','requestType', 'response'])
  
 percentile_list.show()
  
