@@ -26,12 +26,19 @@ rows = text.splitlines()
 rows.pop(0)
 counter = 0
 
+response[]
+requestType[]
+ipAddress[]
+
 for row in rows:
     data = re.split(' - - | "| /|" ', rows[counter])
+    response[counter] = data[7]
+    requestType[counter] = data[5]
+    ipAddress[counter] = data[0]
     counter+=1
 
 print("down")
-print(data[0])
+print(ipAddress)
 print("uppity")
 
 
