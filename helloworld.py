@@ -24,10 +24,10 @@ text = f.read()
 rows = text.splitlines()
 
 rows.pop(0)
-counter = 0
+count = 0
 for row in rows:
  re.split(' - - | "| /|" ', rows[counter]
- counter = 1+1
+ coun = 1+1
 
 print(row[0][3]);
 
