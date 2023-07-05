@@ -73,11 +73,11 @@ df_errors = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) >
 
 
 #responseType
-df_100s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEN  99 AND 200 """)
-df_200s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEN 199 AND 300 """)
-df_300s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEN 299 AND 400 """)
-df_400s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEN 399 AND 500 """)
-df_500s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEN 499 AND 600 """)
+df_100s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEN  100 AND 199 """)
+df_200s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEN 200 AND 299 """)
+df_300s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEN 300 AND 399 """)
+df_400s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEN 400 AND 499 """)
+df_500s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEN 500 AND 599 """)
 
 OneHundredRows = df_100s.count()
 TwoHundredRows = df_200s.count()
@@ -86,11 +86,11 @@ FourHundredRows = df_400s.count()
 FiveHundredRows = df_500s.count()
 
 
-print(f"The percentage of 100s is : {OneHundredRows/entries}")
-print(f"The percentage of 200s is : {TwoHundredRows/entries}")
-print(f"The percentage of 300s is : {ThreeHundredRows/entries}")
-print(f"The percentage of 400s is : {FourHundredRows/entries}")
-print(f"The percentage of 500s is : {FiveHundredRows/entries}")
+print(f"The percentage of 100s is : {OneHundredRows/entries * 100}")
+print(f"The percentage of 200s is : {TwoHundredRows/entries * 100}")
+print(f"The percentage of 300s is : {ThreeHundredRows/entries * 100}")
+print(f"The percentage of 400s is : {FourHundredRows/entries * 100}")
+print(f"The percentage of 500s is : {FiveHundredRows/entries * 100}")
 
 #requestType
 df_GET = sqlContext.sql("""SELECT * FROM sample WHERE requestType ='GET'""")
@@ -103,9 +103,9 @@ putRows = df_PUT.count()
 postRows = df_POST.count()
 deleteRows = df_DELETE.count()
 
-print(f"The percentage of GET requests is : {getRows/entries}")
-print(f"The percentage of PUT requests is : {putRows/entries}")
-print(f"The percentage of POST requests is : {postRows/entries}")
-print(f"The percentage of DELETE requests is : {deleteRows/entries}")
+print(f"The percentage of GET requests is : {getRows/entries * 100}")
+print(f"The percentage of PUT requests is : {putRows/entries * 100}")
+print(f"The percentage of POST requests is : {postRows/entries * 100}")
+print(f"The percentage of DELETE requests is : {deleteRows/entries * 100}")
 
 
