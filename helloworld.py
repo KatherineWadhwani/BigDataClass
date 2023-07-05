@@ -33,8 +33,8 @@ ipAddress = [None] * entries
 
 for row in rows:
     data = re.split(' - - | "| /|" ', rows[counter])
-    response[counter] = data[7]
-    requestType[counter] = data[5]
+    response[counter] = data[0]
+    requestType[counter] = data[0]
     ipAddress[counter] = data[0]
     counter+=1
 
