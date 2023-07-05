@@ -22,7 +22,7 @@ text = f.read()
 rows = text.splitlines()
 
 rows.pop(0)
-counter = 0;
+counter = 0
 for row in rows:
  re.split(' - - | "| /|" ', rows[counter]
  counter += 1
