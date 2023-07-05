@@ -39,7 +39,7 @@ for row in rows:
     counter+=1
 
 print("down")
-print(requestType)
+print(response)
 print("uppity")
 
 
