@@ -10,8 +10,7 @@ from pyspark import SparkContext
 from pyspark import SparkFiles
 from pyspark.sql import SQLContext
 from pyspark.sql import Row
-import pyspark.ml.*
-import org.apache.spark.sql.SparkSession
+from pyspark.sql import SparkSession
 
 session = SparkSession.getOrCreate()
 
