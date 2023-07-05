@@ -69,7 +69,7 @@ sparkDF = sqlContext.createDataFrame(pandasDF)
 
 #errors
 
-df_errors = sqlContext.sql("""SELECT ipAddress FROM sample WHERE CAST(response as INT) > 399""")
+df_errors = sqlContext.sql("""SELECT DISTINCT ipAddress FROM sample WHERE CAST(response as INT) > 399""")
 
 df_errors.show()
 df_errors.printSchema()
