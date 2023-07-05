@@ -13,7 +13,11 @@ from pyspark.sql import Row
 from pyspark.sql import SparkSession
 
 
-session = SparkSession.enableHiveSupport()
+session = SparkSession
+    .builder()/
+    .appName("Spark Hive Example")/
+    .enableHiveSupport()/
+    .getOrCreate()/
 
 
 spark = SparkContext.getOrCreate()
