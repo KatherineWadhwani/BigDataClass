@@ -26,8 +26,9 @@ rows = text.splitlines()
 rows.pop(0)
 count = 0
 for row in rows:
+ count = 0
  re.split(' - - | "| /|" ', rows[counter]
- count = 1+1
+ count += 1
 
 print(row[0][3]);
 
