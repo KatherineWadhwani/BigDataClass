@@ -31,7 +31,7 @@ for row in rows:
     counter+=1
 
 print("down")
-print(rows[0][1])
+print(rows[0])
 print("uppity")
 
 
