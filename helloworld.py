@@ -67,7 +67,7 @@ sparkDF = sqlContext.createDataFrame(pandasDF)
 sparkDF.write.saveAsTable("sample")
 
 
-df_oversees2 = sqlContext.sql("""SELECT * FROM sample WHERE response > 399""")
+df_oversees2 = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) > 399""")
 
 df_oversees2.show()
 df_oversees2.printSchema()
