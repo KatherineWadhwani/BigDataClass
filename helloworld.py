@@ -28,7 +28,7 @@ counter = 0
 
 array = []
 for row in rows:
-    array[count] = re.split(' - - | "| /|" ', rows[counter])
+    array[counter] = re.split(' - - | "| /|" ', rows[counter])
     counter+=1
 
 print(array[0]);
