@@ -26,12 +26,13 @@ rows = text.splitlines()
 rows.pop(0)
 counter = 0
 
+total = rows.length()
+array[total]
 for row in rows:
-    re.split(' - - | "| /|" ', rows[counter])
+    array[count] = re.split(' - - | "| /|" ', rows[counter])
     counter+=1
 
-print(rows[0]);
-print(rows[1][3]);
+print(array[0]);
 
 
 
