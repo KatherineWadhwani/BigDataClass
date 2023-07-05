@@ -27,7 +27,7 @@ rows.pop(0)
 count = 0
 
 for row in rows:
-    re.split(' - - | "| /|" ', rows[counter]
+    re.split(' - - | "| /|" ', rows[counter])
     count+=1
 
 
