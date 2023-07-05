@@ -12,7 +12,10 @@ from pyspark.sql import SQLContext
 from pyspark.sql import Row
 from pyspark.sql import SparkSession
 
-session = SparkSession.getOrCreate()
+val spark = SparkSession
+  .builder()
+  .appName("Name")
+  .getOrCreate()
 
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
