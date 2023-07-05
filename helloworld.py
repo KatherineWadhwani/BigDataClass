@@ -11,6 +11,10 @@ from pyspark import SparkFiles
 from pyspark.sql import SQLContext
 from pyspark.sql import Row
 
+val session = SparkSession
+  .builder()
+  .appName("App")
+  .getOrCreate()
 
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
@@ -54,5 +58,5 @@ sparkDF = sqlContext.createDataFrame(pandasDF)
 #sparkDF.show()
 #sparkDF.printSchema()
 
-spark.sql("select count(*) from sparkDF").show()
+session.sql("select count(*) from sparkDF").show()
 
