@@ -12,7 +12,7 @@ from pyspark.sql import SQLContext
 from pyspark.sql import Row
 from pyspark.sql import SparkSession
 
-val session = SparkSession
+session = SparkSession
   .builder()
   .appName("Name")
 
