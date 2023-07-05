@@ -3,7 +3,8 @@ import time, datetime, sys
 from datetime import datetime, date
 import pandas as ps
 import os
-import re 
+import re
+import numpy as np
 from pyspark import SparkContext
 from pyspark import SparkFiles
 from pyspark.sql import SQLContext
