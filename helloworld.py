@@ -13,8 +13,6 @@ from pyspark.sql import Row
 from pyspark.sql import SparkSession
 
 session = SparkSession
-  .builder()
-  .appName("Name")
 
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
