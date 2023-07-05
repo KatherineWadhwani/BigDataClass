@@ -57,7 +57,7 @@ sparkDF = sqlContext.createDataFrame(pandasDF)
 #sparkDF.printSchema()
 
 
-df_oversees2 = sqlContext.sql("""select count(*) from sparkDF""")
+df_oversees2 = sqlContext.sql("""SELECT * FROM sparkDF WHERE response == 200""")
 
 df_oversees2.show()
 df_oversees2.printSchema()
