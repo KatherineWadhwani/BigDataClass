@@ -74,9 +74,29 @@ df_errors = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) >
 #df_errors.show()
 #df_errors.printSchema()
 
+df_100s = sqlContext.sql("""SELECT * FROM sample WHERE 99 < CAST(response as INT) < 200 """)
+df_200s = sqlContext.sql("""SELECT * FROM sample WHERE 199 < CAST(response as INT) < 300 """)
+df_300s = sqlContext.sql("""SELECT * FROM sample WHERE 299 < CAST(response as INT) < 400 """)
+df_400s = sqlContext.sql("""SELECT * FROM sample WHERE 399 < CAST(response as INT) < 500 """)
+df_500s = sqlContext.sql("""SELECT * FROM sample WHERE 499 < CAST(response as INT) < 600 """)
+
+
+OneHundredRows = df_100s.count()
+TwoHundredRows = df_200s.count()
+ThreeHundredRows = df_300s.count()
+FourHundredRows = df_400s.count()
+FiveHundredRows = df_500s.count()
+
+
+print(f"The percentage of 100s is : {OneHundredRows/entries}")
+print(f"The percentage of 200s is : {TwoHundredRows/entries}")
+print(f"The percentage of 300s is : {ThreeHundredRows/entries}")
+print(f"The percentage of 400s is : {FourHundredRows/entries}")
+print(f"The percentage of 500s is : {FiveHundredRows/entries}")
+
+
 
 #requestType
-
 df_GET = sqlContext.sql("""SELECT * FROM sample WHERE requestType ='GET'""")
 df_PUT= sqlContext.sql("""SELECT * FROM sample WHERE requestType ='PUT'""")
 df_POST = sqlContext.sql("""SELECT * FROM sample WHERE requestType ='POST'""")
