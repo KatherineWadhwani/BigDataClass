@@ -73,11 +73,11 @@ df_errors = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) >
 
 
 #responseType
-df_100s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) > 99 && CAST(response as INT) < 200 """)
-df_200s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) > 199 && CAST(response as INT) < 300 """)
-df_300s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) > 299 && CAST(response as INT) < 400 """)
-df_400s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) > 399 && CAST(response as INT) < 500 """)
-df_500s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) > 499 && CAST(response as INT) < 600 """)
+df_100s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEEN  99 AND 200 """)
+df_200s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEEN 199 AND 300 """)
+df_300s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEEN 299 AND 400 """)
+df_400s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEN 399 AND 500 """)
+df_500s = sqlContext.sql("""SELECT * FROM sample WHERE CAST(response as INT) BETWEEEN 499 AND 600 """)
 
 OneHundredRows = df_100s.count()
 TwoHundredRows = df_200s.count()
