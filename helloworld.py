@@ -54,5 +54,5 @@ sparkDF = sqlContext.createDataFrame(pandasDF)
 #sparkDF.show()
 #sparkDF.printSchema()
 
-sparkDF.loc[df['response'] > 399]
+spark.sql("select count(*) from sparkDF").show()
 
