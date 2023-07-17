@@ -21,7 +21,7 @@ nltk.corpus.inaugural.fileids()[-10:]
 
 
 
-/*session = SparkSession \
+"""session = SparkSession \
     .builder \
     .appName("data_import") \
     .config("spark.dynamicAllocation.enabled", "true") \
@@ -119,7 +119,7 @@ deleteRows = df_DELETE.count()
 print(f"The percentage of GET requests is : {getRows* 100/entries}")
 print(f"The percentage of PUT requests is : {putRows* 100/entries}")
 print(f"The percentage of POST requests is : {postRows* 100/entries}")
-print(f"The percentage of DELETE requests is : {deleteRows* 100/entries}")*/
+print(f"The percentage of DELETE requests is : {deleteRows* 100/entries}")"""
 
 
 
