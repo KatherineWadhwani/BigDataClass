@@ -29,7 +29,7 @@ nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
      StreamBackedCorpusView.__init__(inaugural.words(text), text, block_reader=None, startpos=0, encoding=None)
      inaugural.words(text)._open()
-     clean_text(inaugural.words(text)._open())
+     clean_text(inaugural.words(text)._stream)
 
 
 
