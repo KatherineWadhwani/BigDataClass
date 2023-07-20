@@ -72,7 +72,8 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
             dictArray[x][word] = value
 
     x+=1
-print(dictTen)
+
+print(calculateIDF("the"))
 
 
 #IDF(t,D) $= log[($size of D$)/($size of D that contain t$)]$, where t is a given word and D is the corpus of documents.
