@@ -25,7 +25,7 @@ dictEight = {}
 dictNine = {}
 dictTen = {}
 
-dictArray = ['dictOne', 'dictTwo', 'dictThree', 'dictFour', 'dictFive', 'dictSix', 'dictSeven', 'dictEight', 'dictNine', 'dictTen']
+dictArray = [dictOne, dictTwo, dictThree, dictFour, dictFive, dictSix, dictSeven, dictEight, dictNine, dictTen]
 
 def clean_text(text):
     text = text.lower()
