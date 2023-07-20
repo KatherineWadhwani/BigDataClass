@@ -14,11 +14,13 @@ from nltk.corpus.reader.util import StreamBackedCorpusView
 
 dict = {}
 
+dict.update({'key3': 'geeks'})
+
 def clean_text(text):
      text = text.lower()
      text = re.sub('\[.*?\]', '', text)
-     text = re.sub('[%s]' % re.escape(string.punctuation), ' ', text)
-   
+    
+     text = re.sub('[\d\n]', ' ', text)
      return text
 
 import nltk
