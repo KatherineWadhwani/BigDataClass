@@ -61,12 +61,13 @@ def calculateTFIDF():
             dictArray[x][term] = dictArray[x].get(term)/len(dictArray[x])
             dictArray[x][term] = dictArray[x].get(term)*calculateIDF(term)
 
-def getHighest(num):
-     for x in range(20):
-        word = max(zip(dictArray[num].values(), dictArray[num].keys()))[1]
-        print(word)
-        print(dictArray[num][word])
-        dictArray[num].pop(word)
+def getHighest():
+    for num in range(10):
+        for x in range(20):
+            word = max(zip(dictArray[num].values(), dictArray[num].keys()))[1]
+            print(word)
+            print(dictArray[num][word])
+            dictArray[num].pop(word)
     
 import nltk
 import nltk.corpus
@@ -93,8 +94,7 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
     x+=1
     
 calculateTFIDF()
-getHighest(6)
-
+getHighest()
 
 #IDF(t,D) $= log[($size of D$)/($size of D that contain t$)]$, where t is a given word and D is the corpus of documents.
 
