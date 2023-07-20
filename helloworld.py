@@ -28,10 +28,8 @@ session = SparkSession \
     .enableHiveSupport() \
     .getOrCreate()
 
-
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
-spark-submit --deploy-mode client
 spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/nltk_data"))
 
 
