@@ -26,8 +26,7 @@ import nltk.corpus
 from nltk.corpus import inaugural
 nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
-     print("hi") 
-
+     clean_text (text)
 
 
 
