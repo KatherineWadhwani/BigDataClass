@@ -34,7 +34,7 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
         else:
             value = dict.get(word)
             value += 1
-            dic[word] = value
+            dict[word] = value
         print(dict)
 
 
