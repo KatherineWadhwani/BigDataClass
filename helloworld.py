@@ -42,7 +42,7 @@ x = 0
 for text in nltk.corpus.inaugural.fileids()[-10:] :
     array = inaugural.words(text)
     for str in array:
-        word = clean_text(str)
+        word = clean_text(str).encode('utf-8')
         if word not in corpusDict.keys() and word != '':
             corpusDict.update({word: 1})
         elif word != '':
@@ -52,7 +52,6 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
         if word not in dictArray[x].keys() and word != '':
             dictArray[x].update({word: 1})
         elif word != '':
-            value = dictArray[x].get(word.encode('utf-8'))
             value += 1
             dictArray[x][word] = value
 
