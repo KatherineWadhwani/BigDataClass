@@ -32,7 +32,7 @@ def clean_text(text):
     text = re.sub('\[.*?\]', '', text)
     text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
     text = re.sub('[\d\n]', ' ', text)
-    text = re.sub(r'[^a-z]', '', input)
+    text = re.sub(r'[^a-z]', '', text)
     return text
 
 import nltk
