@@ -31,7 +31,7 @@ session = SparkSession \
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
 
-File Bush = inaugural.words('2005-Bush.txt')
+Bush = inaugural.words('2005-Bush.txt')
 
 
 
