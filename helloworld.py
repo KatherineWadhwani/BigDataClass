@@ -28,6 +28,7 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
      speech = ""
      for str in corpus_view:
           speech += clean_text(str)
+     print(speech)
 
 
 
