@@ -26,7 +26,7 @@ dictNine = {}
 dictTen = {}
 
 dictArray = [dictOne, dictTwo, dictThree, dictFour, dictFive, dictSix, dictSeven, dictEight, dictNine, dictTen]
-TFs = None*10
+TFs = [None]*10
 
 def clean_text(text):
     text = text.lower()
