@@ -28,11 +28,6 @@ session = SparkSession \
     .enableHiveSupport() \
     .getOrCreate()
 
-
-/bin/spark-submit \
-  --deploy-mode <client>
-
-
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
 spark-submit --deploy-mode client
