@@ -32,10 +32,10 @@ import nltk.corpus
 from nltk.corpus import inaugural
 nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
-     StreamBackedCorpusView.__init__(self, text, block_reader=None, startpos=0, encoding=None)
-     self._open()
-     self.read_block(self._stream)
-     self._filepos = [self._stream.tell()]
+     StreamBackedCorpusView.__init__(inaugural.words(text), text, block_reader=None, startpos=0, encoding=None)
+     inaugural.words(text)._open()
+     inaugural.words(text).read_block(inaugural.words(text)._stream)
+     inaugural.words(text)._filepos = [inaugural.words(text)._stream.tell()]
      
      clean_text(inaugural.words(text).__iter__(self))
 
