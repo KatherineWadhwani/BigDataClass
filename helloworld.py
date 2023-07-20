@@ -5,6 +5,7 @@ import pandas as pd
 import os
 import re
 import math
+import string
 import numpy as np
 from pyspark import SparkContext
 from pyspark import SparkFiles
@@ -18,7 +19,6 @@ import re
 def clean_text(text):
      text = text.lower()
      text = re.sub('\[.*?\]', '', text)
-     print(repr(string))
      text = re.sub('[%s]' % re.escape(string.punctuation), ' ', text)
      text = re.sub('[\d\n]', ' ', text)
      return text
