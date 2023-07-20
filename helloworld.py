@@ -26,7 +26,8 @@ session = SparkSession \
     .config("spark.dynamicAllocation.enabled", "true") \
     .config("spark.shuffle.service.enabled", "true") \
     .enableHiveSupport() \
-    .getOrCreate()
+    .getOrCreate()\
+    .deployment-mode(client)
 
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
