@@ -14,7 +14,12 @@ from pyspark.sql import SparkSession
 
 import re
 
-
+def clean_text(text):
+    text = text.lower()
+    text = re.sub('\[.*?\]', '', text)
+    text = re.sub('[%s]' % re.escape(string.punctuation), ' ', text)
+    text = re.sub('[\d\n]', ' ', text)
+    return text
 
 import nltk
 import nltk.corpus
@@ -34,7 +39,7 @@ session = SparkSession \
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
 
-presidents = [None] * 5
+presidents = [None] * 10
 presidents[0] = inaugural.words('1981-Reagan.txt')
 presidents[1] = inaugural.words('1989-Bush.txt')
 presidents[2] = inaugural.words('1993-Clinton.txt')
@@ -45,6 +50,10 @@ presidents[6] = inaugural.words('2009-Obama.txt')
 presidents[7] = inaugural.words('2013-Obama.txt')
 presidents[8] = inaugural.words('2017-Trump.txt')
 presidents[9] = inaugural.words('2021-Biden.txt')
+
+for x in range(10):
+    clean_text(president[x])
+    
 
 
 
