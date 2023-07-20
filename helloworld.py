@@ -16,7 +16,7 @@ import re
 
 def clean_text(text):
      text = text.lower()
-    text = re.sub('\[.*?\]', '', text)
+     text = re.sub('\[.*?\]', '', text)
     text = re.sub('[%s]' % re.escape(string.punctuation), ' ', text)
     text = re.sub('[\d\n]', ' ', text)
     return text
@@ -52,7 +52,7 @@ presidents[8] = inaugural.words('2017-Trump.txt')
 presidents[9] = inaugural.words('2021-Biden.txt')
 
 for x in range(10):
-    clean_text(presidents[x])
+    clean_text(presidents[x].raw())
     
 
 
