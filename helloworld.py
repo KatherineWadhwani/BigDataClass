@@ -30,7 +30,11 @@ session = SparkSession \
 
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
-spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/nltk_data/corpora/inaugural/1993-Clinton.txt"))
+
+
+spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/nltk_data/corpora/inaugural.fileids()[-10:])
+
+
 
 
 
