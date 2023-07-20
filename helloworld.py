@@ -12,6 +12,7 @@ from pyspark.sql import Row
 from pyspark.sql import SparkSession
 from nltk.corpus.reader.util import StreamBackedCorpusView
 
+corpusDict = {}
 
 def clean_text(text):
     text = text.lower()
@@ -26,16 +27,15 @@ from nltk.corpus import inaugural
 nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
     array = inaugural.words(text)
-    dict = {}
     for str in array:
         word = clean_text(str)
-        if word not in dict.keys():
-            dict.update({word: 1})
+        if word not in corpusDict.keys():
+            corpusDict.update({word: 1})
         else:
-            value = dict.get(word)
+            value = corpusDict.get(word)
             value += 1
-            dict[word] = value
-        print(dict)
+            corpusDict[word] = value
+        print(corpusDict)
 
 
 
