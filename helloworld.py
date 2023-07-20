@@ -13,12 +13,7 @@ from pyspark.sql import Row
 from pyspark.sql import SparkSession
 
 import re
-def clean_text(Reagan):
-    Reagan = Reagan.lower()
-    Reagan = re.sub('\[.*?\]', '', Reagan)
-    Reagan = re.sub('[%s]' % re.escape(string.punctuation), ' ', Reagan)
-    Reagan = re.sub('[\d\n]', ' ', Reagan)
-    return Reagan
+
 
 
 import nltk
