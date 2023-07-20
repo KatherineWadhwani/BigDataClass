@@ -43,10 +43,10 @@ def calculateIDF(term):
         
     math.log2(10/count)
 
-def calculateTF(dict, word):
+#def calculateTF(dict, word):
 
 
-def calculateWordCount(dict):
+#def calculateWordCount(dict):
     
 
 
