@@ -52,7 +52,7 @@ presidents[8] = inaugural.words('2017-Trump.txt')
 presidents[9] = inaugural.words('2021-Biden.txt')
 
 for x in range(10):
-    clean_text (presidents[x]._open(presidents[x]))
+    clean_text (presidents[x])
     
 
 
