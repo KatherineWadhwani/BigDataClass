@@ -35,6 +35,21 @@ def clean_text(text):
     text = re.sub(r'[^a-z]', '', text)
     return text
 
+def calculateIDF(term):
+    count = 0
+    for x in range(10):
+        if dictArray[x].ContainsKey(term)
+            count+=1
+        
+    math.log2(10/count)
+
+def calculateTF(dict, word):
+
+
+def calculateWordCount(dict):
+    
+
+
 import nltk
 import nltk.corpus
 from nltk.corpus import inaugural
@@ -59,6 +74,8 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
     x+=1
 print(dictTen)
 
+
+#IDF(t,D) $= log[($size of D$)/($size of D that contain t$)]$, where t is a given word and D is the corpus of documents.
 
 
 
