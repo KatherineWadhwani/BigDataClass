@@ -26,7 +26,9 @@ import nltk.corpus
 from nltk.corpus import inaugural
 nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
-     self = inaugural.words(text)
+
+     _init__(self, text, block_reader=None, startpos=0, encoding=None)
+     
      clean_text(inaugural.words(text).__iter__(self))
 
 
