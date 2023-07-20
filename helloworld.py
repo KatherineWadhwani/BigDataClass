@@ -27,10 +27,9 @@ import nltk.corpus
 from nltk.corpus import inaugural
 nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
-     StreamBackedCorpusView.__init__(inaugural.words(text), text, block_reader=None, startpos=0, encoding=None)
-     inaugural.words(text)._open()
-     speech = inaugural.words(text)._stream
-     clean_text(speech)
+     corpus_view = inaugural.words(text)
+     str_list = [str(w) for w in corpus_view]
+     clean_text(str_list)
 
 
 
