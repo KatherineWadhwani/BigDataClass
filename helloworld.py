@@ -28,12 +28,12 @@ import nltk.corpus
 from nltk.corpus import inaugural
 nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
-    corpus_view = inaugural.words(text)
+    array = inaugural.words(text)
     speech = ""
     x = 0
-    for str in corpus_view:
-        corpus_view[x] = clean_text(str)
-        print(corpus_view)
+    for str in array:
+        array[x] = clean_text(str)
+        print(array)
         x+=1
 
 
