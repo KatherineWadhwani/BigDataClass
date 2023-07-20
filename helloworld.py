@@ -12,11 +12,13 @@ from pyspark.sql import Row
 from pyspark.sql import SparkSession
 from nltk.corpus.reader.util import StreamBackedCorpusView
 
+dict = {}
+
 def clean_text(text):
      text = text.lower()
      text = re.sub('\[.*?\]', '', text)
      text = re.sub('[%s]' % re.escape(string.punctuation), ' ', text)
-     text = re.sub('[\d\n]', ' ', text)
+   
      return text
 
 import nltk
