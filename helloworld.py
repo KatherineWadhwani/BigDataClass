@@ -38,6 +38,8 @@ highestEight = [None]*20
 highestNine = [None]*20
 highestTen = [None]*20
 
+highest = [highestOne, highestTwo, highestThree, highestFour, highestFive, highestSix, highestSeven, highestEight, highestNine, highestTen]
+
 def clean_text(text):
     text = text.lower()
     text = re.sub('\[.*?\]', '', text)
