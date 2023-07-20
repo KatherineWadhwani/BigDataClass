@@ -30,7 +30,7 @@ session = SparkSession \
 
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
-spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/nltk_data/corpora/inagural"))
+spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/nltk_data/corpora/inaugural"))
 
 
 
