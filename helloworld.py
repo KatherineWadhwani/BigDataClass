@@ -62,7 +62,7 @@ def calculateTFIDF():
             dictArray[x][term] = dictArray[x].get(term)*calculateIDF(term)
 
 def getHighest(num):
-   print(max(zip(dictArray[x].values(), dictArray[x].keys()))[1])
+   print(max(zip(dictArray[x].values(), dictArray[x].keys())))
     
 import nltk
 import nltk.corpus
