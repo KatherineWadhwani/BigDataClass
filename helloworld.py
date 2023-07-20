@@ -47,7 +47,7 @@ def calculateIDF(term):
 def calculateTF():
     for x in range(10):
          for term in dictArray[x]:
-            TFs[x] = dict.get(term)/len(dictArray[x])
+            TFs[x] = dictArray[x].get(term)/len(dictArray[x])
 
     
 import nltk
