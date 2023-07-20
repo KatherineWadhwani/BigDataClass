@@ -38,7 +38,7 @@ def clean_text(text):
 def calculateIDF(term):
     count = 0
     for x in range(10):
-        if dictArray[x].ContainsKey(term)
+        if dictArray[x].ContainsKey(term):
             count+=1
         
     math.log2(10/count)
