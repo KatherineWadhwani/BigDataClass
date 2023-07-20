@@ -12,9 +12,6 @@ from pyspark.sql import Row
 from pyspark.sql import SparkSession
 from nltk.corpus.reader.util import StreamBackedCorpusView
 
-dict = {}
-
-dict.update({'key3': 'geeks'})
 
 def clean_text(text):
     text = text.lower()
@@ -29,12 +26,10 @@ from nltk.corpus import inaugural
 nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
     array = inaugural.words(text)
-    speech = ""
-    x = 0
+    dict = {}
     for str in array:
-        array[x] = clean_text(str)
-        print(array)
-        x+=1
+        dict.update({clean_text(str): 8})
+        print(dict)
 
 
 
