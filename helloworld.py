@@ -28,6 +28,7 @@ session = SparkSession \
     .enableHiveSupport() \
     .getOrCreate()
 
+
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
 spark-submit --deploy-mode client
