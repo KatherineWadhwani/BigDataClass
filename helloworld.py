@@ -16,7 +16,7 @@ dict = {}
 
 dict.update({'key3': 'geeks'})
 
- def clean_text(text):
+def clean_text(text):
     text = text.lower()
     text = re.sub('\[.*?\]', '', text)
     text = re.sub('[%s]' % re.escape(string.punctuation), ' ', text)
@@ -32,7 +32,7 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
      speech = ""
      for str in corpus_view:
           str = clean_text(str)
-          print(str)
+          print(corpus_view)
 
 
 
