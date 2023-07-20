@@ -26,7 +26,7 @@ nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
      corpus_view = inaugural.words(text)
      for str in corpus_view:
-          speach += clean_text(str)
+          string speech += clean_text(str)
 
 
 
