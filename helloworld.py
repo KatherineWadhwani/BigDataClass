@@ -1,20 +1,16 @@
 #!/usr/bin/env python3
-import time, datetime, sys
-from datetime import datetime, date
 import pandas as pd
 import os
-import re
 import math
 import string
 import numpy as np
+import re
 from pyspark import SparkContext
 from pyspark import SparkFiles
 from pyspark.sql import SQLContext
 from pyspark.sql import Row
 from pyspark.sql import SparkSession
 from nltk.corpus.reader.util import StreamBackedCorpusView
-
-import re
 
 def clean_text(text):
      text = text.lower()
@@ -29,8 +25,8 @@ from nltk.corpus import inaugural
 nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
      corpus_view = inaugural.words(text)
-     for w in corpus_view:
-          clean_text(w)
+     for str in corpus_view:
+          clean_text(str)
 
 
 
