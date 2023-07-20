@@ -65,6 +65,7 @@ def getHighest(num):
     word = max(zip(dictArray[num].values(), dictArray[num].keys()))[1]
     print(word)
     print(dictArray[num][word])
+    dictArray[num].remove(word)
     
 import nltk
 import nltk.corpus
