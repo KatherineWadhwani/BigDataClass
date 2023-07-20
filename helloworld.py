@@ -63,7 +63,7 @@ def calculateTFIDF():
 
 def getHighest(num):
     for x in range(20):
-            highest[num][x] = dictArray[num][x]
+            highest[num][x] = dictArray[1][x]
     
 import nltk
 import nltk.corpus
