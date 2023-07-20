@@ -41,7 +41,7 @@ def calculateIDF(term):
         if term in dictArray[x]:
             count+=1
 
-    if count = 0:
+    if count == 0:
         count = 1
     math.log2(10/count)
     return count
