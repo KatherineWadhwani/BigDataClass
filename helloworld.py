@@ -41,8 +41,6 @@ def calculateIDF(term):
         if term in dictArray[x]:
             count+=1
 
-    if count == 0:
-        count = 1
     math.log2(10/count)
     return count
 
@@ -50,8 +48,6 @@ def calculateTF(dict, word):
     return dict.get(word)/len(dict)
 
     
-
-
 import nltk
 import nltk.corpus
 from nltk.corpus import inaugural
