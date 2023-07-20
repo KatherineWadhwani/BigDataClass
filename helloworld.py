@@ -28,11 +28,13 @@ import nltk.corpus
 from nltk.corpus import inaugural
 nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
-     corpus_view = inaugural.words(text)
-     speech = ""
-     for str in corpus_view:
-          str = clean_text(str)
-          print(corpus_view)
+    corpus_view = inaugural.words(text)
+    speech = ""
+    x = 0
+    for str in corpus_view:
+        corpus_view[x] = clean_text(str)
+        print(corpus_view)
+        x+=1
 
 
 
