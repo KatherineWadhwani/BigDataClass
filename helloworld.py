@@ -20,6 +20,21 @@ nltk.download('inaugural')
 nltk.corpus.inaugural.fileids()[-10:]
 
 
+session = SparkSession \
+    .builder \
+    .appName("data_import") \
+    .config("spark.dynamicAllocation.enabled", "true") \
+    .config("spark.shuffle.service.enabled", "true") \
+    .enableHiveSupport() \
+    .getOrCreate()
+
+spark = SparkContext.getOrCreate()
+sqlContext = SQLContext(spark)
+
+spark.addPyFile(SparkFiles.get("/nltk_data"))
+
+
+
 
 
 
