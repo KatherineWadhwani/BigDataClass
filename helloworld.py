@@ -32,7 +32,7 @@ import nltk.corpus
 from nltk.corpus import inaugural
 nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
-     StreamBackedCorpusView.__init__(text,  text, block_reader=None, startpos=0, encoding=None)
+     StreamBackedCorpusView.__init__(inaugural.words(text), text, block_reader=None, startpos=0, encoding=None)
      self._open()
      self.read_block(self._stream)
      self._filepos = [self._stream.tell()]
