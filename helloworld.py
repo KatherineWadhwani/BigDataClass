@@ -26,6 +26,7 @@ dictNine = {}
 dictTen = {}
 
 dictArray = [dictOne, dictTwo, dictThree, dictFour, dictFive, dictSix, dictSeven, dictEight, dictNine, dictTen]
+TFs = None*10
 
 def clean_text(text):
     text = text.lower()
@@ -43,8 +44,10 @@ def calculateIDF(term):
         print(x)
     return math.log2(10/count)
 
-def calculateTF(dict, word):
-    return dict.get(word)/len(dict)
+def calculateTF():
+    for x in range(10):
+         for term in dictArray[x]:
+            TFs[x] = dict.get(term)/len(dictArray[x])
 
     
 import nltk
@@ -68,12 +71,11 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
             value = dictArray[x].get(word)
             value += 1
             dictArray[x][word] = value
-            
-        #print(calculateTF(dictArray[x], word))
 
     x+=1
 
 print(calculateIDF("the"))
+calculateTF()
 
 
 #IDF(t,D) $= log[($size of D$)/($size of D that contain t$)]$, where t is a given word and D is the corpus of documents.
