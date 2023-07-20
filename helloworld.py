@@ -34,7 +34,7 @@ session = SparkSession \
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
 
-presidents = [10]
+presidents = [None] * 5
 presidents[0] = inaugural.words('1981-Reagan.txt')
 presidents[1] = inaugural.words('1989-Bush.txt')
 presidents[2] = inaugural.words('1993-Clinton.txt')
