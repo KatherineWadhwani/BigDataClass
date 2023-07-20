@@ -90,6 +90,7 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
     x+=1
     
 calculateTFIDF()
+getHighest(6):
 
 
 #IDF(t,D) $= log[($size of D$)/($size of D that contain t$)]$, where t is a given word and D is the corpus of documents.
