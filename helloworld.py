@@ -31,7 +31,7 @@ session = SparkSession \
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
 
-spark-submit nltk_data
+spark-submit /home/kat_wadhwani/nltk_data
 
 
 
