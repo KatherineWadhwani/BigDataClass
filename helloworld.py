@@ -43,6 +43,15 @@ Idiot = inaugural.words('2017-Trump.txt')
 Biden = inaugural.words('2021-Biden.txt')
 
 
+import re
+ def clean_text(Reagan):
+    Reagan = Reagan.lower()
+    Reagan = re.sub('\[.*?\]', '', Reagan)
+    Reagan = re.sub('[%s]' % re.escape(string.punctuation), ' ', Reagan)
+    Reagan = re.sub('[\d\n]', ' ', Reagan)
+    return Reagan
+
+
 
 
 
