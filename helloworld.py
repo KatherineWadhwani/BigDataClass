@@ -70,7 +70,7 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
             value = dictArray[x].get(word)
             value += 1
             dictArray[x][word] = value
-        print(calculateTF(dictArray[x, word))
+        print(calculateTF(dictArray[x], word))
         print(calculateIDF("terrorism"))
 
     x+=1
