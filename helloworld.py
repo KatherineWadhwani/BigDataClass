@@ -28,7 +28,13 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
     array = inaugural.words(text)
     dict = {}
     for str in array:
-        dict.update({clean_text(str): 8})
+        word = clean_text(str)
+        if word not in dict.keys():
+            dict.update({word: 1})
+        else
+            value = dict.get(word)
+            value += 1
+            dic[word] = value
         print(dict)
 
 
