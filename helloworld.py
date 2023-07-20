@@ -47,7 +47,8 @@ def calculateIDF(term):
 def calculateTF():
     for x in range(10):
          for term in dictArray[x]:
-            TFs[x] = dictArray[x].get(term)/len(dictArray[x])
+            dictArray[x].get(term) = dictArray[x].get(term)/len(dictArray[x])
+            dictArray[x].get(term) = dictArray[x].get(term)*calculateIDF(term)
 
     
 import nltk
@@ -73,8 +74,7 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
             dictArray[x][word] = value
 
     x+=1
-
-print(calculateIDF("the"))
+    
 calculateTF()
 
 
