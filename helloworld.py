@@ -14,6 +14,19 @@ from nltk.corpus.reader.util import StreamBackedCorpusView
 
 corpusDict = {}
 
+dictOne = {}
+dictTwo = {}
+dictThree = {}
+dictFour = {}
+dictFive = {}
+dictSix = {}
+dictSeven = {}
+dictEight = {}
+dictNine = {}
+dictTen = {}
+
+dictArray = ['dictOne', 'dictTwo', 'dictThree', 'dictFour', 'dictFive', 'dictSix', 'dictSeven', 'dictEight', 'dictNine', 'dictTen']
+
 def clean_text(text):
     text = text.lower()
     text = re.sub('\[.*?\]', '', text)
@@ -25,6 +38,7 @@ import nltk
 import nltk.corpus
 from nltk.corpus import inaugural
 nltk.download('inaugural')
+x = 0
 for text in nltk.corpus.inaugural.fileids()[-10:] :
     array = inaugural.words(text)
     for str in array:
@@ -35,6 +49,12 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
             value = corpusDict.get(word)
             value += 1
             corpusDict[word] = value
+        if word not in dictArray[x].keys():
+            dictArray[x].update({word: 1})
+        else:
+            value = dictArray[x].get(word)
+            value += 1
+            dictArray[x][word] = value
         print(corpusDict)
 
 
