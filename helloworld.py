@@ -43,10 +43,9 @@ def calculateIDF(term):
     math.log2(10/count)
     return count
 
-#def calculateTF(dict, word):
+def calculateTF(dict, word):
+    return dict.get(word)/len(dict)
 
-
-#def calculateWordCount(dict):
     
 
 
@@ -68,12 +67,14 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
         if word not in dictArray[x].keys() and word != '':
             dictArray[x].update({word: 1})
         elif word != '':
+            value = dictArray[x].get(word)
             value += 1
             dictArray[x][word] = value
 
     x+=1
 
 print(calculateIDF("terrorism"))
+print(calculateTF(dict, word))
 
 
 #IDF(t,D) $= log[($size of D$)/($size of D that contain t$)]$, where t is a given word and D is the corpus of documents.
