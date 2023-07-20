@@ -41,7 +41,7 @@ def calculateIDF(term):
         if term in dictArray[x]:
             count+=1
     print(count)
-    return math.log2(10/count)
+    #return math.log2(10/count)
 
 def calculateTF(dict, word):
     return dict.get(word)/len(dict)
