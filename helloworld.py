@@ -32,7 +32,7 @@ spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
 
 
-spark.addPyFile(SparkFiles.geg(inaugural.words('2005-Bush.txt')))
+spark.addPyFile(SparkFiles.get(inaugural.words('2005-Bush.txt')))
 
 
 
