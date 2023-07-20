@@ -30,7 +30,7 @@ dictArray = [dictOne, dictTwo, dictThree, dictFour, dictFive, dictSix, dictSeven
 def clean_text(text):
     text = text.lower()
     text = re.sub('\[.*?\]', '', text)
-    text = re.sub('[%s]' % re.escape(string.punctuation), ' ', text)
+    text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
     text = re.sub('[\d\n]', ' ', text)
     return text
 
@@ -45,13 +45,13 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
         word = clean_text(str)
         if word not in corpusDict.keys() and word != '':
             corpusDict.update({word: 1})
-        else:
+        else if word != '':
             value = corpusDict.get(word)
             value += 1
             corpusDict[word] = value
         if word not in dictArray[x].keys() and word != '':
             dictArray[x].update({word: 1})
-        else:
+        else if word != '':
             value = dictArray[x].get(word)
             value += 1
             dictArray[x][word] = value
