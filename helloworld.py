@@ -47,17 +47,9 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
             corpusDict.update({word: 1})
         else:
             value = corpusDict.get(word)
-            num = int(value)
-            num += 1
-            corpusDict[word] = num
-        if word not in dictArray[x].keys() and word != '':
-            dictArray[x].update({word: 1})
-        else:
-            value = dictArray[x].get(word)
-            num = int(value)
-            num += 1
-            dictArray[x][word] = num
-    print(corpusDict)
+            value += 1
+            corpusDict[word] = value
+        print(corpusDict)
 
 
 
