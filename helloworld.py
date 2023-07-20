@@ -31,7 +31,7 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
         word = clean_text(str)
         if word not in dict.keys():
             dict.update({word: 1})
-        else
+        else:
             value = dict.get(word)
             value += 1
             dic[word] = value
