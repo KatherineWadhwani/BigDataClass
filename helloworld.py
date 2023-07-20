@@ -28,8 +28,8 @@ from nltk.corpus import inaugural
 nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
      corpus_view = inaugural.words(text)
-     str_list = [str(w) for w in corpus_view]
-     clean_text(str_list[0])
+     for w in corpus_view:
+          clean_text(w)
 
 
 
