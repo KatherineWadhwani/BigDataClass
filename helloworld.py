@@ -31,10 +31,10 @@ session = SparkSession \
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
 
-presidents[10];
+presidents = [];
 presidents[0] = inaugural.words('1981-Reagan.txt')
-Reagan = inaugural.words('1989-Bush.txt')
-ClintonOne = inaugural.words('1993-Clinton.txt')
+presidents[1] = inaugural.words('1989-Bush.txt')
+Reagan = inaugural.words('1993-Clinton.txt')
 ClintonTwo = inaugural.words('1997-Clinton.txt')
 BushTwo = inaugural.words('2001-Bush.txt')
 BushThree = inaugural.words('2005-Bush.txt')
