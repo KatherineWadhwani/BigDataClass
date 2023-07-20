@@ -29,7 +29,7 @@ from nltk.corpus import inaugural
 nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
      corpus_view = inaugural.words(text)
-     print(text)
+     print(corpus_view)
      speech = ""
      for str in corpus_view:
           speech += clean_text(str)
