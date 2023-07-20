@@ -11,6 +11,12 @@ from pyspark import SparkFiles
 from pyspark.sql import SQLContext
 from pyspark.sql import Row
 from pyspark.sql import SparkSession
+from nltk.corpus.reader.util import StreamBackedCorpusView
+
+
+
+
+
 
 import re
 
@@ -26,8 +32,10 @@ import nltk.corpus
 from nltk.corpus import inaugural
 nltk.download('inaugural')
 for text in nltk.corpus.inaugural.fileids()[-10:] :
-
-     __init__(self, text, block_reader=None, startpos=0, encoding=None)
+     StreamBackedCorpusView.__init__(inaugural.words(text),  text, block_reader=None, startpos=0, encoding=None)
+     self._open()
+     self.read_block(self._stream)
+     self._filepos = [self._stream.tell()]
      
      clean_text(inaugural.words(text).__iter__(self))
 
