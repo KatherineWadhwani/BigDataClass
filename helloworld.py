@@ -13,11 +13,6 @@ from pyspark.sql import Row
 from pyspark.sql import SparkSession
 from nltk.corpus.reader.util import StreamBackedCorpusView
 
-
-
-
-
-
 import re
 
 def clean_text(text):
