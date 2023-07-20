@@ -44,11 +44,11 @@ def calculateIDF(term):
         print(x)
     return math.log2(10/count)
 
-def calculateTF():
+def calculateTFIDF():
     for x in range(10):
          for term in dictArray[x]:
-            dictArray[x].get(term) = dictArray[x].get(term)/len(dictArray[x])
-            dictArray[x].get(term) = dictArray[x].get(term)*calculateIDF(term)
+            dictArray[x][term] = dictArray[x].get(term)/len(dictArray[x])
+            dictArray[x][term] = dictArray[x].get(term)*calculateIDF(term)
 
     
 import nltk
@@ -75,7 +75,7 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
 
     x+=1
     
-calculateTF()
+calculateTFIDF()
 
 
 #IDF(t,D) $= log[($size of D$)/($size of D that contain t$)]$, where t is a given word and D is the corpus of documents.
