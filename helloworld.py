@@ -43,7 +43,7 @@ x = 0
 for text in nltk.corpus.inaugural.fileids()[-10:] :
     array = inaugural.words(text)
     for str in array:
-        word = clean_text(str).encode('utf-8')
+        word = clean_text(str)
         if word not in corpusDict.keys() and word != '':
             corpusDict.update({word: 1})
         elif word != '':
