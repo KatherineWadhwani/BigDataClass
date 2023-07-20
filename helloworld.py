@@ -43,13 +43,13 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
     array = inaugural.words(text)
     for str in array:
         word = clean_text(str)
-        if word not in corpusDict.keys():
+        if word not in corpusDict.keys() && word != '':
             corpusDict.update({word: 1})
         else:
             value = corpusDict.get(word)
             value += 1
             corpusDict[word] = value
-        if word not in dictArray[x].keys():
+        if word not in dictArray[x].keys() && word != '':
             dictArray[x].update({word: 1})
         else:
             value = dictArray[x].get(word)
