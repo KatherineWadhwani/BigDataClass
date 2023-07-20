@@ -26,7 +26,17 @@ dictNine = {}
 dictTen = {}
 
 dictArray = [dictOne, dictTwo, dictThree, dictFour, dictFive, dictSix, dictSeven, dictEight, dictNine, dictTen]
-TFs = [None]*10
+
+highestOne = [None]*20
+highestTwo = [None]*20
+highestThree = [None]*20
+highestFour = [None]*20
+highestFive = [None]*20
+highestSix = [None]*20
+highestSeven = [None]*20
+highestEight = [None]*20
+highestNine = [None]*20
+highestTen = [None]*20
 
 def clean_text(text):
     text = text.lower()
@@ -44,6 +54,12 @@ def calculateIDF(term):
     return math.log2(10/count)
 
 def calculateTFIDF():
+    for x in range(10):
+         for term in dictArray[x]:
+            dictArray[x][term] = dictArray[x].get(term)/len(dictArray[x])
+            dictArray[x][term] = dictArray[x].get(term)*calculateIDF(term)
+
+def getHighest():
     for x in range(10):
          for term in dictArray[x]:
             dictArray[x][term] = dictArray[x].get(term)/len(dictArray[x])
