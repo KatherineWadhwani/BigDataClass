@@ -31,7 +31,7 @@ session = SparkSession \
 spark = SparkContext.getOrCreate()
 sqlContext = SQLContext(spark)
 
-spark.addPyFile(SparkFiles.get("/home/kat_wadhwani/nltk_data"))
+spark-submit nltk_data
 
 
 
