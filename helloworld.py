@@ -52,9 +52,10 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
         if word not in dictArray[x].keys() and word != '':
             dictArray[x].update({word: 1})
         elif word != '':
-            value = dictArray[x].get(word)
+            value = dictArray[x].get(word.encode('utf-8'))
             value += 1
             dictArray[x][word] = value
+
     x+=1
 print(dictTen)
 
