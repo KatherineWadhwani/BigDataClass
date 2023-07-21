@@ -63,7 +63,7 @@ def calculateTFIDF():
 
 def getHighest():
     for num in range(10):
-        print("\n SPEECH", num)
+        print("\n SPEECH", num + 1)
         for x in range(20):
             word = max(zip(dictArray[num].values(), dictArray[num].keys()))[1]
             print(word)
