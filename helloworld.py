@@ -98,7 +98,9 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
             dictArray[x][word] = value
 
     x+=1
-    
+
+printf(corpusDict["value"] = value)
+printf(dictArray[5]["value"] = value)
 calculateTFIDF()
 getHighest()
 
