@@ -57,8 +57,8 @@ def calculateIDF(term):
         if term in dictArray[x]:
             count+=1
     if (term == "human):
-        print("corpus count");
-        print(count);
+        print("corpus count")
+        print(count)
     return math.log2(10/count)
 
 def calculateTFIDF():
