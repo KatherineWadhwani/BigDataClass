@@ -56,6 +56,9 @@ def calculateIDF(term):
     for x in range(10):
         if term in dictArray[x]:
             count+=1
+
+    print("corpus count");
+    print(count);
     return math.log2(10/count)
 
 def calculateTFIDF():
@@ -99,7 +102,6 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
 
     x+=1
 
-print(corpusDict["human"])
 print(dictArray[0]["human"])
 calculateTFIDF()
 getHighest()
