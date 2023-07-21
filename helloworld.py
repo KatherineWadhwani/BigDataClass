@@ -103,7 +103,7 @@ getHighest()
 x = 0
 for text in nltk.corpus.inaugural.fileids()[-10:] :
     array = inaugural.words(text)
-    if (x == 9):
+    if (x == 8):
         for str in array:
             print(str)
     x+=1
