@@ -77,7 +77,7 @@ nltk.download('inaugural')
 x = 0
 for text in nltk.corpus.inaugural.fileids()[-10:] :
     array = inaugural.words(text)
-    if x == 5
+    if x == 5:
         print(array)
     for str in array:
         word = clean_text(str)
