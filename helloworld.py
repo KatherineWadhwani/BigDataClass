@@ -46,6 +46,9 @@ def clean_text(text):
     text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
     text = re.sub('[\d\n]', ' ', text)
     text = re.sub(r'[^a-z]', '', text)
+    if text[0] == "x":
+        revised = text.lstrip("x")
+        return revised
     return text
 
 def calculateIDF(term):
@@ -79,8 +82,6 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
     array = inaugural.words(text)
     for str in array:
         word = clean_text(str)
-        if x == 5:
-            print(word)
         if word not in corpusDict.keys() and word != '':
             corpusDict.update({word: 1})
         elif word != '':
