@@ -60,6 +60,8 @@ def calculateIDF(term):
 
 def calculateTFIDF():
     for x in range(10):
+        print("THIs IS HOW BIG DICT IS")
+        print(len(dictArray[x])
          for term in dictArray[x]:
             dictArray[x][term] = dictArray[x].get(term)/len(dictArray[x])
             dictArray[x][term] = dictArray[x].get(term)*calculateIDF(term)
@@ -99,15 +101,6 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
     
 calculateTFIDF()
 getHighest()
-
-x = 0
-for text in nltk.corpus.inaugural.fileids()[-10:] :
-    array = inaugural.words(text)
-    if (x == 8):
-        for str in array:
-            print(str)
-    x+=1
-
 
 
 
