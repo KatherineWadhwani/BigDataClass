@@ -77,6 +77,8 @@ nltk.download('inaugural')
 x = 0
 for text in nltk.corpus.inaugural.fileids()[-10:] :
     array = inaugural.words(text)
+    if x == 5
+        print(array)
     for str in array:
         word = clean_text(str)
         if word not in corpusDict.keys() and word != '':
@@ -95,7 +97,7 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
     x+=1
     
 calculateTFIDF()
-getHighest()
+#getHighest()
 
 #IDF(t,D) $= log[($size of D$)/($size of D that contain t$)]$, where t is a given word and D is the corpus of documents.
 
