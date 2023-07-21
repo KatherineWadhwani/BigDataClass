@@ -78,7 +78,7 @@ x = 0
 for text in nltk.corpus.inaugural.fileids()[-10:] :
     array = inaugural.words(text)
     if x == 5:
-        print(array)
+        print(text)
     for str in array:
         word = clean_text(str)
         if word not in corpusDict.keys() and word != '':
