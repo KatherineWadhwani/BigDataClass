@@ -107,10 +107,6 @@ for text in nltk.corpus.inaugural.fileids()[-10:] :
         for str in array:
             print(str)
     x+=1
-    
-calculateTFIDF()
-getHighest()
-
 
 
 
