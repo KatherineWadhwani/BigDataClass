@@ -61,7 +61,7 @@ def calculateIDF(term):
 def calculateTFIDF():
     for x in range(10):
         print("THIs IS HOW BIG DICT IS")
-        print(len(dictArray[x])
+        print(len(dictArray[x]))
          for term in dictArray[x]:
             dictArray[x][term] = dictArray[x].get(term)/len(dictArray[x])
             dictArray[x][term] = dictArray[x].get(term)*calculateIDF(term)
