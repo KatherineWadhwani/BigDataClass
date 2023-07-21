@@ -46,7 +46,7 @@ def clean_text(text):
     text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
     text = re.sub('[\d\n]', ' ', text)
     text = re.sub(r'[^a-z]', '', text)
-    if text[0] == "x":
+    if text != "" and text[0] == "x":
         revised = text.lstrip("x")
         return revised
     return text
