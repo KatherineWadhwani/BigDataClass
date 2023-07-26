@@ -24,13 +24,15 @@ if __name__ == "__main__":
             text_stream =  ssc.socketTextStream("localhost", 9999)
             
             #Create new stream off of previous steram (e.g. preform transformation)
-            trial = text_stream.window(5, 1)
+            google = text_stream.flatMap(lambda line: line.split (" "))\
+                        .map(lambda word: (word, 1))\
+                        .reduceByKey(lambda a, b: a+b)
             
             #Assignment-specific
            
             
             #Print stream
-            text_stream.pprint()
+            google.pprint()
             
             #Run
             ssc.start()
