@@ -21,7 +21,7 @@ if __name__ == "__main__":
             ssc = StreamingContext(sc, 1)
             
             #Create stream on port 9999 on localhost  
-            text_stream =  ssc.socketTextSTream("localhost", 9999)
+            text_stream =  ssc.socketTextStream("localhost", 9999)
             
             #Create new stream off of previous steram (e.g. preform transformation)
             trial = text_stream.window(5, 1)
