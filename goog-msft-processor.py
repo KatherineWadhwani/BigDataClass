@@ -30,7 +30,7 @@ if __name__ == "__main__":
            
             
             #Print stream
-            trial.pprint()
+            text_stream.pprint()
             
             #Run
             ssc.start()
