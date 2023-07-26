@@ -27,9 +27,7 @@ if __name__ == "__main__":
             trial = text_stream.window(5, 1)
             
             #Assignment-specific
-            googPrice = lines.flatMap(lambda line: line.split(" "))\
-                        .map(lambda word: (word, 1))\
-                        .reduceByKey(lambda a, b: a + b).take(2)
+           
             
             #Print stream
             trial.pprint()
