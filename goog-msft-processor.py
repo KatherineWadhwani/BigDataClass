@@ -29,7 +29,7 @@ if __name__ == "__main__":
                         .map(lambda word: (word, 1))\
                         .reduceByKey(lambda a, b: a + b)
 
-            goog = google.filter(lambda x: x % 6 != 0)
+            #goog = google.filter(lambda x: x % 6 != 0)
             
             
             
