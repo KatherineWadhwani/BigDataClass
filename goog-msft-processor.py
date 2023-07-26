@@ -21,7 +21,7 @@ if __name__ == "__main__":
             ssc = StreamingContext(sc, 1)
 
 
-            String[] nameArrays = new String[] { “date”, “google”, “msft”};
+            String[] nameArrays = { "date”, “google”, “msft”};
             
             #Create stream on port 9999 on localhost  
             text_stream =  ssc.socketTextStream("localhost", 9999)
