@@ -20,8 +20,6 @@ if __name__ == "__main__":
             sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
-
-            String[] nameArrays = { "date”, “google”, “msft”};
             
             #Create stream on port 9999 on localhost  
             text_stream =  ssc.socketTextStream("localhost", 9999)
@@ -29,8 +27,8 @@ if __name__ == "__main__":
             #Create new stream off of previous steram (e.g. preform transformation)
             google = text_stream.flatMap(lambda line: line.split (" "))\
                         .map(lambda name: (name, 1))\
-                        .map(lambda google: (name, 2))\
-                        .map(lambda msft: (name, 3))
+                        .map(lambda google: (google, 2))\
+                        .map(lambda msft: (msft, 3))
             
             
             #Assignment-specific
