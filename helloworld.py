@@ -31,7 +31,7 @@ if __name__ == "__main__":
                         .map(lambda word: (word, 1))\
                         .reduceByKey(lambda a, b: a + b).take(2)
             
-            //Print stream
+            #Print stream
             trial.pprint()
             
             #Run
