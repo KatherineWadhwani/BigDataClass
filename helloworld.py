@@ -15,6 +15,7 @@ from nltk.corpus.reader.util import StreamBackedCorpusView
 import sys
 import datetime
 
+
 sc = SparkContext(appName="Proj7")
 ssc = StreamingContext(sc, 2)
 
