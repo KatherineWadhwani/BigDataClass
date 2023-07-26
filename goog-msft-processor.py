@@ -37,7 +37,7 @@ if __name__ == "__main__":
            
             
             #Print stream
-            google.pprint()
+            goog.pprint()
             
             #Run
             ssc.start()
