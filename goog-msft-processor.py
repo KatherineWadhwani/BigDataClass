@@ -25,8 +25,10 @@ if __name__ == "__main__":
             
             #Create new stream off of previous steram (e.g. preform transformation)
             google = text_stream.flatMap(lambda line: line.split (" "))\
-                        .reduce(lambda x, y, z: (x, z))\
-                        .map(lambda x, z: "THIS IS It: " + str(x, z))
+                        .filter(i -> 3 <= i)\
+                        .mapToObj(i -> names[i])\
+                        .collect(Collectors.toList())\
+                        .map("here")
             
             #Assignment-specific
            
