@@ -17,26 +17,26 @@ import datetime
 
 if __name__ == "__main__":
 #Setup          
-sc = SparkContext(appName="Proj7")
-ssc = StreamingContext(sc, 1)
-
-#Create stream on port 9999 on localhost  
-text_stream =  ssc.socketTextSTream("localhost", 9999)
-
-#Create new stream off of previous steram (e.g. preform transformation)
-trial = text_stream.window(5, 1)
-
-#Assignment-specific
-googPrice = lines.flatMap(lambda line: line.split(" "))\
-            .map(lambda word: (word, 1))\
-            .reduceByKey(lambda a, b: a + b).take(2)
-
-//Print stream
-trial.pprint()
-
-#Run
-ssc.start()
-ssc.awaitTermination()
+            sc = SparkContext(appName="Proj7")
+            ssc = StreamingContext(sc, 1)
+            
+            #Create stream on port 9999 on localhost  
+            text_stream =  ssc.socketTextSTream("localhost", 9999)
+            
+            #Create new stream off of previous steram (e.g. preform transformation)
+            trial = text_stream.window(5, 1)
+            
+            #Assignment-specific
+            googPrice = lines.flatMap(lambda line: line.split(" "))\
+                        .map(lambda word: (word, 1))\
+                        .reduceByKey(lambda a, b: a + b).take(2)
+            
+            //Print stream
+            trial.pprint()
+            
+            #Run
+            ssc.start()
+            ssc.awaitTermination()
 
 
 
