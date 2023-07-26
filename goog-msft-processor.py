@@ -26,8 +26,8 @@ if __name__ == "__main__":
             
             #Create new stream off of previous steram (e.g. preform transformation)
             google = text_stream.flatMap(lambda line: line.split (" "))\
-                        .map(lambda word: (word, 1))\
-                        .reduceByKey(lambda a, b: a + b)
+                        .map(arr -> new MonitoredData(arr[0], arr[1], arr[2]))\
+                        .collect(Collectors.toList());
 
             #goog = google.filter(lambda x: x % 6 != 0)
             
