@@ -26,7 +26,7 @@ if __name__ == "__main__":
             #Create new stream off of previous steram (e.g. preform transformation)
             google = text_stream.flatMap(lambda line: line.split (" "))\
                         .map(lambda word: (word, 1))\
-                        .reduceByKey(lambda a, b: a+b)
+                        .reduceByKey(lambda a, b, c: c)
             
             #Assignment-specific
            
@@ -37,7 +37,6 @@ if __name__ == "__main__":
             #Run
             ssc.start()
             ssc.awaitTermination()
-
 
 
 
