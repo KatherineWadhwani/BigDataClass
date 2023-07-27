@@ -36,11 +36,7 @@ if __name__ == "__main__":
             goog10Day = googPrice.map(lambda line: (line[0], line[1], 1))\
                                       .window(10, 1)
                                       #.reduce(lambda a, b: 
-            goog40Day
-            msft10Day
-            msft40Day
-
-            
+        
             #Print stream
             goog10Day.pprint()
             
