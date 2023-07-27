@@ -26,8 +26,12 @@ if __name__ == "__main__":
             
             #Create new stream off of previous steram (e.g. preform transformation)
             google = text_stream.flatMap(lambda line: line.split (" "))\
-                        .range(0, 3)\
-                        .filter(i % 2 == 0)
+                        .parallelize(List("a", "b", "c), 3)
+                        
+            
+            #.range(0, 3)\
+                        #.filter(i % 2 == 0)
+
 
             #goog = google.filter(lambda x: x % 6 != 0)
             
