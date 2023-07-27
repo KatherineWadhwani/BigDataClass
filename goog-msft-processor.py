@@ -28,7 +28,7 @@ if __name__ == "__main__":
             text_stream =  ssc.socketTextStream("localhost", 9999)
             
             #Create new stream off of previous steram (e.g. preform transformation)
-            google = text_stream.reduce(lambda word : (reducer(word)))
+            google = text_stream.reduce(reducer(word))
             #flatMap(lambda line: line.split (" "))\
                                     #.map( case Seq(date, prod, price) => date-> product -> price)
 
