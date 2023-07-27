@@ -28,30 +28,12 @@ if __name__ == "__main__":
             text_stream =  ssc.socketTextStream("localhost", 9999)
             
             #Create new stream off of previous steram (e.g. preform transformation)
-            google = text_stream.map(lambda line : (line.split(" ")[0], float(line.split(" ")[1])))
-            #flatMap(lambda line: line.split (" "))\
-                                    #.map( case Seq(date, prod, price) => date-> product -> price)
+            googPrice = text_stream.map(lambda line : (line.split(" ")[0], float(line.split(" ")[1])))
+            msftPrice = text_stream.map(lambda line : (line.split(" ")[0], float(line.split(" ")[2])))
 
-            
-                                    #.map(lambda word: (word, 1))\
-                                    #.reduceByKey(lambda x, y: x + y)
-
-
-                        
-            
-            #.range(0, 3)\
-                        #.filter(i % 2 == 0)
-
-
-            #goog = google.filter(lambda x: x % 6 != 0)
-            
-            
-            
-            #Assignment-specific
-           
             
             #Print stream
-            google.pprint()
+            googPrice.pprint()
             
             #Run
             ssc.start()
