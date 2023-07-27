@@ -31,9 +31,18 @@ if __name__ == "__main__":
             googPrice = text_stream.map(lambda line : (line.split(" ")[0], float(line.split(" ")[1])))
             msftPrice = text_stream.map(lambda line : (line.split(" ")[0], float(line.split(" ")[2])))
 
+
+
+            goog10Day = googPrice.map(lambda line: (line[0], line[1], 1)
+                                      .window(10, 1)
+                                      #.reduce(lambda a, b: 
+            goog40Day
+            msft10Day
+            msft40Day
+
             
             #Print stream
-            googPrice.pprint()
+            goog10Day.pprint()
             
             #Run
             ssc.start()
