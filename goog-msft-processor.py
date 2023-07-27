@@ -64,7 +64,7 @@ if __name__ == "__main__":
 
             
             #Print stream
-            goog10Day.pprint()
+            goog40Day.pprint()
             
             #Run
             ssc.start()
