@@ -26,7 +26,8 @@ if __name__ == "__main__":
             
             #Create new stream off of previous steram (e.g. preform transformation)
             google = text_stream.flatMap(lambda line: line.split (" "))\
-                                    .map(lambda line: (line, line[1:2]))
+                                    .map(lambda word: (word, 1))\
+                                    .filterbyKey(i%3 = 0)
 
                         
             
