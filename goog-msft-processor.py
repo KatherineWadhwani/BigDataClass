@@ -35,10 +35,7 @@ if __name__ == "__main__":
             
                                     #.map(lambda word: (word, 1))\
                                     #.reduceByKey(lambda x, y: x + y)
-            
 
-            # Print the first ten elements of each RDD generated in this DStream to the console
-            wordCounts.pprint()
 
                         
             
