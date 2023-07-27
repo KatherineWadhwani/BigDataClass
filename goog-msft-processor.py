@@ -29,7 +29,7 @@ if __name__ == "__main__":
             
             #Create new stream off of previous steram (e.g. preform transformation)
             google = text_stream.flatMap(lambda line: line.split (" "))\
-                                    .map { case Seq(date, prod, price) => date-> product -> price }
+                                    .map( case Seq(date, prod, price) => date-> product -> price)
 
             
                                     #.map(lambda word: (word, 1))\
