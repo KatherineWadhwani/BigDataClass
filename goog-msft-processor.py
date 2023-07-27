@@ -64,7 +64,7 @@ if __name__ == "__main__":
 
             
             #Print stream
-            msft40Day.pprint()
+            goog10Day.pprint()
             
             #Run
             ssc.start()
