@@ -25,10 +25,8 @@ if __name__ == "__main__":
             text_stream =  ssc.socketTextStream("localhost", 9999)
             
             #Create new stream off of previous steram (e.g. preform transformation)
-            google = text_stream.select("GOOGclose")
-            
-            #flatMap(lambda line: line.split (" "))\
-                                    #map(lambda line: (line, line[1:3]))
+            google = text_stream.flatMap(lambda line: line.split (" "))\
+                                    map(lambda line: (line, line[1:2]))
 
                         
             
