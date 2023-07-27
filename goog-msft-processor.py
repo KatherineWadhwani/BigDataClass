@@ -29,8 +29,11 @@ if __name__ == "__main__":
             
             #Create new stream off of previous steram (e.g. preform transformation)
             google = text_stream.flatMap(lambda line: line.split (" "))\
-                                    .map(lambda word: (word, 1))\
-                                    .reduceByKey(lambda x, y: x + y)
+                                    .map { case Seq(date, prod, price) => date-> product -> price }
+
+            
+                                    #.map(lambda word: (word, 1))\
+                                    #.reduceByKey(lambda x, y: x + y)
             
 
     # Print the first ten elements of each RDD generated in this DStream to the console
