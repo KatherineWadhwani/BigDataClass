@@ -37,14 +37,14 @@ if __name__ == "__main__":
                                       .window(10, 1)\
                                       .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))
 
-             goog40Day = googPrice.map(lambda line: (line[0], line[1], 1))\
+            goog40Day = googPrice.map(lambda line: (line[0], line[1], 1))\
                                       .window(40, 1)\
                                       .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))
 
-             msft10Day = googPrice.map(lambda line: (line[0], line[1], 1))\
+            msft10Day = googPrice.map(lambda line: (line[0], line[1], 1))\
                                       .window(10, 1)\
                                       .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))
-             msft40Day = googPrice.map(lambda line: (line[0], line[1], 1))\
+            msft40Day = googPrice.map(lambda line: (line[0], line[1], 1))\
                                       .window(40, 1)\
                                       .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1]/10, a[2] + b[2]))
                                       .filter(lambda x: x[2] == 10)
