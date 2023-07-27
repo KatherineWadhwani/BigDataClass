@@ -60,7 +60,7 @@ if __name__ == "__main__":
 
             #Join Streams to Generate Signals
             signalGoogle = goog10Day.join(goog40Day)
-                                    #.map(lambda x: (x[0], x[1][0], x[1][1], max(x[2][0], x[2][1])))
+                                    .map(lambda x: (x[0], "Ten-day : " + [1][0], "Fourty-day : " + x[1][1]))
 
             
             #Print stream
