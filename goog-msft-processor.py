@@ -36,7 +36,8 @@ if __name__ == "__main__":
             goog10Day = googPrice.map(lambda line: (line[0], line[1], 1))\
                                       .window(10, 1)\
                                       .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
-                                      .filter(lambda x: x[2] == 10)
+                                      .filter(lambda x: x[2] == 10)\
+                                      .map(lambda line: (line[1]/10)
 
             goog40Day = googPrice.map(lambda line: (line[0], line[1], 1))\
                                       .window(40, 1)\
