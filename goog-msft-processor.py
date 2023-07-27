@@ -30,7 +30,7 @@ if __name__ == "__main__":
             #Create new stream off of previous steram (e.g. preform transformation)
             google = text_stream.flatMap(lambda line: line.split (" "))\
                                     .map(lambda word: (word, 1))\
-                                    .reduce(lambda word: reducer(word))
+                                    .reduceByKey(lambda a, b: a + b).take(2)
 
                         
             
