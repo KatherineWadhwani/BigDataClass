@@ -20,6 +20,9 @@ if __name__ == "__main__":
             sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
+
+            def reducer():
+                        print(word)
             
             #Create stream on port 9999 on localhost  
             text_stream =  ssc.socketTextStream("localhost", 9999)
@@ -27,7 +30,7 @@ if __name__ == "__main__":
             #Create new stream off of previous steram (e.g. preform transformation)
             google = text_stream.flatMap(lambda line: line.split (" "))\
                                     .map(lambda word: (word, 1))\
-                                    .filterByKey(i%3 == 0)
+                                    .reduce(lambda word: reducer(word))
 
                         
             
