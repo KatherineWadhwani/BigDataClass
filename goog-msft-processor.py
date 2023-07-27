@@ -21,7 +21,7 @@ if __name__ == "__main__":
             ssc = StreamingContext(sc, 1)
 
 
-            def reducer():
+            def reducer(word):
                         print(word)
             
             #Create stream on port 9999 on localhost  
