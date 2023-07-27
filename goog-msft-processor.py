@@ -43,7 +43,7 @@ if __name__ == "__main__":
                                       .window(40, 1)\
                                       .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
                                       .filter(lambda x: x[2] == 40)\
-                                      .map(lambda line: (line[0], line[1]/10, line[2]))
+                                      .map(lambda line: (line[0], line[1]/40, line[2]))
 
             msft10Day = msftPrice.map(lambda line: (line[0], line[1], 1))\
                                       .window(10, 1)\
@@ -54,7 +54,7 @@ if __name__ == "__main__":
                                       .window(40, 1)\
                                       .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1]/10, a[2] + b[2]))\
                                       .filter(lambda x: x[2] == 40)\
-                                      .map(lambda line: (line[0], line[1]/10, line[2]))
+                                      .map(lambda line: (line[0], line[1]/40, line[2]))
 
 
 
