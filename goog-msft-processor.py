@@ -58,7 +58,7 @@ if __name__ == "__main__":
 
         
             #Print stream
-            goog10Day.pprint()
+            googPrice.pprint()
             
             #Run
             ssc.start()
