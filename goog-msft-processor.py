@@ -30,7 +30,11 @@ if __name__ == "__main__":
             #Create new stream off of previous steram (e.g. preform transformation)
             google = text_stream.flatMap(lambda line: line.split (" "))\
                                     .map(lambda word: (word, 1))\
-                                    .reduceByKey(lambda a, b: a + b)
+                                    .reduceByKey(lambda x, y: x + y)
+            
+
+    # Print the first ten elements of each RDD generated in this DStream to the console
+    wordCounts.pprint()
 
                         
             
