@@ -20,11 +20,29 @@ if __name__ == "__main__":
             sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
+            global top = "empty";
 
             def findHigher(tenDay, fortyDay):
+                        toReturn = "
+                        oldTop = top
+                        if(top == "empty"):
+                                    
                         if (tenDay > fortyDay):
-                                 return "tenDay"  
-                        return "fortyDay"
+                                    top = "tenDay"
+                                    if (oldTop == top):
+                                                return "noAlert"
+                                    if (oldTop != top && oldTop == empty):
+                                                return "noAlert"
+                                    if (oldTop != top && oldTop != empty):
+                                                return "golden cross"
+                        else:
+                                    top = "fortyDay"
+                                    if (oldTop == top):
+                                                return "noAlert"
+                                    if (oldTop != top && oldTop == empty):
+                                                return "noAlert"
+                                    if (oldTop != top && oldTop != empty):
+                                                return "death cross"
             
             #Create stream on port 9999 on localhost  
             text_stream =  ssc.socketTextStream("localhost", 9999)
@@ -62,12 +80,17 @@ if __name__ == "__main__":
 
             #Join Streams to Generate Signals
             signalGoogle = goog10Day.join(goog40Day)\
-                                    .map(lambda x: (x[0], x[1][0], x[1][1], findHigher(x[1][0], x[1][1])))
-                                    #.map(lambda x: (x[0], "Ten-day : " + str(x[1][0]), "Fourty-day : " + str(x[1][1])))
+                                    .map(lambda x: (x[0], "10-Day Average: " + str(x[1][0]), "40-Day Average: " + str(x[1][1]), findHigher(x[1][0], x[1][1])))/
+                                    .filter(lambda x: (x[3]) != "noAlert")
+
+             signalMsft = msft10Day.join(msft40Day)\
+                                    .map(lambda x: (x[0], "10-Day Average: " + str(x[1][0]), "40-Day Average: " + str(x[1][1]), findHigher(x[1][0], x[1][1])))/
+                                    .filter(lambda x: (x[3]) != "noAlert")
 
             
             #Print stream
             signalGoogle.pprint()
+            signalMsft.pprint()
             
             #Run
             ssc.start()
