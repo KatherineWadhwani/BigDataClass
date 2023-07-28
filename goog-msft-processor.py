@@ -29,17 +29,17 @@ if __name__ == "__main__":
                                                 top = "tenDay"
                                                 if (oldTop == top):
                                                             return "noAlert"
-                                                if (oldTop != top && oldTop == empty):
+                                                if (oldTop != top and oldTop == empty):
                                                             return "noAlert"
-                                                if (oldTop != top && oldTop != empty):
+                                                if (oldTop != top and oldTop != empty):
                                                             return "golden cross"
                                     else:
                                                 top = "fortyDay"
                                                 if (oldTop == top):
                                                             return "noAlert"
-                                                if (oldTop != top && oldTop == empty):
+                                                if (oldTop != top and oldTop == empty):
                                                             return "noAlert"
-                                                if (oldTop != top && oldTop != empty):
+                                                if (oldTop != top and oldTop != empty):
                                                             return "death cross"
             
             #Create stream on port 9999 on localhost  
