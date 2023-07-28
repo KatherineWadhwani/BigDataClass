@@ -100,7 +100,7 @@ if __name__ == "__main__":
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
                                     .map(lambda x: (x[0], x[1][0],  x[1][1]))\
-                                    .updateStateByKey(findHigherGoog(x[1][0], x[1][1]))
+                                    .updateStateByKey(findHigherGoog(x[1][0], x[1][1]))\
                                     .filter(lambda x: (x[3]) != "noAlert")\
                                     .map(lambda x: (x[0], x[3] + "goog"))
 
@@ -118,7 +118,7 @@ if __name__ == "__main__":
             msft40Day.pprint()
                                          
             signalGoog.pprint()
-            signalMsft.pprint()
+            #signalMsft.pprint()
             
             #Run
             ssc.start()
