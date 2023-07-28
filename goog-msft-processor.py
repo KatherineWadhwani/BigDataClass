@@ -80,12 +80,12 @@ if __name__ == "__main__":
             signalMsft = msft10Day.join(msft40Day)\
                                     .map(lambda x: (x[0], x[1][0],  x[1][1], findHigher(x[1][0], x[1][1])))\
                                     .filter(lambda x: (x[3]) != "noAlert")\
-                                    .map(lambda x: (x[0], x[3] + "goog")
+                                    .map(lambda x: (x[0], str(x[3]) + "goog")
 
             signalMsft = msft10Day.join(msft40Day)\
                                     .map(lambda x: (x[0], x[1][0],  x[1][1], findHigher(x[1][0], x[1][1])))\
                                     .filter(lambda x: (x[3]) != "noAlert")\
-                                    .map(lambda x: (x[0], x[3] + "msft")
+                                    .map(lambda x: (x[0], str(x[3]) + "msft")
 
             
             #Print streams
