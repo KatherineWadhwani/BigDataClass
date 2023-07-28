@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
 
             #Join Streams to Generate Signals
-            signalMsft = msft10Day.join(msft40Day)\
+            signalGoog = goog10Day.join(goog40Day)\
                                     .map(lambda x: (x[0], x[1][0],  x[1][1], findHigher(x[1][0], x[1][1])))\
                                     .filter(lambda x: (x[3]) != "noAlert")\
                                     .map(lambda x: (x[0], x[3] + "goog"))
@@ -95,7 +95,7 @@ if __name__ == "__main__":
             msft10Day.pprint()
             msft40Day.pprint()
                                          
-            signalGoogle.pprint()
+            signalGoog.pprint()
             signalMsft.pprint()
             
             #Run
