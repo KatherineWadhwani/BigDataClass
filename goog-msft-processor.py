@@ -17,6 +17,8 @@ import datetime
 
 if __name__ == "__main__":
 #Setup          
+            sc = SparkContext(appName="Proj7")
+            ssc = StreamingContext(sc, 1)
 
             topGoog = "empty"
             topMsft = "empty"
@@ -31,7 +33,7 @@ if __name__ == "__main__":
                                     if (oldTop != topGoog and oldTop == "empty"):
                                                 return "2"
                                     if (oldTop != topGoog and oldTop != "empty"):
-                                                print( "buy ")
+                                                return "buy "
                         else:
                                     topGoog = "fortyDay"
                                     if (oldTop == topGoog):
@@ -39,7 +41,7 @@ if __name__ == "__main__":
                                     if (oldTop != topGoog and oldTop == "empty"):
                                                 return "4"
                                     if (oldTop != topGoog and oldTop != "empty"):
-                                                print( "sell ")
+                                                return "sell "
                                                 
             def findHigherMsft(tenDay, fortyDay):
                         global topMsft
@@ -61,8 +63,7 @@ if __name__ == "__main__":
                                     if (oldTop != topMsft and oldTop != "empty"):
                                                 return "sell "
             
-            
- #Create stream on port 9999 on localhost  
+            #Create stream on port 9999 on localhost  
             text_stream =  ssc.socketTextStream("localhost", 9999)
             
             #Create new streams, splitting them into triples (e.g. preform transformation)
