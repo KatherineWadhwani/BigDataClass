@@ -35,9 +35,9 @@ if __name__ == "__main__":
                         if (d2[1][0] < d2[1][1]):
                                     trend2 = "fortyDay"
                         if (trend1 == "tenDay" and trend2 == "fortyDay"):
-                                    return str(d2[0]) + str(d1[1][0]) + str(d1[1][1]) + str(d2[1][0]) + str(d2[1][1]) + sell goog"
+                                    return str(d2[0]) + str(d1[1][0]) + " " + str(d1[1][1]) + " " + str(d2[1][0]) + " " + str(d2[1][1]) + " sell goog"
                         if (trend1 == "fortyDay" and trend2 == "tenDay"):
-                                    return str(d2[0]) + str(d1[1][0]) + str(d1[1][1]) + str(d2[1][0]) + str(d2[1][1]) + buy goog"
+                                    return str(d2[0]) + str(d1[1][0]) + " " + str(d1[1][1]) + " " + str(d2[1][0]) + " " + str(d2[1][1]) + " buy goog"
                         return "null"
 
             def generateMessageMsft(d1, d2):
@@ -55,9 +55,9 @@ if __name__ == "__main__":
                         if (d2[1][0] < d2[1][1]):
                                     trend2 = "fortyDay"
                         if (trend1 == "tenDay" and trend2 == "fortyDay"):
-                                    return str(d2[0]) + str(d1[1][0]) + str(d1[1][1]) + str(d2[1][0]) + str(d2[1][1]) + sell msft"
+                                    return str(d2[0]) + " " + str(d1[1][0]) + " " + str(d1[1][1]) + " " + str(d2[1][0]) + " " + str(d2[1][1]) + " sell msft"
                         if (trend1 == "fortyDay" and trend2 == "tenDay"):
-                                    return str(d2[0]) + str(d1[1][0]) + str(d1[1][1]) + str(d2[1][0]) + str(d2[1][1]) + buy msft"
+                                    return str(d2[0]) + " " + str(d1[1][0]) + " " + str(d1[1][1]) + " " + str(d2[1][0]) + " " + str(d2[1][1]) + " buy msft"
                         return "null"
 
 
