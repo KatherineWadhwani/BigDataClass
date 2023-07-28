@@ -26,42 +26,41 @@ if __name__ == "__main__":
             def findHigherGoog(tenDay, fortyDay):
                         global topGoog
                         oldTop = topGoog
-             
-                                    if (tenDay > fortyDay):
-                                                topGoog = "tenDay"
-                                                if (oldTop == topGoog):
-                                                            return "noAlert"
-                                                if (oldTop != topGoog and oldTop == "empty"):
-                                                            return "noAlert"
-                                                if (oldTop != topGoog and oldTop != "empty"):
-                                                            return "buy "
-                                    else:
-                                                topGoog = "fortyDay"
-                                                if (oldTop == topGoog):
-                                                            return "noAlert"
-                                                if (oldTop != topGoog and oldTop == "empty"):
-                                                            return "noAlert"
-                                                if (oldTop != topGoog and oldTop != "empty"):
-                                                            return "sell "
+                        if (tenDay > fortyDay):
+                                    topGoog = "tenDay"
+                                    if (oldTop == topGoog):
+                                                return "noAlert"
+                                    if (oldTop != topGoog and oldTop == "empty"):
+                                                return "noAlert"
+                                    if (oldTop != topGoog and oldTop != "empty"):
+                                                return "buy "
+                        else:
+                                    topGoog = "fortyDay"
+                                    if (oldTop == topGoog):
+                                                return "noAlert"
+                                    if (oldTop != topGoog and oldTop == "empty"):
+                                                return "noAlert"
+                                    if (oldTop != topGoog and oldTop != "empty"):
+                                                return "sell "
             def findHigherMsft(tenDay, fortyDay):
                         global topMsft
                         oldTop = topMsft   
-                                    if (tenDay > fortyDay):
-                                                topMsft = "tenDay"
-                                                if (oldTop == topMsft):
-                                                            return "noAlert"
-                                                if (oldTop != topMsft and oldTop == "empty"):
-                                                            return "noAlert"
-                                                if (oldTop != topMsft and oldTop != "empty"):
-                                                            return "buy "
-                                    else:
-                                                topMsft = "fortyDay"
-                                                if (oldTop == topMsft):
-                                                            return "noAlert"
-                                                if (oldTop != topMsft and oldTop == "empty"):
-                                                            return "noAlert"
-                                                if (oldTop != topMsft and oldTop != "empty"):
-                                                            return "sell "
+                        if (tenDay > fortyDay):
+                                    topMsft = "tenDay"
+                                    if (oldTop == topMsft):
+                                                return "noAlert"
+                                    if (oldTop != topMsft and oldTop == "empty"):
+                                                return "noAlert"
+                                    if (oldTop != topMsft and oldTop != "empty"):
+                                                return "buy "
+                        else:
+                                    topMsft = "fortyDay"
+                                    if (oldTop == topMsft):
+                                                return "noAlert"
+                                    if (oldTop != topMsft and oldTop == "empty"):
+                                                return "noAlert"
+                                    if (oldTop != topMsft and oldTop != "empty"):
+                                                return "sell "
             
             #Create stream on port 9999 on localhost  
             text_stream =  ssc.socketTextStream("localhost", 9999)
