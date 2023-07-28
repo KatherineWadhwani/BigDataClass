@@ -70,7 +70,8 @@ if __name__ == "__main__":
                                       .filter(lambda x: x[2] == 40)\
                                       .map(lambda line: (line[0], line[1]/40, line[2]))
 
-
+             thoughts = goog10Day.join(goog40Day)\
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1]))
 
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
@@ -88,12 +89,13 @@ if __name__ == "__main__":
 
             
             #Print streams
-            goog10Day.pprint()
-            goog40Day.pprint()
+            #goog10Day.pprint()
+            #goog40Day.pprint()
                                          
             #msft10Day.pprint()
             #msft40Day.pprint()
-                                         
+
+            thoughts.pprint()
             signalGoog.pprint()
             signalMsft.pprint()
             
