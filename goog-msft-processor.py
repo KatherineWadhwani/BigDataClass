@@ -23,7 +23,6 @@ if __name__ == "__main__":
             global top = "empty";
 
             def findHigher(tenDay, fortyDay):
-                        toReturn = "
                         oldTop = top
                         if(top == "empty"):
                                     
