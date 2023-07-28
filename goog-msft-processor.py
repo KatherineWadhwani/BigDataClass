@@ -92,14 +92,12 @@ if __name__ == "__main__":
 
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
-                                    .map(lambda line: (line[0], line[1], 1))\
                                     .window(2, 1)\
                                     .reduce(lambda d1, d2: generateMessageGoog(d1, d2))\
                                     #.filter(lambda x: "buy" in x or "sell" in x)
 
 
             signalMsft = msft10Day.join(msft40Day)\
-                                    .map(lambda line: (line[0], line[1], 1))\
                                     .window(2, 1)\
                                     .reduce(lambda d1, d2: generateMessageMsft(d1, d2))\
                                     .filter(lambda x: "buy" in x or "sell" in x)
