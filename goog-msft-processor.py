@@ -27,7 +27,7 @@ if __name__ == "__main__":
                         else:
                                     return 326851121
                                                 
-            def message(number, recent)
+            def message(number, recent):
                         if number % 326851121 != 0 and number > 326851121 and recent == 326851121:
                                     return "sell goog"
                         if number % 326851121 != 0 and number > 326851121 and recent == 1:
