@@ -23,6 +23,8 @@ if __name__ == "__main__":
             def generateMessageGoog(d1, d2):
                         trend1 = "null"
                         trend2 = "null"
+                        if (d1[2] + d2[2] not 2)
+                                    return "null"
                         if (d1[1][0] > d1[1][1]):
                                     trend1 = "tenDay"
                         if (d1[1][0] < d1[1][1]):
@@ -92,7 +94,7 @@ if __name__ == "__main__":
             signalGoog = goog10Day.join(goog40Day)\
                                     .map(lambda line: (line[0], line[1], 1))\
                                     .window(2, 1)\
-                                    .reduce(lambda d1, d2: generateMessageGoog(d1, d2), d1[2] + d2[2])\
+                                    .reduce(lambda d1, d2: generateMessageGoog(d1, d2))\
                                     #.filter(lambda x: "buy" in x or "sell" in x)
 
 
