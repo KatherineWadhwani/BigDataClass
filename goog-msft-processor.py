@@ -20,6 +20,10 @@ if __name__ == "__main__":
             sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
+            def signal(d1, d2):
+                        return "starting to work"
+
+           
             #Create stream on port 9999 on localhost  
             text_stream =  ssc.socketTextStream("localhost", 9999)
             
@@ -30,16 +34,16 @@ if __name__ == "__main__":
 
             #Create 10-day and 40-day averages
             goog10Day = googPrice.map(lambda line: (line[0], line[1], 1))\
-                                      .window(10, 1)\
+                                      .window(3, 1)\
                                       .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
-                                      .filter(lambda x: x[2] == 10)\
-                                      .map(lambda line: (line[0], line[1]/10, line[2]))
+                                      .filter(lambda x: x[2] == 3)\
+                                      .map(lambda line: (line[0], line[1]/3, line[2]))
 
             goog40Day = googPrice.map(lambda line: (line[0], line[1], 1))\
-                                      .window(40, 1)\
+                                      .window(4, 1)\
                                       .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
-                                      .filter(lambda x: x[2] == 40)\
-                                      .map(lambda line: (line[0], line[1]/40, line[2]))
+                                      .filter(lambda x: x[2] == 4)\
+                                      .map(lambda line: (line[0], line[1]/4, line[2]))
 
             msft10Day = msftPrice.map(lambda line: (line[0], line[1], 1))\
                                       .window(10, 1)\
@@ -54,12 +58,28 @@ if __name__ == "__main__":
 
 
 
-           
+            #Join Streams to Generate Signals
+            signalGoog = goog10Day.join(goog40Day)\
+                                    .window(2, 1)\
+                                    .reduce(lambda d1, d2: signal(d1, d2))
+
+
+            signalMsft = msft10Day.join(msft40Day)\
+                                    .window(2, 1)\
+                                    .reduce(lambda d1, d2: signal(d1, d2))
+
+            googRecs = goog10Day.join(goog40Day).window(2, 1).reduce(lambda d1, d2: signal(d1, d2))
+
             
             #Print streams
-            goog10Day.pprint()
+            #goog10Day.pprint()
             #goog40Day.pprint()
-
+                                         
+            #msft10Day.pprint()
+            msft40Day.pprint()
+                                         
+            signalGoog.pprint()
+            signalMsft.pprint()
             
             #Run
             ssc.start()
