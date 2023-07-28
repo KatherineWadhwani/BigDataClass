@@ -35,9 +35,9 @@ if __name__ == "__main__":
             def message (one, two):
                         if (one == two):
                                     return "noSignal"
-                        if(two == "fortyDay")
+                        if(two == "fortyDay"):
                                     return "sell "
-                        if(two == "tenDay")
+                        if(two == "tenDay"):
                                     return "buy "
                                     
             
