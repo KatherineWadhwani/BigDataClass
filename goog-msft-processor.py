@@ -40,9 +40,9 @@ if __name__ == "__main__":
                         if (d2[1][0] < d2[1][1]):
                                     trend2 = "fortyDay"
                         if (trend1 == "tenDay" and trend2 == "fortyDay"):
-                                    return str(d2[0]) + str(d1[1][0]) + " " + str(d1[1][1]) + " " + str(d2[1][0]) + " " + str(d2[1][1]) + " sell goog"
+                                    return str(d2[0]) + " sell goog"
                         if (trend1 == "fortyDay" and trend2 == "tenDay"):
-                                    return str(d2[0]) + str(d1[1][0]) + " " + str(d1[1][1]) + " " + str(d2[1][0]) + " " + str(d2[1][1]) + " buy goog"
+                                    return str(d2[0]) + " buy goog"
                         return "null"
 
             def generateMessageMsft(d1, d2):
@@ -65,9 +65,9 @@ if __name__ == "__main__":
                         if (d2[1][0] < d2[1][1]):
                                     trend2 = "fortyDay"
                         if (trend1 == "tenDay" and trend2 == "fortyDay"):
-                                    return str(d2[0]) + " " + str(d1[1][0]) + " " + str(d1[1][1]) + " " + str(d2[1][0]) + " " + str(d2[1][1]) + " sell msft"
+                                    return str(d2[0]) + " sell msft"
                         if (trend1 == "fortyDay" and trend2 == "tenDay"):
-                                    return str(d2[0]) + " " + str(d1[1][0]) + " " + str(d1[1][1]) + " " + str(d2[1][0]) + " " + str(d2[1][1]) + " buy msft"
+                                    return str(d2[0]) + " buy msft"
                         return "null"
 
 
@@ -104,13 +104,6 @@ if __name__ == "__main__":
                                       .filter(lambda x: x[2] == 40)\
                                       .map(lambda line: (line[0], line[1]/40, line[2]))
 
-
-
-            googol = goog10Day.join(goog40Day)\
-                                    .map(lambda x: (x[0], x[1][0],  x[1][1]))
-
-            meyecrosoft = msft10Day.join(msft40Day)\
-                                    .map(lambda x: (x[0], x[1][0],  x[1][1]))
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
                                     .window(2, 1)\
@@ -123,17 +116,13 @@ if __name__ == "__main__":
                                     .reduce(lambda d1, d2: generateMessageMsft(d1, d2))\
                                     .filter(lambda x: "buy" in x or "sell" in x)
 
-
             
             #Print streams
-            #goog10Day.pprint()
-            #goog40Day.pprint()
+            goog10Day.pprint()
+            goog40Day.pprint()
                                          
-            #msft10Day.pprint()
-            #msft40Day.pprint()
-
-            googol.pprint()
-            meyecrosoft.pprint()
+            msft10Day.pprint()
+            msft40Day.pprint()
 
             signalGoog.pprint()
             signalMsft.pprint()
