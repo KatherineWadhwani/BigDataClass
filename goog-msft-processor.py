@@ -88,7 +88,13 @@ if __name__ == "__main__":
                                     .map(lambda x: (x[0], x[3] + "msft")
 
             
-            #Print stream
+            #Print streams
+            goog10Day.pprint()
+            goog40Day.pprint()
+                                         
+            msft10Day.pprint()
+            msft40Day.pprint()
+                                         
             signalGoogle.pprint()
             signalMsft.pprint()
             
