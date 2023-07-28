@@ -109,7 +109,7 @@ if __name__ == "__main__":
             #msft40Day.pprint()
 
             signalGoog.pprint()
-            #signalMsft.pprint()
+            signalMsft.pprint()
             
             #Run
             ssc.start()
