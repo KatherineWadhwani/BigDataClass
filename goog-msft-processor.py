@@ -95,7 +95,7 @@ if __name__ == "__main__":
                                     .filter(lambda x: "buy" in x or "sell" in x)
 
 
-            signalMsft = msft10Day.join(msft40Day)\
+            signalMsft = goog10Day.join(goog40Day)\
                                     .window(2, 1)\
                                     .reduce(lambda d1, d2: signalMsft(d1, d2))\
                                     .filter(lambda x: "buy" in x or "sell" in x)
