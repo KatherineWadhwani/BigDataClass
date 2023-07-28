@@ -63,38 +63,7 @@ if __name__ == "__main__":
                                     if (oldTop != topMsft and oldTop != "empty"):
                                                 return "sell "
             
-            #Create stream on port 9999 on localhost  
-            text_stream =  ssc.socketTextStream("localhost", 9999)
             
-            #Create new streams, splitting them into triples (e.g. preform transformation)
-            googPrice = text_stream.map(lambda line : (line.split(" ")[0], float(line.split(" ")[1])))
-            msftPrice = text_stream.map(lambda line : (line.split(" ")[0], float(line.split(" ")[2])))
-
-
-            #Create 10-day and 40-day averages
-            goog10Day = googPrice.map(lambda line: (line[0], line[1], 1))\
-                                      .window(10, 1)\
-                                      .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
-                                      .filter(lambda x: x[2] == 10)\
-                                      .map(lambda line: (line[0], line[1]/10, line[2]))
-
-            goog40Day = googPrice.map(lambda line: (line[0], line[1], 1))\
-                                      .window(40, 1)\
-                                      .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
-                                      .filter(lambda x: x[2] == 40)\
-                                      .map(lambda line: (line[0], line[1]/40, line[2]))
-
-            msft10Day = msftPrice.map(lambda line: (line[0], line[1], 1))\
-                                      .window(10, 1)\
-                                      .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
-                                      .filter(lambda x: x[2] == 10)\
-                                      .map(lambda line: (line[0], line[1]/10, line[2]))
-            msft40Day = msftPrice.map(lambda line: (line[0], line[1], 1))\
-                                      .window(40, 1)\
-                                      .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
-                                      .filter(lambda x: x[2] == 40)\
-                                      .map(lambda line: (line[0], line[1]/40, line[2]))
-
 
 
             findHigherGoog(2, 4)
