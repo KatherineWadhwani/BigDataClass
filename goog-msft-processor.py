@@ -62,7 +62,62 @@ if __name__ == "__main__":
                                                 return "sell "
             
             
+ #Create stream on port 9999 on localhost  
+            text_stream =  ssc.socketTextStream("localhost", 9999)
+            
+            #Create new streams, splitting them into triples (e.g. preform transformation)
+            googPrice = text_stream.map(lambda line : (line.split(" ")[0], float(line.split(" ")[1])))
+            msftPrice = text_stream.map(lambda line : (line.split(" ")[0], float(line.split(" ")[2])))
 
-            findHigherGoog(85.3259169783518, 84.29542673342017)
-            findHigherGoog(84.65954446438853, 84.26737933983756)
-            findHigherGoog(83.7755565196896, 84.23057969404569)  
+
+            #Create 10-day and 40-day averages
+            goog10Day = googPrice.map(lambda line: (line[0], line[1], 1))\
+                                      .window(10, 1)\
+                                      .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
+                                      .filter(lambda x: x[2] == 10)\
+                                      .map(lambda line: (line[0], line[1]/10, line[2]))
+
+            goog40Day = googPrice.map(lambda line: (line[0], line[1], 1))\
+                                      .window(40, 1)\
+                                      .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
+                                      .filter(lambda x: x[2] == 40)\
+                                      .map(lambda line: (line[0], line[1]/40, line[2]))
+
+            msft10Day = msftPrice.map(lambda line: (line[0], line[1], 1))\
+                                      .window(10, 1)\
+                                      .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
+                                      .filter(lambda x: x[2] == 10)\
+                                      .map(lambda line: (line[0], line[1]/10, line[2]))
+            msft40Day = msftPrice.map(lambda line: (line[0], line[1], 1))\
+                                      .window(40, 1)\
+                                      .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
+                                      .filter(lambda x: x[2] == 40)\
+                                      .map(lambda line: (line[0], line[1]/40, line[2]))
+
+
+
+            #Join Streams to Generate Signals
+            signalGoog = goog10Day.join(goog40Day)\
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherGoog(x[1][0], x[1][1])))
+                                    #.filter(lambda x: (x[3]) != "noAlert")\
+                                    #.map(lambda x: (x[0], x[3] + "goog"))
+
+            signalMsft = msft10Day.join(msft40Day)\
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherMsft(x[1][0], x[1][1])))
+                                    #.filter(lambda x: (x[3]) != "noAlert")\
+                                    #.map(lambda x: (x[0], x[3] + "msft"))
+
+            
+            #Print streams
+            #goog10Day.pprint()
+            #goog40Day.pprint()
+                                         
+            #msft10Day.pprint()
+            msft40Day.pprint()
+                                         
+            signalGoog.pprint()
+            signalMsft.pprint()
+            
+            #Run
+            ssc.start()
+            ssc.awaitTermination()
