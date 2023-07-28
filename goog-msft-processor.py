@@ -31,7 +31,7 @@ if __name__ == "__main__":
                                     if (oldTop == topGoog):
                                                 return "1"
                                     if (oldTop != topGoog and oldTop == "empty"):
-                                                return oldTop
+                                                return topGoog
                                     if (oldTop != topGoog and oldTop != "empty"):
                                                 return "buy "
                         else:
