@@ -110,16 +110,16 @@ class Streams:
             
 
             
-            #Print streams
-            #goog10Day.pprint()
-            #goog40Day.pprint()
+#Print streams
+#goog10Day.pprint()
+#goog40Day.pprint()
                                          
-            #msft10Day.pprint()
-            #msft40Day.pprint()
+#msft10Day.pprint()
+#msft40Day.pprint()
                                          
-            Streams.signalGoog.pprint()
-            Streams.signalMsft.pprint()
+Streams.signalGoog.pprint()
+Streams.signalMsft.pprint()
             
-            #Run
-            ssc.start()
-            ssc.awaitTermination()
+#Run
+ssc.start()
+ssc.awaitTermination()
