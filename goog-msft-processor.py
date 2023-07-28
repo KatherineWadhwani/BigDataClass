@@ -28,8 +28,8 @@ if __name__ == "__main__":
                         print("TenDay is " + str(tenDay))
                         print("FourtyDay is " + str(fortyDay))
                         print("topGoog pre change is" + topGoog)
-                        print("OldTop is " + oldTop)
                         oldTop = topGoog
+                        print("OldTop is " + oldTop)
                         if (tenDay > fortyDay):
                                     topGoog = "tenDay"
                                     print("newTop is " + topGoog)
