@@ -32,7 +32,7 @@ if __name__ == "__main__":
                                                 if (oldTop != top and oldTop == empty):
                                                             return "noAlert"
                                                 if (oldTop != top and oldTop != empty):
-                                                            return "golden cross"
+                                                            return "buy "
                                     else:
                                                 top = "fortyDay"
                                                 if (oldTop == top):
@@ -40,7 +40,7 @@ if __name__ == "__main__":
                                                 if (oldTop != top and oldTop == empty):
                                                             return "noAlert"
                                                 if (oldTop != top and oldTop != empty):
-                                                            return "death cross"
+                                                            return "sell "
             
             #Create stream on port 9999 on localhost  
             text_stream =  ssc.socketTextStream("localhost", 9999)
@@ -77,13 +77,15 @@ if __name__ == "__main__":
 
 
             #Join Streams to Generate Signals
-            signalGoogle = goog10Day.join(goog40Day)\
-                                    .map(lambda x: (x[0], "10-Day Average: " + str(x[1][0]), "40-Day Average: " + str(x[1][1]), findHigher(x[1][0], x[1][1])))\
-                                    .filter(lambda x: (x[3]) != "noAlert")
+            signalMsft = msft10Day.join(msft40Day)\
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigher(x[1][0], x[1][1])))\
+                                    .filter(lambda x: (x[3]) != "noAlert")\
+                                    .map(lambda x: (x[0], x[3] + "goog")
 
             signalMsft = msft10Day.join(msft40Day)\
-                                    .map(lambda x: (x[0], "10-Day Average: " + str(x[1][0]), "40-Day Average: " + str(x[1][1]), findHigher(x[1][0], x[1][1])))\
-                                    .filter(lambda x: (x[3]) != "noAlert")
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigher(x[1][0], x[1][1])))\
+                                    .filter(lambda x: (x[3]) != "noAlert")\
+                                    .map(lambda x: (x[0], x[3] + "msft")
 
             
             #Print stream
