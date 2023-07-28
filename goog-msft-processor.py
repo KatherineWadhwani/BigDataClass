@@ -5,6 +5,7 @@ topMsft = "empty"
 def findHigherGoog(tenDay, fortyDay):
                         global topGoog
                         oldTop = topGoog
+                        print(topGoog)
                         if (tenDay > fortyDay):
                                     topGoog = "tenDay"
                                     if (oldTop == topGoog):
