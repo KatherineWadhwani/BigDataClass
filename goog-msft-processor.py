@@ -17,8 +17,6 @@ import datetime
 
 if __name__ == "__main__":
 #Setup          
-            sc = SparkContext(appName="Proj7")
-            ssc = StreamingContext(sc, 1)
 
             topGoog = "empty"
             topMsft = "empty"
