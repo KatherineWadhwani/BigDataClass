@@ -23,7 +23,7 @@ if __name__ == "__main__":
             def generateMessageGoog(d1, d2):
                         trend1 = "null"
                         trend2 = "null"
-                        return d2;
+                        return d1;
                         if (d1[1][0] > d1[1][1]):
                                     trend1 = "tenDay"
                         if (d1[1][0] < d1[1][1]):
