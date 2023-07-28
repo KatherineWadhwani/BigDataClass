@@ -28,12 +28,10 @@ if __name__ == "__main__":
                         oldTop = topGoog
                         if (tenDay > fortyDay):
                                     topGoog = "tenDay"
-                                    printf("topGoog is: " + topGoog)
-                                    printf("oldTop is: " + oldTop)
                                     if (oldTop == topGoog):
                                                 return "1"
                                     if (oldTop != topGoog and oldTop == "empty"):
-                                                return "2"
+                                                return oldTop
                                     if (oldTop != topGoog and oldTop != "empty"):
                                                 return "buy "
                         else:
