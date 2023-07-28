@@ -27,6 +27,7 @@ if __name__ == "__main__":
                         global topGoog
                         oldTop = topGoog
                         if (tenDay > fortyDay):
+                                    global topGoog
                                     topGoog = "tenDay"
                                     if (oldTop == topGoog):
                                                 return "1"
