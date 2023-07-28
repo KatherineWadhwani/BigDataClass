@@ -113,7 +113,7 @@ if __name__ == "__main__":
             #goog40Day.pprint()
                                          
             #msft10Day.pprint()
-            #msft40Day.pprint()
+            msft40Day.pprint()
                                          
             signalGoog.pprint()
             signalMsft.pprint()
