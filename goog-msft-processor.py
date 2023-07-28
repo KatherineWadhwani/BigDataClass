@@ -78,7 +78,7 @@ if __name__ == "__main__":
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
                                     .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherGoog(x[1][0], x[1][1])))\
-                                    .reduce(lambda a, b: max(a[0], b[0]), message(a[2], b[2]))\
+                                    .reduce(lambda a, b: (max(a[0], b[0]), message(a[2], b[2])))\
                                     .filter(lambda x: (x[1]) != "noSignal")\
                                     .map(lambda x: (x[0], x[1] + "goog"))
 
