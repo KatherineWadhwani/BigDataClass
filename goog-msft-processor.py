@@ -25,8 +25,8 @@ if __name__ == "__main__":
 
             def findHigherGoog(tenDay, fortyDay):
                         global topGoog
-                        print("TenDay is " + tenDay)
-                        print("FourtyDay is " + fortyDay)
+                        print("TenDay is " + str(tenDay))
+                        print("FourtyDay is " + str(fortyDay))
                         print("topGoog pre change is" + topGoog)
                         print("OldTop is " + oldTop)
                         oldTop = topGoog
