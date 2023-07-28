@@ -20,48 +20,19 @@ if __name__ == "__main__":
             sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
-            topGoog = "empty"
-            topMsft = "empty"
 
-            def findHigherGoog(tenDay, fortyDay):
-                        global topGoog
-                        oldTop = topGoog
+            def findHigher(tenDay, fortyDay):
                         if (tenDay > fortyDay):
-                                    topGoog = "tenDay"
-                                    if (oldTop == topGoog):
-                                                return "1"
-                                    if (oldTop != topGoog and oldTop == "empty"):
-                                                return "2"
-                                    if (oldTop != topGoog and oldTop != "empty"):
-                                                return "buy "
+                                    return 1
                         else:
-                                    topGoog = "fortyDay"
-                                    if (oldTop == topGoog):
-                                                return "3"
-                                    if (oldTop != topGoog and oldTop == "empty"):
-                                                return "4"
-                                    if (oldTop != topGoog and oldTop != "empty"):
-                                                return "sell "
+                                    return 326851121
                                                 
-            def findHigherMsft(tenDay, fortyDay):
-                        global topMsft
-                        oldTop = topMsft   
-                        if (tenDay > fortyDay):
-                                    topMsft = "tenDay"
-                                    if (oldTop == topMsft):
-                                                return "5"
-                                    if (oldTop != topMsft and oldTop == "empty"):
-                                                return "6"
-                                    if (oldTop != topMsft and oldTop != "empty"):
-                                                return "buy "
-                        else:
-                                    topMsft = "fortyDay"
-                                    if (oldTop == topMsft):
-                                                return "7"
-                                    if (oldTop != topMsft and oldTop == "empty"):
-                                                return "8"
-                                    if (oldTop != topMsft and oldTop != "empty"):
-                                                return "sell "
+            def message(number, recent)
+                        if number % 326851121 != 0 and number > 326851121 and recent == 326851121:
+                                    return "sell goog"
+                        if number % 326851121 != 0 and number > 326851121 and recent == 1:
+                                    return "buy goog"
+                        return "noAlert"
             
             #Create stream on port 9999 on localhost  
             text_stream =  ssc.socketTextStream("localhost", 9999)
@@ -100,8 +71,9 @@ if __name__ == "__main__":
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
                                     .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherGoog(x[1][0], x[1][1])))
-                                    #.filter(lambda x: (x[3]) != "noAlert")\
-                                    #.map(lambda x: (x[0], x[3] + "goog"))
+                                    .reduce(lambda a, b: (max(a[0], b[0]), sum(a[3], b[3]), b[3])\
+                                    .map(lambda x: (x[0], message(x[1], x[2])))\
+                                    .filter(lambda x: (x[3]) != "noAlert")
 
             signalMsft = msft10Day.join(msft40Day)\
                                     .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherMsft(x[1][0], x[1][1])))
