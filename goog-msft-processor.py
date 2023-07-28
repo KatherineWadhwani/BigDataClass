@@ -20,12 +20,7 @@ if __name__ == "__main__":
             sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
-            topGoog = "empty"
-            topMsft = "empty"
-
             def findHigher(tenDay, fortyDay):
-                        global topGoog
-                        oldTop = topGoog
                         if (tenDay > fortyDay):
                                     return "tenDay"
 
@@ -77,26 +72,28 @@ if __name__ == "__main__":
 
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
-                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherGoog(x[1][0], x[1][1])))\
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigher(x[1][0], x[1][1])))\
                                     .reduce(lambda a, b: (max(a[0], b[0]), message(a[2], b[2])))\
                                     .filter(lambda x: (x[1]) != "noSignal")\
                                     .map(lambda x: (x[0], x[1] + "goog"))
 
             signalMsft = msft10Day.join(msft40Day)\
-                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherMsft(x[1][0], x[1][1])))
-                                    #.filter(lambda x: (x[3]) != "noAlert")\
-                                    #.map(lambda x: (x[0], x[3] + "msft"))
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigher(x[1][0], x[1][1])))
+                                    #.reduce(lambda a, b: (max(a[0], b[0]), message(a[2], b[2])))\
+                                    #.filter(lambda x: (x[1]) != "noSignal")\
+                                    #.map(lambda x: (x[0], x[1] + "msft"))
+
 
             
             #Print streams
             #goog10Day.pprint()
-            #goog40Day.pprint()
+            goog40Day.pprint()
                                          
             #msft10Day.pprint()
-            msft40Day.pprint()
+            #msft40Day.pprint()
                                          
             signalGoog.pprint()
-            signalMsft.pprint()
+            #signalMsft.pprint()
             
             #Run
             ssc.start()
