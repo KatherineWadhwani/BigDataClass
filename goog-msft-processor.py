@@ -20,6 +20,9 @@ if __name__ == "__main__":
             sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
+            #Create stream on port 9999 on localhost  
+            text_stream =  ssc.socketTextStream("localhost", 9999)
+
             topGoog = "empty"
             topMsft = "empty"
 
@@ -73,9 +76,6 @@ if __name__ == "__main__":
                                                 return "8"
                                     if (oldTop != topMsft and oldTop != "empty"):
                                                 return "sell "
-            
-            #Create stream on port 9999 on localhost  
-            text_stream =  ssc.socketTextStream("localhost", 9999)
             
             #Create new streams, splitting them into triples (e.g. preform transformation)
             googPrice = text_stream.map(lambda line : (line.split(" ")[0], float(line.split(" ")[1])))
