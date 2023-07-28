@@ -20,7 +20,7 @@ if __name__ == "__main__":
             sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
-            def signalGoog(d1, d2):
+            def generateMessageGoog(d1, d2):
                         trend1 = "null"
                         trend2 = "null"
                         if (d1[1][0] > d1[1][1]):
@@ -37,7 +37,7 @@ if __name__ == "__main__":
                                     return str(d2[0]) + " buy goog"
                         return "null"
 
-            def signalMsft(d1, d2):
+            def generateMessageMsft(d1, d2):
                         trend1 = "null"
                         trend2 = "null"
                         if (d1[1][0] > d1[1][1]):
@@ -91,13 +91,13 @@ if __name__ == "__main__":
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
                                     .window(2, 1)\
-                                    .reduce(lambda d1, d2: signalGoog(d1, d2))\
+                                    .reduce(lambda d1, d2: generateMessageGoog(d1, d2))\
                                     .filter(lambda x: "buy" in x or "sell" in x)
 
 
-            signalMsft = goog10Day.join(goog40Day)\
+            signalMsft = msft10Day.join(msft40Day)\
                                     .window(2, 1)\
-                                    .reduce(lambda d1, d2: signalGoog(d1, d2))\
+                                    .reduce(lambda d1, d2: generateMessageMsft(d1, d2))\
                                     .filter(lambda x: "buy" in x or "sell" in x)
 
 
