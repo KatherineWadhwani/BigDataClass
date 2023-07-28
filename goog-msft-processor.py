@@ -20,7 +20,7 @@ if __name__ == "__main__":
             sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
-            def signal(d1, d2):
+            def signalGoog(d1, d2):
                         trend1 = "null"
                         trend2 = "null"
                         if (d1[1][0] > d1[1][1]):
@@ -36,6 +36,24 @@ if __name__ == "__main__":
                         if (trend1 == "fortyDay" and trend2 == "tenDay"):
                                     return str(d2[0]) + " buy goog"
                         return "null"
+
+            def signalMsft(d1, d2):
+                        trend1 = "null"
+                        trend2 = "null"
+                        if (d1[1][0] > d1[1][1]):
+                                    trend1 = "tenDay"
+                        if (d1[1][0] < d1[1][1]):
+                                    trend1 = "fortyDay"
+                        if (d2[1][0] > d2[1][1]):
+                                    trend2 = "tenDay"
+                        if (d2[1][0] < d2[1][1]):
+                                    trend2 = "fortyDay"
+                        if (trend1 == "tenDay" and trend2 == "fortyDay"):
+                                    return str(d2[0]) + " sell msft"
+                        if (trend1 == "fortyDay" and trend2 == "tenDay"):
+                                    return str(d2[0]) + " buy msft"
+                        return "null"
+
 
            
             #Create stream on port 9999 on localhost  
@@ -70,22 +88,17 @@ if __name__ == "__main__":
                                       .filter(lambda x: x[2] == 40)\
                                       .map(lambda line: (line[0], line[1]/40, line[2]))
 
-            thoughts = goog10Day.join(goog40Day)\
-                                    .map(lambda x: (x[0], x[1][0],  x[1][1]))
-
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
                                     .window(2, 1)\
-                                    .reduce(lambda d1, d2: signal(d1, d2))\
+                                    .reduce(lambda d1, d2: signalGoog(d1, d2))\
                                     .filter(lambda x: "buy" in x or "sell" in x)
 
 
             signalMsft = msft10Day.join(msft40Day)\
                                     .window(2, 1)\
-                                    .reduce(lambda d1, d2: signal(d1, d2))\
+                                    .reduce(lambda d1, d2: signalMsft(d1, d2))\
                                     .filter(lambda x: "buy" in x or "sell" in x)
-
-            googRecs = goog10Day.join(goog40Day).window(2, 1).reduce(lambda d1, d2: signal(d1, d2))
 
             
             #Print streams
@@ -95,7 +108,6 @@ if __name__ == "__main__":
             #msft10Day.pprint()
             #msft40Day.pprint()
 
-            thoughts.pprint()
             signalGoog.pprint()
             signalMsft.pprint()
             
