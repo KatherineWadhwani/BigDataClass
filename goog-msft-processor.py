@@ -9,19 +9,19 @@ def findHigherGoog(tenDay, fortyDay):
                         if (tenDay > fortyDay):
                                     topGoog = "tenDay"
                                     if (oldTop == topGoog):
-                                                print("1")
+                                                #print("1")
                                     if (oldTop != topGoog and oldTop == "empty"):
-                                                print("2")
+                                                #print("2")
                                     if (oldTop != topGoog and oldTop != "empty"):
-                                                print("buy")
+                                                #print("buy")
                         else:
                                     topGoog = "fortyDay"
                                     if (oldTop == topGoog):
-                                                print("3")
+                                                #print("3")
                                     if (oldTop != topGoog and oldTop == "empty"):
-                                                print("4")
+                                                #print("4")
                                     if (oldTop != topGoog and oldTop != "empty"):
-                                                print("buy")
+                                                #print("buy")
                                     
 
 
