@@ -20,11 +20,11 @@ if __name__ == "__main__":
             sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
-class Streams:
             topGoog = "empty"
             topMsft = "empty"
 
             def findHigherGoog(tenDay, fortyDay):
+                        global topGoog
                         oldTop = topGoog
                         if (tenDay > fortyDay):
                                     topGoog = "tenDay"
@@ -44,6 +44,7 @@ class Streams:
                                                 return "sell "
                                                 
             def findHigherMsft(tenDay, fortyDay):
+                        global topMsft
                         oldTop = topMsft   
                         if (tenDay > fortyDay):
                                     topMsft = "tenDay"
@@ -108,18 +109,16 @@ class Streams:
                                     #.map(lambda x: (x[0], x[3] + "msft"))
 
             
-
-            
-#Print streams
-#goog10Day.pprint()
-#goog40Day.pprint()
+            #Print streams
+            #goog10Day.pprint()
+            #goog40Day.pprint()
                                          
-#msft10Day.pprint()
-#msft40Day.pprint()
+            #msft10Day.pprint()
+            msft40Day.pprint()
                                          
-Streams.signalGoog.pprint()
-Streams.signalMsft.pprint()
+            signalGoog.pprint()
+            signalMsft.pprint()
             
-#Run
-ssc.start()
-ssc.awaitTermination()
+            #Run
+            ssc.start()
+            ssc.awaitTermination()
