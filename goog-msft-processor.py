@@ -32,9 +32,9 @@ if __name__ == "__main__":
                         if (d2[1][0] < d2[1][1]):
                                     trend2 = "fortyDay"
                         if (trend1 == "tenDay" and trend2 == "fortyDay"):
-                                    return str(d2[0]) + "sell goog"
+                                    return str(d2[0]) + " sell goog"
                         if (trend1 == "fortyDay" and trend2 == "tenDay"):
-                                    return str(d2[0]) + "buy goog"
+                                    return str(d2[0]) + " buy goog"
                         return "null"
 
            
@@ -75,12 +75,14 @@ if __name__ == "__main__":
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
                                     .window(2, 1)\
-                                    .reduce(lambda d1, d2: signal(d1, d2))
+                                    .reduce(lambda d1, d2: signal(d1, d2))\
+                                    .filter(lambda x: "buy" in x or "sell" in x)
 
 
             signalMsft = msft10Day.join(msft40Day)\
                                     .window(2, 1)\
-                                    .reduce(lambda d1, d2: signal(d1, d2))
+                                    .reduce(lambda d1, d2: signal(d1, d2))\
+                                    .filter(lambda x: "buy" in x or "sell" in x)
 
             googRecs = goog10Day.join(goog40Day).window(2, 1).reduce(lambda d1, d2: signal(d1, d2))
 
