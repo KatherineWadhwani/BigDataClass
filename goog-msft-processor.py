@@ -26,7 +26,7 @@ if __name__ == "__main__":
             ssc = StreamingContext(sc, 1)
 
             states = {"E":"empty", "T":"tenDay ", "F":"fortyDay "}
-            broadcast_states = pyspark.sparkContext.broadcast(states)
+            broadcast_states = pyspark.SparkContext.broadcast(states)
 
             def findHigherGoog(tenDay, fortyDay):
                         oldTop = broadcastStates.value
