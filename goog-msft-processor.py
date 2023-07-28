@@ -24,7 +24,8 @@ if __name__ == "__main__":
                         trend1 = "null"
                         trend2 = "null"
                         total = str(d1) + str(d2)
-                        return len(total)
+                        if (len(total) < 90):
+                                    return "null"
                         if (d1[1][0] > d1[1][1]):
                                     trend1 = "tenDay"
                         if (d1[1][0] < d1[1][1]):
@@ -43,7 +44,8 @@ if __name__ == "__main__":
                         trend1 = "null"
                         trend2 = "null"
                         total = str(d1) + str(d2)
-                        return len(total)
+                        if (len(total) < 90):
+                                    return "null"
                         if (d1[1][0] > d1[1][1]):
                                     trend1 = "tenDay"
                         if (d1[1][0] < d1[1][1]):
