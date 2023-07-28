@@ -30,17 +30,17 @@ if __name__ == "__main__":
                                                 top = "tenDay"
                                                 if (oldTop == top):
                                                             return "noAlert"
-                                                if (oldTop != top and oldTop == empty):
+                                                if (oldTop != top and oldTop == "empty"):
                                                             return "noAlert"
-                                                if (oldTop != top and oldTop != empty):
+                                                if (oldTop != top and oldTop != "empty"):
                                                             return "buy "
                                     else:
                                                 top = "fortyDay"
                                                 if (oldTop == top):
                                                             return "noAlert"
-                                                if (oldTop != top and oldTop == empty):
+                                                if (oldTop != top and oldTop == "empty"):
                                                             return "noAlert"
-                                                if (oldTop != top and oldTop != empty):
+                                                if (oldTop != top and oldTop != "empty"):
                                                             return "sell "
             
             #Create stream on port 9999 on localhost  
