@@ -22,7 +22,7 @@ import datetime
 
 if __name__ == "__main__":
 #Setup          
-            s = SparkSession.builder.appName('Broadcast variables PySpark').getOrCreate()		
+            sc = SparkSession.builder.appName('Broadcast variables PySpark').getOrCreate()		
             ssc = StreamingContext(sc, 1)
 
             states = {"E":"empty", "T":"tenDay ", "F":"fortyDay "}
