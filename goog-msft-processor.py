@@ -101,7 +101,6 @@ class Streams:
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
                                     .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherGoog(x[1][0], x[1][1])))
-                                    .reduce(lambda x: (x[0], x[1][0],  x[1][1], findHigherGoog(x[1][0], x[1][1])))
                                     #.filter(lambda x: (x[3]) != "noAlert")\
                                     #.map(lambda x: (x[0], x[3] + "goog"))
 
