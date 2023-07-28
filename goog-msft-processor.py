@@ -23,13 +23,13 @@ if __name__ == "__main__":
             def signal(d1, d2):
                         trend1 = "null"
                         trend2 = "null"
-                        if (d1[1] > d1[2]):
+                        if (d1[1][0] > d1[1][1]):
                                     trend1 = "tenDay"
-                        if (d1[1] < d1[2]):
+                        if (d1[1][0] < d1[1][1]):
                                     trend1 = "fortyDay"
-                        if (d2[1] > d2[2]):
+                        if (d2[1][0] > d2[1][1]):
                                     trend2 = "tenDay"
-                        if (d2[1] < d2[2]):
+                        if (d2[1[0]] < d2[1][1]):
                                     trend2 = "fortyDay"
                         if (trend1 == "tenDay" and trend2 == "fortyDay"):
                                     return str(d2[0]) + "sell goog"
