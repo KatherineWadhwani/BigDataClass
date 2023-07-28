@@ -29,17 +29,17 @@ if __name__ == "__main__":
                         if (tenDay > fortyDay):
                                     topGoog = "tenDay"
                                     if (oldTop == topGoog):
-                                                return "noAlert"
+                                                return "1"
                                     if (oldTop != topGoog and oldTop == "empty"):
-                                                return "noAlert"
+                                                return "2"
                                     if (oldTop != topGoog and oldTop != "empty"):
                                                 return "buy "
                         else:
                                     topGoog = "fortyDay"
                                     if (oldTop == topGoog):
-                                                return "noAlert"
+                                                return "3"
                                     if (oldTop != topGoog and oldTop == "empty"):
-                                                return "noAlert"
+                                                return "4"
                                     if (oldTop != topGoog and oldTop != "empty"):
                                                 return "sell "
             def findHigherMsft(tenDay, fortyDay):
@@ -48,17 +48,17 @@ if __name__ == "__main__":
                         if (tenDay > fortyDay):
                                     topMsft = "tenDay"
                                     if (oldTop == topMsft):
-                                                return "noAlert"
+                                                return "5"
                                     if (oldTop != topMsft and oldTop == "empty"):
-                                                return "noAlert"
+                                                return "6"
                                     if (oldTop != topMsft and oldTop != "empty"):
                                                 return "buy "
                         else:
                                     topMsft = "fortyDay"
                                     if (oldTop == topMsft):
-                                                return "noAlert"
+                                                return "7"
                                     if (oldTop != topMsft and oldTop == "empty"):
-                                                return "noAlert"
+                                                return "8"
                                     if (oldTop != topMsft and oldTop != "empty"):
                                                 return "sell "
             
