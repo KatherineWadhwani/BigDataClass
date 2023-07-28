@@ -29,7 +29,7 @@ if __name__ == "__main__":
                                     trend1 = "fortyDay"
                         if (d2[1][0] > d2[1][1]):
                                     trend2 = "tenDay"
-                        if (d2[1[0]] < d2[1][1]):
+                        if (d2[1][0] < d2[1][1]):
                                     trend2 = "fortyDay"
                         if (trend1 == "tenDay" and trend2 == "fortyDay"):
                                     return str(d2[0]) + "sell goog"
