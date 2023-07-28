@@ -23,8 +23,6 @@ if __name__ == "__main__":
             def generateMessageGoog(d1, d2):
                         trend1 = "null"
                         trend2 = "null"
-                        if (d1[2] + d2[2] != 2):
-                                    return "null"
                         if (d1[1][0] > d1[1][1]):
                                     trend1 = "tenDay"
                         if (d1[1][0] < d1[1][1]):
@@ -80,28 +78,29 @@ if __name__ == "__main__":
                                       .map(lambda line: (line[0], line[1]/40, line[2]))
 
             msft10Day = msftPrice.map(lambda line: (line[0], line[1], 1))\
-                                      .window(3, 1)\
+                                      .window(10, 1)\
                                       .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
-                                      .filter(lambda x: x[2] == 3)\
-                                      .map(lambda line: (line[0], line[1]/3, line[2]))
+                                      .filter(lambda x: x[2] == 10)\
+                                      .map(lambda line: (line[0], line[1]/10, line[2]))
             msft40Day = msftPrice.map(lambda line: (line[0], line[1], 1))\
-                                      .window(4, 1)\
+                                      .window(40, 1)\
                                       .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
-                                      .filter(lambda x: x[2] == 4)\
-                                      .map(lambda line: (line[0], line[1]/4, line[2]))
+                                      .filter(lambda x: x[2] == 40)\
+                                      .map(lambda line: (line[0], line[1]/40, line[2]))
 
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
                                     .map(lambda line: (line[0], line[1], 1))\
                                     .window(2, 1)\
                                     .reduce(lambda d1, d2: generateMessageGoog(d1, d2))\
-                                    #.filter(lambda x: "buy" in x or "sell" in x)
+                                    .filter(lambda x: "buy" in x or "sell" in x)
 
 
             signalMsft = msft10Day.join(msft40Day)\
+                                    .map(lambda line: (line[0], line[1], 1))\
                                     .window(2, 1)\
-                                    #.reduce(lambda d1, d2: generateMessageMsft(d1, d2))\
-                                    #.filter(lambda x: "buy" in x or "sell" in x)
+                                    .reduce(lambda d1, d2: generateMessageMsft(d1, d2))\
+                                    .filter(lambda x: "buy" in x or "sell" in x)
 
 
             
