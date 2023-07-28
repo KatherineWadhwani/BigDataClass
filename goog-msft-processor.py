@@ -24,24 +24,23 @@ if __name__ == "__main__":
 
             def findHigher(tenDay, fortyDay):
                         oldTop = top
-                        if(top == "empty"):
-                                    
-                        if (tenDay > fortyDay):
-                                    top = "tenDay"
-                                    if (oldTop == top):
-                                                return "noAlert"
-                                    if (oldTop != top && oldTop == empty):
-                                                return "noAlert"
-                                    if (oldTop != top && oldTop != empty):
-                                                return "golden cross"
-                        else:
-                                    top = "fortyDay"
-                                    if (oldTop == top):
-                                                return "noAlert"
-                                    if (oldTop != top && oldTop == empty):
-                                                return "noAlert"
-                                    if (oldTop != top && oldTop != empty):
-                                                return "death cross"
+                        if(top == "empty"):           
+                                    if (tenDay > fortyDay):
+                                                top = "tenDay"
+                                                if (oldTop == top):
+                                                            return "noAlert"
+                                                if (oldTop != top && oldTop == empty):
+                                                            return "noAlert"
+                                                if (oldTop != top && oldTop != empty):
+                                                            return "golden cross"
+                                    else:
+                                                top = "fortyDay"
+                                                if (oldTop == top):
+                                                            return "noAlert"
+                                                if (oldTop != top && oldTop == empty):
+                                                            return "noAlert"
+                                                if (oldTop != top && oldTop != empty):
+                                                            return "death cross"
             
             #Create stream on port 9999 on localhost  
             text_stream =  ssc.socketTextStream("localhost", 9999)
