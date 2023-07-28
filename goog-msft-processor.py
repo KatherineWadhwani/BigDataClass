@@ -100,6 +100,7 @@ if __name__ == "__main__":
                                     .reduce(lambda d1, d2: signalMsft(d1, d2))\
                                     .filter(lambda x: "buy" in x or "sell" in x)
 
+
             
             #Print streams
             #goog10Day.pprint()
