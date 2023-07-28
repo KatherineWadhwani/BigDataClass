@@ -99,7 +99,7 @@ if __name__ == "__main__":
             googol = goog10Day.join(goog40Day)\
                                     .map(lambda x: (x[0], x[1][0],  x[1][1]))
 
-            meyecrosoft = goog10Day.join(mfsft40Day)\
+            meyecrosoft = goog10Day.join(msft40Day)\
                                     .map(lambda x: (x[0], x[1][0],  x[1][1]))
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
