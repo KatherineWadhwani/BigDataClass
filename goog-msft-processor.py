@@ -23,45 +23,23 @@ if __name__ == "__main__":
             topGoog = "empty"
             topMsft = "empty"
 
-            def findHigherGoog(tenDay, fortyDay):
+            def findHigher(tenDay, fortyDay):
                         global topGoog
                         oldTop = topGoog
                         if (tenDay > fortyDay):
-                                    topGoog = "tenDay"
-                                    if (oldTop == topGoog):
-                                                return "1"
-                                    if (oldTop != topGoog and oldTop == "empty"):
-                                                return "2"
-                                    if (oldTop != topGoog and oldTop != "empty"):
-                                                return "buy "
+                                    return "tenDay"
+
                         else:
-                                    topGoog = "fortyDay"
-                                    if (oldTop == topGoog):
-                                                return "3"
-                                    if (oldTop != topGoog and oldTop == "empty"):
-                                                return "4"
-                                    if (oldTop != topGoog and oldTop != "empty"):
-                                                return "sell "
-                                                
-            def findHigherMsft(tenDay, fortyDay):
-                        global topMsft
-                        oldTop = topMsft   
-                        if (tenDay > fortyDay):
-                                    topMsft = "tenDay"
-                                    if (oldTop == topMsft):
-                                                return "5"
-                                    if (oldTop != topMsft and oldTop == "empty"):
-                                                return "6"
-                                    if (oldTop != topMsft and oldTop != "empty"):
-                                                return "buy "
-                        else:
-                                    topMsft = "fortyDay"
-                                    if (oldTop == topMsft):
-                                                return "7"
-                                    if (oldTop != topMsft and oldTop == "empty"):
-                                                return "8"
-                                    if (oldTop != topMsft and oldTop != "empty"):
-                                                return "sell "
+                                    return "fortyDay"
+                                   
+            def message (one, two):
+                        if (one == two):
+                                    return "noSignal"
+                        if(two == "fortyDay")
+                                    return "sell "
+                        if(two == "tenDay")
+                                    return "buy "
+                                    
             
             #Create stream on port 9999 on localhost  
             text_stream =  ssc.socketTextStream("localhost", 9999)
@@ -99,9 +77,10 @@ if __name__ == "__main__":
 
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
-                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherGoog(x[1][0], x[1][1])))
-                                    #.filter(lambda x: (x[3]) != "noAlert")\
-                                    #.map(lambda x: (x[0], x[3] + "goog"))
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherGoog(x[1][0], x[1][1])))\
+                                    .reduce(lambda a, b: a[0], message(a[2], b[2]))\
+                                    .filter(lambda x: (x[1]) != "noSignal")\
+                                    .map(lambda x: (x[0], x[1] + "goog"))
 
             signalMsft = msft10Day.join(msft40Day)\
                                     .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherMsft(x[1][0], x[1][1])))
