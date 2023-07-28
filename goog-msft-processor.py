@@ -20,28 +20,28 @@ if __name__ == "__main__":
             sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
-            topGoog = "empty"
-            topMsft = "empty"
+            states = {"E":"empty", "T":"tenDay ", "F":"fortyDay "}
+            broadcastStates = spark.sparkContext.broadcast(states)
+            broadcastStates.value[E]
 
             def findHigherGoog(tenDay, fortyDay):
-                        global topGoog
-                        oldTop = topGoog
+                        oldTop = broadcastStates.value
                         if (tenDay > fortyDay):
-                                    topGoog = "tenDay"
+                                    broadcastStates.value[T]
                                     if (oldTop == topGoog):
-                                                return "1"
+                                                return "none"
                                     if (oldTop != topGoog and oldTop == "empty"):
-                                                return "2"
+                                                return "none"
                                     if (oldTop != topGoog and oldTop != "empty"):
-                                                return "buy "
+                                                return "buy"
                         else:
-                                    topGoog = "fortyDay"
+                                    broadcastStates.value[F]
                                     if (oldTop == topGoog):
-                                                return "3"
+                                                return "none"
                                     if (oldTop != topGoog and oldTop == "empty"):
-                                                return "4"
+                                                return "none"
                                     if (oldTop != topGoog and oldTop != "empty"):
-                                                return "sell "
+                                                return "sell"
                                                 
             def findHigherMsft(tenDay, fortyDay):
                         global topMsft
