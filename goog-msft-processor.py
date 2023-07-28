@@ -24,11 +24,11 @@ if __name__ == "__main__":
             topMsft = "empty"
 
             def findHigherGoog(tenDay, fortyDay):
+                        global topGoog
                         print("TenDay is " + tenDay)
                         print("FourtyDay is " + fortyDay)
                         print("topGoog pre change is" + topGoog)
                         print("OldTop is " + oldTop)
-                        global topGoog
                         oldTop = topGoog
                         if (tenDay > fortyDay):
                                     topGoog = "tenDay"
