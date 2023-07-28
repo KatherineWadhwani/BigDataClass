@@ -63,7 +63,7 @@ if __name__ == "__main__":
             
             
 
-
-            findHigherGoog(2, 4)
-            findHigherGoog(5, 1)    
+            findHigherGoog(85.3259169783518, 84.29542673342017)
+            findHigherGoog(84.65954446438853, 84.26737933983756)
+            findHigherGoog(83.7755565196896, 84.23057969404569)    
           
