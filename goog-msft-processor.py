@@ -23,6 +23,11 @@ if __name__ == "__main__":
             def generateMessageGoog(d1, d2):
                         trend1 = "null"
                         trend2 = "null"
+                        val1 = d1
+                        val2 = d2
+                        if (d1[0] > d2[0]):
+                                    d1 = val2
+                                    d2 = val1
                         total = str(d1) + str(d2)
                         if (len(total) < 90):
                                     return "null"
@@ -43,6 +48,11 @@ if __name__ == "__main__":
             def generateMessageMsft(d1, d2):
                         trend1 = "null"
                         trend2 = "null"
+                        val1 = d1
+                        val2 = d2
+                        if (d1[0] > d2[0]):
+                                    d1 = val2
+                                    d2 = val1
                         total = str(d1) + str(d2)
                         if (len(total) < 90):
                                     return "null"
