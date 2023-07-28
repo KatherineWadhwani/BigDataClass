@@ -25,7 +25,6 @@ class Streams:
             topMsft = "empty"
 
             def findHigherGoog(tenDay, fortyDay):
-                        global topGoog
                         oldTop = topGoog
                         if (tenDay > fortyDay):
                                     topGoog = "tenDay"
@@ -45,7 +44,6 @@ class Streams:
                                                 return "sell "
                                                 
             def findHigherMsft(tenDay, fortyDay):
-                        global topMsft
                         oldTop = topMsft   
                         if (tenDay > fortyDay):
                                     topMsft = "tenDay"
