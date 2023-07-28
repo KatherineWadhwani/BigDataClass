@@ -20,7 +20,7 @@ if __name__ == "__main__":
             sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
-            global top = "empty"
+            top = "empty"
 
             def findHigher(tenDay, fortyDay):
                         oldTop = top
