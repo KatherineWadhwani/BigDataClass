@@ -75,7 +75,7 @@ if __name__ == "__main__":
                                     .map(lambda x: (x[0], x[1][0],  x[1][1], findHigher(x[1][0], x[1][1])))\
                                     .reduce(lambda a, b: (max(a[0], b[0]), message(a[2], b[2])))\
                                     .filter(lambda x: (x[1]) != "noSignal")\
-                                    .map(lambda x: (x[0], x[1] + "goog"))
+                                    .map(lambda x: (x[0], x[1]))
 
             signalMsft = msft10Day.join(msft40Day)\
                                     .map(lambda x: (x[0], x[1][0],  x[1][1], findHigher(x[1][0], x[1][1])))
