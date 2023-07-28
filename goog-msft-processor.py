@@ -129,7 +129,7 @@ if __name__ == "__main__":
             #msft10Day.pprint()
             #msft40Day.pprint()
                                          
-            googRecs.pprint()
+            signalGoog.pprint()
             #signalMsft.pprint()
             
             #Run
