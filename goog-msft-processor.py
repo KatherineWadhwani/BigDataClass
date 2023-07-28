@@ -94,6 +94,13 @@ if __name__ == "__main__":
                                       .filter(lambda x: x[2] == 4)\
                                       .map(lambda line: (line[0], line[1]/4, line[2]))
 
+
+
+            googol = goog10Day.join(goog40Day)\
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1]))
+
+            meyecrosoft = goog10Day.join(mfsft40Day)\
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1]))
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
                                     .window(2, 1)\
@@ -109,11 +116,14 @@ if __name__ == "__main__":
 
             
             #Print streams
-            goog10Day.pprint()
-            goog40Day.pprint()
+            #goog10Day.pprint()
+            #goog40Day.pprint()
                                          
-            msft10Day.pprint()
-            msft40Day.pprint()
+            #msft10Day.pprint()
+            #msft40Day.pprint()
+
+            googol.pprint()
+            meyecrosoft.pprint()
 
             signalGoog.pprint()
             signalMsft.pprint()
