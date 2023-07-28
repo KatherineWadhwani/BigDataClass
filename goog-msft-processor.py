@@ -42,6 +42,17 @@ if __name__ == "__main__":
                                                 return "4"
                                     if (oldTop != topGoog and oldTop != "empty"):
                                                 return "sell "
+
+            def signal(d1, d2):
+                        if (d1[1][0] > d1[1][1] and d2[1][0] > d2[1][1]):
+                                    return "nope"
+                        if (d1[1][0] < d1[1][1] and d2[1][0] < d2[1][1]):
+                                    return "nope"
+                        if (d1[1][0] > d1[1][1] and d2[1][0] < d2[1][1]):
+                                    return "sell"
+                        if (d1[1][0] < d1[1][1] and d2[1][0] > d2[1][1]):
+                                    return "buy"
+            
                                                 
             def findHigherMsft(tenDay, fortyDay):
                         global topMsft
@@ -103,6 +114,8 @@ if __name__ == "__main__":
                                     #.filter(lambda x: (x[3]) != "noAlert")\
                                     #.map(lambda x: (x[0], x[3] + "goog"))
 
+            googRecs = goog10Day.join(goog40Day).window(2, 1).reduce(lambda d1, d2: signal(d1, d2))
+
             signalMsft = msft10Day.join(msft40Day)\
                                     .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherMsft(x[1][0], x[1][1])))
                                     #.filter(lambda x: (x[3]) != "noAlert")\
@@ -114,10 +127,10 @@ if __name__ == "__main__":
             #goog40Day.pprint()
                                          
             #msft10Day.pprint()
-            msft40Day.pprint()
+            #msft40Day.pprint()
                                          
-            signalGoog.pprint()
-            signalMsft.pprint()
+            googRecs.pprint()
+            #signalMsft.pprint()
             
             #Run
             ssc.start()
