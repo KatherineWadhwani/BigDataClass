@@ -26,7 +26,7 @@ if __name__ == "__main__":
             def findHigherGoog(tenDay, fortyDay):
                         global topGoog
                         oldTop = topGoog
-                        if(top == "empty"):           
+                        if(topGoog == "empty"):           
                                     if (tenDay > fortyDay):
                                                 topGoog = "tenDay"
                                                 if (oldTop == topGoog):
@@ -46,7 +46,7 @@ if __name__ == "__main__":
             def findHigherMsft(tenDay, fortyDay):
                         global topMsft
                         oldTop = topMsft
-                        if(top == "empty"):           
+                        if(topMsft == "empty"):           
                                     if (tenDay > fortyDay):
                                                 topMsft = "tenDay"
                                                 if (oldTop == topMsft):
