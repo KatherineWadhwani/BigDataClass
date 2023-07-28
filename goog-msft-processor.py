@@ -21,16 +21,16 @@ if __name__ == "__main__":
             ssc = StreamingContext(sc, 1)
 
             def signal(d1, d2):
-                        trend 1 = "null"
-                        trend 2 = "null"
+                        trend1 = "null"
+                        trend2 = "null"
                         if (d1[1] > d1[2]):
-                                    trend 1 = "tenDay"
+                                    trend1 = "tenDay"
                         if (d1[1] < d1[2]):
-                                    trend 1 = "fortyDay"
+                                    trend1 = "fortyDay"
                         if (d2[1] > d2[2]):
-                                    trend 2 = "tenDay"
+                                    trend2 = "tenDay"
                         if (d2[1] < d2[2]):
-                                    trend 2 = "fortyDay"
+                                    trend2 = "fortyDay"
                         if (trend 1 == "tenDay" && trend 2 == "fortyDay"):
                                     return str(d2[0]) + "sell goog"
                         if (trend 1 == "fortyDay" && trend 2 == "tenDay"):
