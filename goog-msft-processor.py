@@ -31,9 +31,9 @@ if __name__ == "__main__":
                                     trend2 = "tenDay"
                         if (d2[1] < d2[2]):
                                     trend2 = "fortyDay"
-                        if (trend 1 == "tenDay" and trend 2 == "fortyDay"):
+                        if (trend1 == "tenDay" and trend2 == "fortyDay"):
                                     return str(d2[0]) + "sell goog"
-                        if (trend 1 == "fortyDay" and trend 2 == "tenDay"):
+                        if (trend1 == "fortyDay" and trend2 == "tenDay"):
                                     return str(d2[0]) + "buy goog"
                         return "null"
 
