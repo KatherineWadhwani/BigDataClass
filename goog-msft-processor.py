@@ -5,7 +5,6 @@ import math
 import string
 import numpy as np
 import re
-import pyspark
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 from pyspark import SparkFiles
@@ -16,36 +15,33 @@ from nltk.corpus.reader.util import StreamBackedCorpusView
 import sys
 import datetime
 
-
-
-
-
 if __name__ == "__main__":
 #Setup          
-            sc = SparkSession.builder.appName('Broadcast variables PySpark').getOrCreate()		
+            sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
-            states = {"E":"empty", "T":"tenDay ", "F":"fortyDay "}
-            broadcast_states = pyspark.SparkContext.broadcast(states)
+            topGoog = "empty"
+            topMsft = "empty"
 
             def findHigherGoog(tenDay, fortyDay):
-                        oldTop = broadcastStates.value
+                        global topGoog
+                        oldTop = topGoog
                         if (tenDay > fortyDay):
-                                    broadcastStates.value[T]
+                                    topGoog = "tenDay"
                                     if (oldTop == topGoog):
-                                                return "none"
+                                                return "1"
                                     if (oldTop != topGoog and oldTop == "empty"):
-                                                return "none"
+                                                return "2"
                                     if (oldTop != topGoog and oldTop != "empty"):
-                                                return "buy"
+                                                return "buy "
                         else:
-                                    broadcastStates.value[F]
+                                    topGoog = "fortyDay"
                                     if (oldTop == topGoog):
-                                                return "none"
+                                                return "3"
                                     if (oldTop != topGoog and oldTop == "empty"):
-                                                return "none"
+                                                return "4"
                                     if (oldTop != topGoog and oldTop != "empty"):
-                                                return "sell"
+                                                return "sell "
                                                 
             def findHigherMsft(tenDay, fortyDay):
                         global topMsft
@@ -77,16 +73,16 @@ if __name__ == "__main__":
 
             #Create 10-day and 40-day averages
             goog10Day = googPrice.map(lambda line: (line[0], line[1], 1))\
-                                      .window(2, 1)\
+                                      .window(10, 1)\
                                       .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
-                                      .filter(lambda x: x[2] == 2)\
-                                      .map(lambda line: (line[0], line[1]/2, line[2]))
+                                      .filter(lambda x: x[2] == 10)\
+                                      .map(lambda line: (line[0], line[1]/10, line[2]))
 
             goog40Day = googPrice.map(lambda line: (line[0], line[1], 1))\
-                                      .window(3, 1)\
+                                      .window(40, 1)\
                                       .reduce(lambda a, b: (max(a[0], b[0]), a[1] + b[1], a[2] + b[2]))\
-                                      .filter(lambda x: x[2] == 3)\
-                                      .map(lambda line: (line[0], line[1]/3, line[2]))
+                                      .filter(lambda x: x[2] == 40)\
+                                      .map(lambda line: (line[0], line[1]/40, line[2]))
 
             msft10Day = msftPrice.map(lambda line: (line[0], line[1], 1))\
                                       .window(10, 1)\
@@ -103,15 +99,14 @@ if __name__ == "__main__":
 
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
-                                    .map(lambda x: (x[0], x[1][0],  x[1][1]))\
-                                    .updateStateByKey(findHigherGoog(x[1][0], x[1][1]))\
-                                    .filter(lambda x: (x[3]) != "noAlert")\
-                                    .map(lambda x: (x[0], x[3] + "goog"))
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherGoog(x[1][0], x[1][1])))
+                                    #.filter(lambda x: (x[3]) != "noAlert")\
+                                    #.map(lambda x: (x[0], x[3] + "goog"))
 
             signalMsft = msft10Day.join(msft40Day)\
-                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherMsft(x[1][0], x[1][1])))\
-                                    .filter(lambda x: (x[3]) != "noAlert")\
-                                    .map(lambda x: (x[0], x[3] + "msft"))
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherMsft(x[1][0], x[1][1])))
+                                    #.filter(lambda x: (x[3]) != "noAlert")\
+                                    #.map(lambda x: (x[0], x[3] + "msft"))
 
             
             #Print streams
@@ -122,7 +117,7 @@ if __name__ == "__main__":
             msft40Day.pprint()
                                          
             signalGoog.pprint()
-            #signalMsft.pprint()
+            signalMsft.pprint()
             
             #Run
             ssc.start()
