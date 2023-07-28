@@ -20,27 +20,48 @@ if __name__ == "__main__":
             sc = SparkContext(appName="Proj7")
             ssc = StreamingContext(sc, 1)
 
-            top = "empty"
+            topGoog = "empty"
+            topMsft = "empty"
 
-            def findHigher(tenDay, fortyDay):
-                        global top
-                        oldTop = top
+            def findHigherGoog(tenDay, fortyDay):
+                        global topGoog
+                        oldTop = topGoog
                         if(top == "empty"):           
                                     if (tenDay > fortyDay):
-                                                top = "tenDay"
-                                                if (oldTop == top):
+                                                topGoog = "tenDay"
+                                                if (oldTop == topGoog):
                                                             return "noAlert"
-                                                if (oldTop != top and oldTop == "empty"):
+                                                if (oldTop != topGoog and oldTop == "empty"):
                                                             return "noAlert"
-                                                if (oldTop != top and oldTop != "empty"):
+                                                if (oldTop != topGoog and oldTop != "empty"):
                                                             return "buy "
                                     else:
-                                                top = "fortyDay"
-                                                if (oldTop == top):
+                                                topGoog = "fortyDay"
+                                                if (oldTop == topGoog):
                                                             return "noAlert"
-                                                if (oldTop != top and oldTop == "empty"):
+                                                if (oldTop != topGoog and oldTop == "empty"):
                                                             return "noAlert"
-                                                if (oldTop != top and oldTop != "empty"):
+                                                if (oldTop != topGoog and oldTop != "empty"):
+                                                            return "sell "
+            def findHigherMsft(tenDay, fortyDay):
+                        global topMsft
+                        oldTop = topMsft
+                        if(top == "empty"):           
+                                    if (tenDay > fortyDay):
+                                                topMsft = "tenDay"
+                                                if (oldTop == topMsft):
+                                                            return "noAlert"
+                                                if (oldTop != topMsft and oldTop == "empty"):
+                                                            return "noAlert"
+                                                if (oldTop != topMsft and oldTop != "empty"):
+                                                            return "buy "
+                                    else:
+                                                topMsft = "fortyDay"
+                                                if (oldTop == topMsft):
+                                                            return "noAlert"
+                                                if (oldTop != topMsft and oldTop == "empty"):
+                                                            return "noAlert"
+                                                if (oldTop != topMsft and oldTop != "empty"):
                                                             return "sell "
             
             #Create stream on port 9999 on localhost  
@@ -79,12 +100,12 @@ if __name__ == "__main__":
 
             #Join Streams to Generate Signals
             signalGoog = goog10Day.join(goog40Day)\
-                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigher(x[1][0], x[1][1])))
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherGoog(x[1][0], x[1][1])))
                                     #.filter(lambda x: (x[3]) != "noAlert")\
                                     #.map(lambda x: (x[0], x[3] + "goog"))
 
             signalMsft = msft10Day.join(msft40Day)\
-                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigher(x[1][0], x[1][1])))
+                                    .map(lambda x: (x[0], x[1][0],  x[1][1], findHigherMsft(x[1][0], x[1][1])))
                                     #.filter(lambda x: (x[3]) != "noAlert")\
                                     #.map(lambda x: (x[0], x[3] + "msft"))
 
