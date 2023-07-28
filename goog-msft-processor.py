@@ -5,6 +5,7 @@ import math
 import string
 import numpy as np
 import re
+import pyspark
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 from pyspark import SparkFiles
@@ -15,13 +16,17 @@ from nltk.corpus.reader.util import StreamBackedCorpusView
 import sys
 import datetime
 
+
+
+
+
 if __name__ == "__main__":
 #Setup          
-            sc = SparkContext(appName="Proj7")
+            s = SparkSession.builder.appName('Broadcast variables PySpark').getOrCreate()		
             ssc = StreamingContext(sc, 1)
 
             states = {"E":"empty", "T":"tenDay ", "F":"fortyDay "}
-            broadcastStates = SparkContext.broadcast(states, "E")
+            broadcast_states = spark.sparkContext.broadcast(states)
 
             def findHigherGoog(tenDay, fortyDay):
                         oldTop = broadcastStates.value
