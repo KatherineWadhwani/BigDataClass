@@ -108,7 +108,7 @@ if __name__ == "__main__":
             signalGoog = goog10Day.join(goog40Day)\
                                     .window(2, 1)\
                                     .reduce(lambda d1, d2: generateMessageGoog(d1, d2))\
-                                    #.filter(lambda x: "buy" in x or "sell" in x)
+                                    .filter(lambda x: "buy" in x or "sell" in x)
 
 
             signalMsft = msft10Day.join(msft40Day)\
