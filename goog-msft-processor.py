@@ -184,7 +184,7 @@ if __name__ == "__main__":
                         # Term Document Frequency
                         corpus = [id2word.doc2bow(text) for text in texts]
                         
-                        #print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
+                        print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
 
                         num_topics = 10
                         lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
