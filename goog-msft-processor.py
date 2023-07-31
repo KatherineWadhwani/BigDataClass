@@ -197,6 +197,7 @@ if __name__ == "__main__":
                                                                    passes=10,
                                                                    alpha='auto',
                                                                    per_word_topics=True)
+                        pprint(lda_model.print_topics())
                         doc_lda = lda_model[corpus]
                                                 
        
