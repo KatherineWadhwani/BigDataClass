@@ -104,23 +104,23 @@ if __name__ == "__main__":
                         for sentence in sentences:
                                     yield(gensim.utils.simple_preprocess(str(sentence), deacc=True))
             def collect (sentences):
-                speech = []
-                for sent in sentences:
-                    for fragment in sent:
-                        speech.extend(fragment)
-                return speech
+                        speech = []
+                        for sent in sentences:
+                                for fragment in sent:
+                                    speech.extend(fragment)
+                        return speech
 
             def clean_sents(data):
-                # # Convert to list
-                data = df.content.values.tolist()
-                
-                # Remove new line characters
-                data = [re.sub('\s+', ' ', sent) for sent in data]
-                
-                # Remove distracting single quotes
-                data = [re.sub('[^0-9a-zA-Z]+', sent) for sent in data]
-                print(data)
-                return data
+                        # # Convert to list
+                        data = df.content.values.tolist()
+                        
+                        # Remove new line characters
+                        data = [re.sub('\s+', ' ', sent) for sent in data]
+                            
+                        # Remove distracting single quotes
+                        data = [re.sub('[^0-9a-zA-Z]+', sent) for sent in data]
+                        print(data)
+                        return data
 
             def speechify(speeches):
                 words = []
@@ -135,8 +135,8 @@ if __name__ == "__main__":
                 return words
             
             reviewsDF = pd.read_csv('reviews.csv')
-            print(reviewsDF.Review_Text) 
-
+            
+            print(reviewsDF."Review Text") 
        
             
             
