@@ -20,7 +20,7 @@ nltk.download('stopwords')
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.data import load
 from nltk.corpus import stopwords
-stop_words = stopwords.words('english')
+#stop_words = stopwords.words('english')
 
 
 if __name__ == "__main__":
