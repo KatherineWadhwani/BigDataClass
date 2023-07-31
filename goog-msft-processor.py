@@ -75,8 +75,8 @@ if __name__ == "__main__":
             print(df);
 
             with open('reviews.csv', newline='') as csvfile:
-                spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-                for row in spamreader:
+                reader = csv.reader(csvfile, delimiter=' ')
+                for row in reader:
                     print(', '.join(row))
             
             
