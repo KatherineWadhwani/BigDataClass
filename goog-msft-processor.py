@@ -16,6 +16,8 @@ import nltk
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.data import load
+
 
 if __name__ == "__main__":
 #Setup 
@@ -55,7 +57,8 @@ if __name__ == "__main__":
             sent_text = nltk.sent_tokenize(data[1])     
             # loop over each sentence and tokenize it separately
             all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
-            print(all_tagged)
-            print(data[1])
+
+            tagdict = load('help/tagsets/upenn_tagset.pickle')
+            tagdict.keys()
 
 
