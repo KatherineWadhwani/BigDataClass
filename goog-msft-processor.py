@@ -138,7 +138,8 @@ if __name__ == "__main__":
                         trigram_mod = gensim.models.phrases.Phraser(trigram)
                         
                         # See trigram example
-                        print(trigram_mod[bigram_mod[data_words[0]]])
+                        print(data_words)
+                        #print(trigram_mod[bigram_mod[data_words[0]]])
             
        
             
