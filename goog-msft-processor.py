@@ -136,7 +136,7 @@ if __name__ == "__main__":
             
             reviewsDF = pd.read_csv('reviews.csv')
             
-            print(reviewsDF."Review Text") 
+            print(reviewsDF.Review Text) 
        
             
             
