@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import nltk
 import csv
-#import pyLDAvis
+import pyLDAvis
 #import pyLDAvis.gensim 
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
