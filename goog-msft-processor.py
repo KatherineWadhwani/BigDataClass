@@ -112,7 +112,7 @@ if __name__ == "__main__":
 
             def clean_sents(data):
                         # Remove new line characters
-                        data = [re.sub('\s+', ' ', sent) for sent in str(data)]
+                        data = re.sub('\s+', ' ', str(data))
                         data = [re.sub('[^0-9a-zA-Z]+', '', sent) for sent in str(data)]
                         print(data)
                         return data
