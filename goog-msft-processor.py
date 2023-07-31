@@ -55,6 +55,6 @@ if __name__ == "__main__":
                         
                         # loop over each sentence and tokenize it separately
                         all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
-            print(data)
+                        print(all_tagged)
 
 
