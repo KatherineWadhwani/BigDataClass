@@ -44,17 +44,17 @@ if __name__ == "__main__":
             files[20] = open("poe-stories/WILLIAM_WILSON", "r")
 
 
-
+            data = [None] * 21
             for i in range(21):
-                        data = files[i].read()
-                        data = s = re.sub('[^0-9a-zA-Z]+', ' ', data)
-                        data = data.lower()
-                        
-                        # this gives us a list of sentences
-                        sent_text = nltk.sent_tokenize(data)
-                        
-                        # loop over each sentence and tokenize it separately
-                        all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
-                        print(all_tagged)
+                        data[i] = files[i].read()
+                        data[i] = s = re.sub('[^0-9a-zA-Z]+', ' ', data)
+                        data[i] = data[i].lower()
+
+            #Tokenize first story
+            # this gives us a list of sentences
+            sent_text = nltk.sent_tokenize(data[1])     
+            # loop over each sentence and tokenize it separately
+            all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
+            print(all_tagged)
 
 
