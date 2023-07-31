@@ -202,6 +202,7 @@ if __name__ == "__main__":
                         #print(lda_model.print_topics())
                         print(corpus)
                         doc_lda = lda_model[corpus]
+                        pyLDAvis.enable_notebook()
                         vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
                         vis
                                                 
