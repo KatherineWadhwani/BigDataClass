@@ -115,7 +115,7 @@ if __name__ == "__main__":
                         data = re.sub('\s+', ' ', data)
                             
                         # Remove distracting single quotes
-                        data = re.sub('[^0-9a-zA-Z]+', str(data))
+                        #data = re.sub('[^0-9a-zA-Z]+', str(data))
                         print(data)
                         return data
 
