@@ -7,7 +7,6 @@ import numpy as np
 import re
 import pprint
 import matplotlib.pyplot as plt
-%matplotlib inline
 import seaborn as sns
 import nltk
 import csv
