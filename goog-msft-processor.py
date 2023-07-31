@@ -117,18 +117,6 @@ if __name__ == "__main__":
                         print(data)
                         return data
 
-            def speechify(speeches):
-                words = []
-                for speech in speeches:
-                    # print(speech)
-                    content = speechesDF[speechesDF['Filename'] == speech].content[:2]
-                    # print(content)
-                    contentList = content.to_list()
-                    # print(contentList)
-                    words.extend(contentList[0])
-                    # print(speech, len(words), words)
-                return words
-
             colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'ReccomendedIND', 'PositiveFeedbackCount', 'DivisionName', 'DepartmentName', 'ClassName']
             reviewsDF = pd.read_csv('reviews.csv', names=colnames)
             
