@@ -11,7 +11,7 @@ import seaborn as sns
 import nltk
 import csv
 import pyLDAvis
-#import pyLDAvis.gensim 
+import pyLDAvis.gensim 
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 from pyspark import SparkFiles
@@ -201,9 +201,9 @@ if __name__ == "__main__":
                                                                    per_word_topics=True)
                         #print(lda_model.print_topics())
                         doc_lda = lda_model[corpus]
-                        #pyLDAvis.enable_notebook()
-                        #vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
-                        #vis
+                        pyLDAvis.enable_notebook()
+                        vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
+                        vis
                                                 
        
             
