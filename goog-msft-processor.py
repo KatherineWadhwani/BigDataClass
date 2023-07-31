@@ -86,6 +86,22 @@ if __name__ == "__main__":
             #Print word in file
             reviewsDict = []
 
+
+
+            """Tag all remaining words in the story as parts of speech using the Penn
+            POS Tags. This SO answer shows how to obtain the POS tag values. Create and
+            print a dictionary with the Penn POS Tags as keys and a list of words as the
+            values.
+            2. The main point of this exercise is to set up a PySpark DataFrame as a
+            structure for analyzing large numbers of such stories. This structure should be
+            designed so that hundreds of Spark workers can be deployed to do similar
+            analysis for different stories in parallel.
+            Each row will represent a story. The columns will be as follows:
+            i. The text of the story,
+            ii. Two-letter prefixes of each tag, for example NN, VB, RB, JJ etc.and the
+            words belonging to that tag in the story.
+            Your code is expected to work for as many stories as the user wishes to analyze."""
+
             with open('reviews.csv', newline='') as csvfile:
                         reader = csv.reader(csvfile, delimiter=' ')
                         for row in reader:
