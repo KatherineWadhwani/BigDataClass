@@ -135,7 +135,7 @@ if __name__ == "__main__":
                 return words
 
             colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'ReccomendedIND', 'PositiveFeedbackCount', 'DivisionName', 'DepartmentName', 'ClassName']
-            reviewsDF = pd.read_csv('reviews.csv', colnames)
+            reviewsDF = pd.read_csv('reviews.csv', names=colnames)
             
             print(reviewsDF.ReviewText) 
        
