@@ -127,6 +127,7 @@ if __name__ == "__main__":
 
             for review in reviewsDF.ReviewText:
                         review = clean_sents(review)
+                        #not working below here
                         data_words = list(sent_to_words(review))
                         print(data_words)
                         data_words = [dw for dw in data_words if len(dw)>0]
