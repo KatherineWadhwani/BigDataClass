@@ -43,11 +43,11 @@ if __name__ == "__main__":
 
 
 
-            print file.readlines()
-            for i in file.readlines():
-                print "Entered For\n"
-                print i
-            
-            topology_list = file.readlines()
-            print topology_list
+            for i in range(21):
+                        for i in file.readlines():
+                                    i.lower()
+                                    print i
+                        
+                        file.readlines()
+
 
