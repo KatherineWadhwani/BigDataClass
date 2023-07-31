@@ -112,7 +112,7 @@ if __name__ == "__main__":
 
             def clean_sents(data):
                         # # Convert to list
-                        data = df.content.values.tolist()
+                        data = data.tolist()
                         
                         # Remove new line characters
                         data = [re.sub('\s+', ' ', sent) for sent in data]
