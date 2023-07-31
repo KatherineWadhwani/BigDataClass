@@ -100,9 +100,6 @@ if __name__ == "__main__":
             words belonging to that tag in the story.
             Your code is expected to work for as many stories as the user wishes to analyze."""
 
-            def sent_to_words(sentences):
-                        for sentence in sentences:
-                                    yield(gensim.utils.simple_preprocess(str(sentence), deacc=True))
             def collect (sentences):
                         speech = []
                         for sent in sentences:
