@@ -46,7 +46,7 @@ if __name__ == "__main__":
             for i in range(21):
                         for i in file.readlines():
                                     i.lower()
-                                    print i
+                                    print(i)
                         
                         file.readlines()
 
