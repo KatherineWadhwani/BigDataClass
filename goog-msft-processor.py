@@ -197,12 +197,12 @@ if __name__ == "__main__":
                                                                    alpha='auto',
                                                                    per_word_topics=True)
                         #print(lda_model.print_topics())
-                        doc_lda = lda_model[corpus]
+                        #doc_lda = lda_model[corpus]
                         #print(lda_model)
 
-                        print ([itm for itm in dir(doc_lda) if not itm.startswith('__')])
-                        print ([itm for itm in dir(doc_lda.obj) if (not itm.startswith('__')) and (not itm.startswith('_'))])
-                        doc_lda.obj.print_topics(num_topics=-1)
+                        #print ([itm for itm in dir(doc_lda) if not itm.startswith('__')])
+                        #print ([itm for itm in dir(doc_lda.obj) if (not itm.startswith('__')) and (not itm.startswith('_'))])
+                        #doc_lda.obj.print_topics(num_topics=-1)
 
                                                 
        
