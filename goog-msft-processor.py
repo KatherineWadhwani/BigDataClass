@@ -110,8 +110,32 @@ if __name__ == "__main__":
                         speech.extend(fragment)
                 return speech
 
+            def clean_sents(data):
+                # # Convert to list
+                data = df.content.values.tolist()
+                
+                # Remove new line characters
+                data = [re.sub('\s+', ' ', sent) for sent in data]
+                
+                # Remove distracting single quotes
+                data = [re.sub('[^0-9a-zA-Z]+', sent) for sent in data]
+                print(data)
+                return data
+
+            def speechify(speeches):
+                words = []
+                for speech in speeches:
+                    # print(speech)
+                    content = speechesDF[speechesDF['Filename'] == speech].content[:2]
+                    # print(content)
+                    contentList = content.to_list()
+                    # print(contentList)
+                    words.extend(contentList[0])
+                    # print(speech, len(words), words)
+                return words
+            
             reviewsDF = pd.read_csv('reviews.csv')
-            print(reviewsDF) 
+            print(reviewsDF.Review) 
 
        
             
