@@ -18,9 +18,6 @@ nltk.download('tagsets')
 nltk.download('averaged_perceptron_tagger')
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.data import load
-import os
-os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"
-os.environ["SPARK_HOME"] = "spark-3.2.1-bin-hadoop3.2"
 
 
 if __name__ == "__main__":
