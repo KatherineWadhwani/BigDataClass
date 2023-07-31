@@ -111,9 +111,6 @@ if __name__ == "__main__":
                         return speech
 
             def clean_sents(data):
-                        # # Convert to list
-                        data = data.tolist()
-                        
                         # Remove new line characters
                         data = [re.sub('\s+', ' ', sent) for sent in data]
                             
