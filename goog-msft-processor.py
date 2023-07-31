@@ -177,6 +177,7 @@ if __name__ == "__main__":
             
                         # Create Dictionary
                         id2word = corpora.Dictionary(data_lemmatized)
+                        print(id2word)
                         
                         # Create Corpus
                         texts = data_lemmatized
@@ -201,7 +202,7 @@ if __name__ == "__main__":
                                                                    per_word_topics=True)
                         #print(lda_model.print_topics())
                         doc_lda = lda_model[corpus]
-                        print(lda_model)
+                        #print(lda_model)
 
                                                 
        
