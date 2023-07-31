@@ -117,7 +117,6 @@ if __name__ == "__main__":
                         return data
                         
             def sent_to_words(sentences):
-                        print(sentence)
                         for sentence in sentences:
                                     yield(gensim.utils.simple_preprocess(str(sentence).encode('utf-8'), deacc=True))  # deacc=True removes punctuations
                                    
@@ -128,6 +127,8 @@ if __name__ == "__main__":
 
             for review in reviewsDF.ReviewText:
                         review = clean_sents(review)
+                        print(review)
+                        print("        ")
                         #not working below here
                         data_words = sent_to_words(review)
                         #print(data_words)
