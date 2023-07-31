@@ -5,6 +5,9 @@ import math
 import string
 import numpy as np
 import re
+import pprint
+import matplotlib.pyplot as plt
+import seaborn as sns
 import nltk
 import csv
 from pyspark import SparkContext
