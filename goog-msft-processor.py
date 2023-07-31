@@ -177,13 +177,14 @@ if __name__ == "__main__":
             
                         # Create Dictionary
                         id2word = corpora.Dictionary(data_lemmatized)
-                        print(id2word)
                         
                         # Create Corpus
                         texts = data_lemmatized
                         
                         # Term Document Frequency
                         corpus = [id2word.doc2bow(text) for text in texts]
+
+                        print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus[250:259]])
                         
                         # View
                         # Human readable format of corpus (term-frequency)
