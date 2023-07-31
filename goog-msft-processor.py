@@ -200,6 +200,7 @@ if __name__ == "__main__":
                                                                    alpha='auto',
                                                                    per_word_topics=True)
                         #print(lda_model.print_topics())
+                        print(corpus)
                         doc_lda = lda_model[corpus]
                         vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
                         vis
