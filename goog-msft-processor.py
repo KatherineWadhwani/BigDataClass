@@ -171,9 +171,22 @@ if __name__ == "__main__":
                         
                         # Do lemmatization keeping only noun, adj, vb, adv
                         data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
+                        #print(data_lemmatized[:1])
+            
+                        # Create Dictionary
+                        id2word = corpora.Dictionary(data_lemmatized)
                         
-                        print(data_lemmatized[:1])
-                                    
+                        # Create Corpus
+                        texts = data_lemmatized
+                        
+                        # Term Document Frequency
+                        corpus = [id2word.doc2bow(text) for text in texts]
+                        
+                        # View
+                        # Human readable format of corpus (term-frequency)
+                        # There is nothing magical about 2500:2510, I just wanted to examine a random location
+                        print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus[2500:2512]])
+                                                
        
             
             
