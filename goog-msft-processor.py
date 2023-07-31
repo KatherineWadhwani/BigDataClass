@@ -81,14 +81,14 @@ if __name__ == "__main__":
 
             tagdict = load('help/tagsets/upenn_tagset.pickle')
             print(tagdict);
-
-
+            
             df = {
               "text": data[1],
               "dictionary": tagdict
             }
             print(df);
 
+            stop_words = stopwords.words('english')
             with open('reviews.csv', newline='') as csvfile:
                 reader = csv.reader(csvfile, delimiter=' ')
                 for row in reader:
