@@ -47,6 +47,6 @@ if __name__ == "__main__":
                         for j in files[i].readlines():
                                     j.lower()
                         
-                        file.readlines()
+                        files[i].readlines()
 
 
