@@ -136,7 +136,7 @@ if __name__ == "__main__":
             for review in reviewsDF.ReviewText:
                         #print(review)
                         #clean_sents(a)
-                        print reviewsDF.ReviewText[0]
+                        print (reviewsDF.ReviewText[0])
             
        
             
