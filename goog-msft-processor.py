@@ -118,8 +118,24 @@ if __name__ == "__main__":
                         words = sentence.split(" ")
                         for word in words:
                                     yield(gensim.utils.simple_preprocess(str(word).encode('utf-8'), deacc=True))  # deacc=True removes punctuations
-                                   
 
+            def remove_stopwords(texts):
+                return [[word for word in simple_preprocess(str(doc)) if word not in stop_words] for doc in texts]
+            
+            def make_bigrams(texts):
+                return [bigram_mod[doc] for doc in texts]
+            
+            def make_trigrams(texts):
+                return [trigram_mod[bigram_mod[doc]] for doc in texts]
+            
+            def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
+                """https://spacy.io/api/annotation"""
+                texts_out = []
+                for sent in texts:
+                    doc = nlp(" ".join(sent)) 
+                    texts_out.append([token.lemma_ for token in doc if token.pos_ in allowed_postags])
+                return texts_out
+                                               
 
             colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'ReccomendedIND', 'PositiveFeedbackCount', 'DivisionName', 'DepartmentName', 'ClassName']
             reviewsDF = pd.read_csv('reviews.csv', names=colnames)
@@ -137,8 +153,27 @@ if __name__ == "__main__":
                         trigram_mod = gensim.models.phrases.Phraser(trigram)
                         
                         # See trigram example
-                        print(trigram_mod[bigram_mod[data_words[0]]])
-            
+                        #print(trigram_mod[bigram_mod[data_words[0]]])
+
+                        # Remove Stop Words
+                        data_words_nostops = remove_stopwords(data_words)
+                        #print(data_words_nostops)
+                        
+                        # Form Bigrams
+                        data_words_bigrams = make_bigrams(data_words_nostops)
+                        #print(data_words_bigrams)
+                        
+                        # In the end, we didn't create trigrams. Should have taken the extra time.
+                        
+                        # Initialize spacy 'en' model, keeping only tagger component (for efficiency)
+                        # python3 -m spacy download en
+                        nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
+                        
+                        # Do lemmatization keeping only noun, adj, vb, adv
+                        data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
+                        
+                        print(data_lemmatized[:1])
+                                    
        
             
             
