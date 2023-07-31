@@ -113,7 +113,7 @@ if __name__ == "__main__":
             def clean_sents(data):
                         # Remove new line characters
                         data = re.sub('\s+', ' ', str(data))
-                        data = re.sub('[(.*!@#$%^&*'";:/?,~`+=\|)]', '', str(data))
+                        data = re.sub('[(.*!@#$%^&*\'";:/?,~`+=|)]', '', str(data))
                         return data
                         
             def sent_to_words(sentences):
