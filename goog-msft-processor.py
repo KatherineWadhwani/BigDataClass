@@ -44,8 +44,8 @@ if __name__ == "__main__":
 
 
             for i in range(21):
-                        for i in file.readlines():
-                                    i.lower()
+                        for j in files[i].readlines():
+                                    j.lower()
                                     print(i)
                         
                         file.readlines()
