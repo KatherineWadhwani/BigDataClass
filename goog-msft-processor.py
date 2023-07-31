@@ -134,7 +134,7 @@ if __name__ == "__main__":
             reviewsDF = pd.read_csv('reviews.csv', names=colnames)
             
             for review in reviewsDF.ReviewText:
-                        review = [re.sub('\S*@\S*\s?', '', sent) for sent in review.astype('string')]
+                        review = [re.sub('\S*@\S*\s?', '', sent) for sent in str(review)]
                         #clean_sents(review)
             
        
