@@ -126,9 +126,8 @@ if __name__ == "__main__":
 
             for review in reviewsDF.ReviewText:
                         review = clean_sents(review)
-                        #not working below here
                         data_words = sent_to_words(review)
-                        #print(data_words)
+                        print(data_words)
                         data_words = [dw for dw in data_words if len(dw)>0]
                         # Build the bigram and trigram models
                         bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
