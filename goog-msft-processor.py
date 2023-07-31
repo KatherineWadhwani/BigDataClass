@@ -135,6 +135,7 @@ if __name__ == "__main__":
             
             for review in reviewsDF.ReviewText:
                         clean_sents(review)
+                        print(review)
             
        
             
