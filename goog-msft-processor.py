@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import pandas as pd
+import numpy as np
 import os
 import math
 import string
-import numpy as np
 import re
 import pprint
 import matplotlib.pyplot as plt
@@ -17,17 +17,19 @@ from pyspark.sql import SQLContext
 from pyspark.sql import Row
 from pyspark.sql import SparkSession
 from nltk.corpus.reader.util import StreamBackedCorpusView
+from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.data import load
+from nltk.corpus import stopwords
 nltk.download('punkt')
 nltk.download('tagsets')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('stopwords')
-from nltk.tokenize import sent_tokenize, word_tokenize
-from nltk.data import load
-from nltk.corpus import stopwords
 import gensim
 from gensim import corpora
 from gensim.utils import simple_preprocess
 from gensim.models import CoherenceModel
+os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"
+os.environ["SPARK_HOME"] = "spark-3.2.1-bin-hadoop3.2"
 
 # spacy for lemmatization
 import spacy
