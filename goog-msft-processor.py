@@ -61,6 +61,11 @@ if __name__ == "__main__":
 
             tagdict = load('help/tagsets/upenn_tagset.pickle')
             #tagdict.keys()
-            print(tagdict);
+
+            df = {
+              "text": data[1],
+              "dictionary": tagdict
+            }
+            print(df);
 
 
