@@ -73,8 +73,4 @@ if __name__ == "__main__":
             }
             print(df);
 
-            speechesDict = {fileid: inaugural.sents(fileid) for fileid in nltk.corpus.tagsets.fileids()}
-            pp = pprint.PrettyPrinter(indent=2)
-            pp.pprint(speechesDict)
-
 
