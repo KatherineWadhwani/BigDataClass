@@ -118,6 +118,7 @@ if __name__ == "__main__":
                         
             def sent_to_words(sentences):
                         for sentence in sentences:
+                                    print(sentence)
                                     yield(gensim.utils.simple_preprocess(str(sentence).encode('utf-8'), deacc=True))  # deacc=True removes punctuations
                                    
 
@@ -129,7 +130,7 @@ if __name__ == "__main__":
                         review = clean_sents(review)
                         #not working below here
                         data_words = sent_to_words(review)
-                        print(data_words)
+                        #print(data_words)
                         data_words = [dw for dw in data_words if len(dw)>0]
                         # Build the bigram and trigram models
                         bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
