@@ -12,8 +12,10 @@ from pyspark.sql import SQLContext
 from pyspark.sql import Row
 from pyspark.sql import SparkSession
 from nltk.corpus.reader.util import StreamBackedCorpusView
-import sys
-import datetime
+import nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+from nltk.tokenize import sent_tokenize, word_tokenize
 
 if __name__ == "__main__":
 #Setup 
@@ -47,7 +49,12 @@ if __name__ == "__main__":
                         data = files[i].read()
                         data = s = re.sub('[^0-9a-zA-Z]+', ' ', data)
                         data = data.lower()
-            print(data)
                         
+                        # this gives us a list of sentences
+                        sent_text = nltk.sent_tokenize(data)
+                        
+                        # loop over each sentence and tokenize it separately
+                        all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
+            print(data)
 
 
