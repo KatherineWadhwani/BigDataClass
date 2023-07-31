@@ -133,10 +133,11 @@ if __name__ == "__main__":
                     words.extend(contentList[0])
                     # print(speech, len(words), words)
                 return words
+
+            colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'ReccomendedIND', 'PositiveFeedbackCount', 'DivisionName', 'DepartmentName', 'ClassName']
+            reviewsDF = pd.read_csv('reviews.csv', colnames)
             
-            reviewsDF = pd.read_csv('reviews.csv')
-            
-            print(reviewsDF.Review Text) 
+            print(reviewsDF.ReviewText) 
        
             
             
