@@ -202,7 +202,7 @@ if __name__ == "__main__":
                                                                    per_word_topics=True)
                         #print(lda_model.print_topics())
                         #doc_lda = lda_model[corpus]
-
+                        #https://stackoverflow.com/questions/40840731/valueerror-cannot-compute-lda-over-an-empty-collection-no-terms
                         #print ([itm for itm in dir(doc_lda) if not itm.startswith('__')])
                         #print ([itm for itm in dir(doc_lda.obj) if (not itm.startswith('__')) and (not itm.startswith('_'))])
                         #doc_lda.obj.print_topics(num_topics=10)
