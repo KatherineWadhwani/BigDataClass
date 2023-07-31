@@ -96,4 +96,6 @@ if __name__ == "__main__":
                         for sentence in sentences:
                                     yield(gensim.utils.simple_preprocess(str(sentence), deacc=True))
 
+            print(reviewsDF)
+
             
