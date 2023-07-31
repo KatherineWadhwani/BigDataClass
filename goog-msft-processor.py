@@ -189,7 +189,7 @@ if __name__ == "__main__":
                         #print(speeches_corpus)
 
                         num_topics = 10
-                        print(corpus)
+                        #print(corpus)
                         #print(len(corpus))
                         lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
                                                                    id2word=id2word,
