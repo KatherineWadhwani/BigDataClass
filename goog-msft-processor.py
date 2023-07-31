@@ -197,7 +197,7 @@ if __name__ == "__main__":
                                                                    alpha='auto',
                                                                    per_word_topics=True)
                         #print(lda_model.print_topics())
-                        #doc_lda = lda_model[corpus]
+                        doc_lda = lda_model[corpus]
 
                         #print ([itm for itm in dir(doc_lda) if not itm.startswith('__')])
                         #print ([itm for itm in dir(doc_lda.obj) if (not itm.startswith('__')) and (not itm.startswith('_'))])
