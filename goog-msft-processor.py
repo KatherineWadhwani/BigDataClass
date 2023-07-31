@@ -135,7 +135,7 @@ if __name__ == "__main__":
             
             for review in reviewsDF.ReviewText:
                         if (review != reviewsDF.ReviewText[0]):
-                                    clean_sents(a)
+                                    clean_sents(review)
             
        
             
