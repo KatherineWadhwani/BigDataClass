@@ -81,7 +81,7 @@ if __name__ == "__main__":
               "text": data[1],
               "dictionary": tagdict
             }
-            print(df);
+            #print(df);
 
             #Print word in file
             reviewsDict = []
