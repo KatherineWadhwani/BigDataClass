@@ -117,12 +117,12 @@ if __name__ == "__main__":
                         return data
                         
             def sent_to_words(sentences):
-                        print("hkljlk")
-                        """for sentence in sentences:
+                        for sentence in sentences:
                                     yield(gensim.utils.simple_preprocess(str(sentence).encode('utf-8'), deacc=True))  # deacc=True removes punctuations
                                     data_words = list(sent_to_words(data))
                                     data_words = [dw for dw in data_words if len(dw)>0]
-                                    #print(data_words)
+                                    print("hkljlk")
+                                    """#print(data_words)
                                     return data_words"""
 
             colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'ReccomendedIND', 'PositiveFeedbackCount', 'DivisionName', 'DepartmentName', 'ClassName']
