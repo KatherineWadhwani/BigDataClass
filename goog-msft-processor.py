@@ -114,6 +114,7 @@ if __name__ == "__main__":
                         # Remove new line characters
                         data = re.sub('\s+', ' ', str(data))
                         data = re.sub('[(.*!@#$%^&*\'";:/?,~`+=|)]', '', str(data))
+                        data = data.lower()
                         return data
                         
             def sent_to_words(sentences):
