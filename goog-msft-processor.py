@@ -185,7 +185,7 @@ if __name__ == "__main__":
                         # View
                         # Human readable format of corpus (term-frequency)
                         # There is nothing magical about 2500:2510, I just wanted to examine a random location
-                        print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus[2500:2512]])
+                        print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
                                                 
        
             
