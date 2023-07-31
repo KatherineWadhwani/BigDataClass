@@ -84,7 +84,7 @@ if __name__ == "__main__":
             print(df);
 
             #Print word in file
-           reviewsDict = np.array()
+            reviewsDict = np.array()
 
             with open('reviews.csv', newline='') as csvfile:
                         reader = csv.reader(csvfile, delimiter=' ')
