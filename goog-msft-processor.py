@@ -172,7 +172,7 @@ if __name__ == "__main__":
                         nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
                         
                         # Do lemmatization keeping only noun, adj, vb, adv
-                        data_lemmatized = lemmatization(data_words, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
+                        data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
                         #print(data_lemmatized[:1])
             
                         # Create Dictionary
