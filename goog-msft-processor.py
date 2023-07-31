@@ -201,9 +201,11 @@ if __name__ == "__main__":
                                                                    per_word_topics=True)
                         #print(lda_model.print_topics())
                         doc_lda = lda_model[corpus]
-                        pyLDAvis.enable_notebook()
+
                         vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
-                        vis
+                        pyLDAvis.enable_notebook()
+                        pyLDAvis.display(vis)
+
                                                 
        
             
