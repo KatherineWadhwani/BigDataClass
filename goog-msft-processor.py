@@ -201,7 +201,7 @@ if __name__ == "__main__":
                                                                    per_word_topics=True)
                         #print(lda_model.print_topics())
                         doc_lda = lda_model[corpus]
-                        print(doc_lda)
+                        print(lda_model)
 
                                                 
        
