@@ -203,7 +203,7 @@ if __name__ == "__main__":
                         doc_lda = lda_model[corpus]
 
                         vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
-                        pyLDAvis.display(vis)
+                        vis
 
                                                 
        
