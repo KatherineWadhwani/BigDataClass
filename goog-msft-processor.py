@@ -112,10 +112,10 @@ if __name__ == "__main__":
 
             def clean_sents(data):
                         # Remove new line characters
-                        data = [re.sub('\s+', ' ', sent) for sent in data]
+                        data = [re.sub('\s+', ' ', data]
                             
                         # Remove distracting single quotes
-                        data = [re.sub('[^0-9a-zA-Z]+', sent) for sent in data]
+                        data = [re.sub('[^0-9a-zA-Z]+', data]
                         print(data)
                         return data
 
