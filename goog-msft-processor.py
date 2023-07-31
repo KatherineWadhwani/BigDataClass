@@ -126,8 +126,8 @@ if __name__ == "__main__":
             reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 
             for review in reviewsDF.ReviewText:
-                        clean_sents(review)
-                        data_words = list(sent_to_words(data))
+                        review = clean_sents(review)
+                        data_words = list(sent_to_words(review))
                         data_words = [dw for dw in data_words if len(dw)>0]
                         # Build the bigram and trigram models
                         bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
