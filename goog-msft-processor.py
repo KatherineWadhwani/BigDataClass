@@ -158,7 +158,7 @@ if __name__ == "__main__":
                         #print(trigram_mod[bigram_mod[data_words[0]]])
 
                         # Remove Stop Words
-                        data_words_nostops = remove_stopwords(data_words)
+                        #data_words_nostops = remove_stopwords(data_words)
                         #print(data_words_nostops)
                         
                         # Form Bigrams
