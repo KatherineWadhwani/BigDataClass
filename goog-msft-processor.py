@@ -100,7 +100,7 @@ if __name__ == "__main__":
             words belonging to that tag in the story.
             Your code is expected to work for as many stories as the user wishes to analyze."""
 
-            reviewsDF = pd.read_csv('data.csv')
+            reviewsDF = pd.read_csv('reviews.csv')
             print(reviewsDF.to_string()) 
 
             def sent_to_words(sentences):
