@@ -30,24 +30,17 @@ from gensim.utils import simple_preprocess
 from gensim.models import CoherenceModel
 os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"
 os.environ["SPARK_HOME"] = "spark-3.2.1-bin-hadoop3.2"
-
-# spacy for lemmatization
 import spacy
 spacy.load('en_core_web_sm')
-
-# Enable logging for gensim - optional
 import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.ERROR)
-
 import warnings
 warnings.filterwarnings("ignore",category=DeprecationWarning)
-#stop_words = stopwords.words('english')
-
-
+stop_words = stopwords.words('english')
 
 if __name__ == "__main__":
 #Setup 
-
+            #Open Poe Speaches
             files = [None] * 21
             files[0] = open("poe-stories/A_DESCENT_INTO_THE_MAELSTROM", "r")
             files[1] = open("poe-stories/BERENICE", "r")
@@ -71,32 +64,52 @@ if __name__ == "__main__":
             files[19] = open("poe-stories/VON_KEMPELEN_AND_HIS_DISCOVERY", "r")
             files[20] = open("poe-stories/WILLIAM_WILSON", "r")
 
-
+            #Clean Poe Speaches
             data = [None] * 21
             for i in range(21):
                         data[i] = files[i].read()
                         data[i] = re.sub('[^0-9a-zA-Z]+', ' ', data[i])
                         data[i] = data[i].lower()
 
-            #Tokenize first story
-            # this gives us a list of sentences
+            #Tokenize first story using Dr. J's code
             sent_text = nltk.sent_tokenize(data[1])     
-            # loop over each sentence and tokenize it separately
             all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
 
+            #Print dict
             tagdict = load('help/tagsets/upenn_tagset.pickle')
-            print(tagdict);
-            
             df = {
               "text": data[1],
               "dictionary": tagdict
             }
             print(df);
 
-            stop_words = stopwords.words('english')
+            #Print word in file
+           reviewsDict = np.array()
+
             with open('reviews.csv', newline='') as csvfile:
-                reader = csv.reader(csvfile, delimiter=' ')
-                for row in reader:
-                    print(', '.join(row))
+                        reader = csv.reader(csvfile, delimiter=' ')
+                        for row in reader:
+                                    reviewsDict.append(row)
+
+speechesDict = {fileid: inaugural.sents(fileid) for fileid in nltk.corpus.inaugural.fileids()}
+speechesDF = pd.DataFrame(speechesDict.items(), columns=['Filename', 'Speech'])
+def sent_to_words(sentences):
+    for sentence in sentences:
+        yield(gensim.utils.simple_preprocess(str(sentence), deacc=True))  # deacc=True removes punctuations
+
+def collect (sentences):
+    speech = []
+    for sent in sentences:
+        for fragment in sent:
+            speech.extend(fragment)
+    return speech
+speechesDF['content'] = speechesDF.apply(lambda row: collect(row[1:]), axis=1)
+speechesDF['contentLen'] = speechesDF.apply(lambda row: len(collect(row[1:])), axis=1)
+# speechesDF['contentLen'] = speechesDF.apply(lambda row: len(collect(row[1:])), axis=1)
+#speechesDF['speechLen'] = speechesDF.apply(lambda row: len(collect(row[1:])), axis=1)
+# df['content'] = df.apply(lambda row: list(sent_to_words(row[1:])), axis=1)
+# df
+# df = df[["Filename","contentLen"]]#,"speechLen"]] # select multiple columns
+speechesDF[["Filename", "content", "contentLen"]]
             
             
