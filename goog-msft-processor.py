@@ -32,8 +32,8 @@ if __name__ == "__main__":
             MESMERIC_REVELATION = open("poe-stories/MESMERIC_REVELATION", "r")
             print(MESMERIC_REVELATION.read())
             
-            SILENCE-A_FABLE = open("poe-stories/SILENCE-A_FABLE", "r")
-            print(SILENCE-A_FABLE.read())
+            SILENCE_A_FABLE = open("poe-stories/SILENCE_A_FABLE", "r")
+            print(SILENCE_A_FABLE.read())
 
             THE_ASSIGNATION = open("poe-stories/THE_ASSIGNATION", "r")
             print(THE_ASSIGNATION.read())
