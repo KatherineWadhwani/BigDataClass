@@ -182,11 +182,11 @@ if __name__ == "__main__":
                         texts = data_lemmatized
                         
                         # Term Document Frequency
-                        for text in texts:
-                                    print(id2word.doc2bow(text))
-                                    #corpus = [id2word.doc2bow(text)
+                        corpus = [id2word.doc2bow(text) for text in texts]
                         
                         #print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
+                        speeches_corpus = dict(id2word)
+                        print(speeches_corpus)
 
                         num_topics = 1
                         #print(corpus)
