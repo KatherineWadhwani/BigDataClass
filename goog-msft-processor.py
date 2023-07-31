@@ -121,7 +121,7 @@ if __name__ == "__main__":
                                     yield(gensim.utils.simple_preprocess(str(sentence).encode('utf-8'), deacc=True))  # deacc=True removes punctuations
                                     data_words = list(sent_to_words(data))
                                     data_words = [dw for dw in data_words if len(dw)>0]
-                                    print(data_words[3401:3406])
+                                    print(data_words[5:7])
 
             colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'ReccomendedIND', 'PositiveFeedbackCount', 'DivisionName', 'DepartmentName', 'ClassName']
             reviewsDF = pd.read_csv('reviews.csv', names=colnames)
