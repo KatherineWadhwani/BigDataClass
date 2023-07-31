@@ -201,8 +201,8 @@ if __name__ == "__main__":
 
                         #print ([itm for itm in dir(doc_lda) if not itm.startswith('__')])
                         #print ([itm for itm in dir(doc_lda.obj) if (not itm.startswith('__')) and (not itm.startswith('_'))])
-                        #doc_lda.obj.print_topics(num_topics=-1)
-                        print(id2word)
+                        doc_lda.obj.print_topics(num_topics=10)
+                        #print(id2word)
 
                                                 
                         #vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
