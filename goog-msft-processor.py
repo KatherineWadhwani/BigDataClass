@@ -182,7 +182,7 @@ if __name__ == "__main__":
                         texts = data_lemmatized
                         
                         # Term Document Frequency
-                        corpus = [id2word.doc2bow(data_lemmatized)]
+                        corpus = [id2word.doc2bow(text) for text in texts]
                         
                         # View
                         # Human readable format of corpus (term-frequency)
