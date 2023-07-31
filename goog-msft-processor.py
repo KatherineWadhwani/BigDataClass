@@ -71,8 +71,8 @@ if __name__ == "__main__":
             THE_PURLOINED_LETTER = open("poe-stories/THE_PURLOINED_LETTER", "r")
             print(THE_PURLOINED_LETTER.read())
 
-            THE_THOUSAND-AND-SECOND_TALE_OF_SCHEHERAZADE = open("poe-stories/THE_THOUSAND-AND-SECOND_TALE_OF_SCHEHERAZADE", "r")
-            print(THE_THOUSAND-AND-SECOND_TALE_OF_SCHEHERAZADE.read())
+            THE_THOUSAND_AND_SECOND_TALE_OF_SCHEHERAZADE = open("poe-stories/THE_THOUSAND_AND_SECOND_TALE_OF_SCHEHERAZADE", "r")
+            print(THE_THOUSAND_AND_SECOND_TALE_OF_SCHEHERAZADE.read())
 
             VON_KEMPELEN_AND_HIS_DISCOVERY = open("poe-stories/VON_KEMPELEN_AND_HIS_DISCOVERY", "r")
             print(VON_KEMPELEN_AND_HIS_DISCOVERY.read())
