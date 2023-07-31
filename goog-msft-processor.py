@@ -21,6 +21,21 @@ nltk.download('stopwords')
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.data import load
 from nltk.corpus import stopwords
+import gensim
+from gensim import corpora
+from gensim.utils import simple_preprocess
+from gensim.models import CoherenceModel
+
+# spacy for lemmatization
+import spacy
+spacy.load('en_core_web_sm')
+
+# Enable logging for gensim - optional
+import logging
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.ERROR)
+
+import warnings
+warnings.filterwarnings("ignore",category=DeprecationWarning)
 #stop_words = stopwords.words('english')
 
 
