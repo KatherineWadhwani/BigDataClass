@@ -86,8 +86,6 @@ if __name__ == "__main__":
             #Print word in file
             reviewsDict = []
 
-
-
             """Tag all remaining words in the story as parts of speech using the Penn
             POS Tags. This SO answer shows how to obtain the POS tag values. Create and
             print a dictionary with the Penn POS Tags as keys and a list of words as the
