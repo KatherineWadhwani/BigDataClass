@@ -6,6 +6,7 @@ import string
 import numpy as np
 import re
 import nltk
+import csv
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 from pyspark import SparkFiles
@@ -73,4 +74,9 @@ if __name__ == "__main__":
             }
             print(df);
 
-
+            with open('reviews.csv', newline='') as csvfile:
+                spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+                for row in spamreader:
+                    print(', '.join(row))
+            
+            
