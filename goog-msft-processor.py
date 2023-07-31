@@ -91,7 +91,7 @@ if __name__ == "__main__":
                         for row in reader:
                                     reviewsDict.append(row)
 
-            reviewsDF = pd.DataFrame(reviewsDict, columns=['Reviews'])
+            reviewsDF = pd.DataFrame(reviewsDict)
             def sent_to_words(sentences):
                         for sentence in sentences:
                                     yield(gensim.utils.simple_preprocess(str(sentence), deacc=True))
