@@ -47,8 +47,8 @@ if __name__ == "__main__":
             THE_DOMAIN_OF_ARNHEIM = open("poe-stories/THE_DOMAIN_OF_ARNHEIM", "r")
             print(THE_DOMAIN_OF_ARNHEIM.read())
 
-            THE_FACTS_IN_THE_CASE_OF_M._VALDEMAR = open("poe-stories/THE_FACTS_IN_THE_CASE_OF_M._VALDEMAR", "r")
-            print(THE_FACTS_IN_THE_CASE_OF_M._VALDEMAR.read())
+            THE_FACTS_IN_THE_CASE_OF_M_VALDEMAR = open("poe-stories/THE_FACTS_IN_THE_CASE_OF_M._VALDEMAR", "r")
+            print(THE_FACTS_IN_THE_CASE_OF_M_VALDEMAR.read())
 
             THE_FALL_OF_THE_HOUSE_OF_USHER = open("poe-stories/THE_FALL_OF_THE_HOUSE_OF_USHER", "r")
             print(THE_FALL_OF_THE_HOUSE_OF_USHER.read())
