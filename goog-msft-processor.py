@@ -183,12 +183,7 @@ if __name__ == "__main__":
                         
                         # Term Document Frequency
                         corpus = [id2word.doc2bow(text) for text in texts]
-
-                        print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
                         
-                        # View
-                        # Human readable format of corpus (term-frequency)
-                        # There is nothing magical about 2500:2510, I just wanted to examine a random location
                         #print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
 
                         num_topics = 10
@@ -204,6 +199,10 @@ if __name__ == "__main__":
                         #print(lda_model.print_topics())
                         doc_lda = lda_model[corpus]
                         #print(lda_model)
+
+                        print ([itm for itm in dir(doc_lda) if not itm.startswith('__')])
+                        print ([itm for itm in dir(doc_lda.obj) if (not itm.startswith('__')) and (not itm.startswith('_'))])
+                        doc_lda.obj.print_topics(num_topics=-1)
 
                                                 
        
