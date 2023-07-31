@@ -42,11 +42,12 @@ if __name__ == "__main__":
             files[20] = open("poe-stories/WILLIAM_WILSON", "r")
 
 
-            print(files[0].readlines())
 
             for i in range(21):
-                        for line in files[i]:
-                                    print(files[i].readlines())
-                                    #line.lower()
+                        files[i] = files[i].lower
+
+             print(files[0].readlines())
+
+                        
 
 
