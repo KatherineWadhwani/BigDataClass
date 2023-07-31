@@ -47,11 +47,6 @@ if __name__ == "__main__":
                         for line in files[i]:
                                     line = re.sub('\[.*?\]', '', line)
             print(files[0].readlines())
-
-                        for line in files[i]:
-                                    print(files[i].readlines())
-                                    #line.lower()
-
                         
 
 
