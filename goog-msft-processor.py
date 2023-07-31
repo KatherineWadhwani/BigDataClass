@@ -101,7 +101,7 @@ if __name__ == "__main__":
             Your code is expected to work for as many stories as the user wishes to analyze."""
 
             reviewsDF = pd.read_csv('reviews.csv')
-            print(reviewsDF.to_string()) 
+            print(reviewsDF) 
 
             def sent_to_words(sentences):
                         for sentence in sentences:
