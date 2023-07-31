@@ -5,6 +5,7 @@ import math
 import string
 import numpy as np
 import re
+import nltk
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 from pyspark import SparkFiles
@@ -12,7 +13,6 @@ from pyspark.sql import SQLContext
 from pyspark.sql import Row
 from pyspark.sql import SparkSession
 from nltk.corpus.reader.util import StreamBackedCorpusView
-import nltk
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 from nltk.tokenize import sent_tokenize, word_tokenize
