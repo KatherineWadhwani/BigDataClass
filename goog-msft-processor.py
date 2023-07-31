@@ -187,8 +187,10 @@ if __name__ == "__main__":
                         #print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
                         speeches_corpus = dict(id2word)
                         #print(speeches_corpus)
+                        print(corpus)
+                        print(id2word)
 
-                        num_topics = 1
+                        num_topics = 10
                         #print(corpus)
                         lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
                                                                    id2word=id2word,
