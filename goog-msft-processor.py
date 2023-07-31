@@ -117,8 +117,8 @@ if __name__ == "__main__":
                         return data
                         
             def sent_to_words(sentences):
+                        print(sentence)
                         for sentence in sentences:
-                                    print(sentence)
                                     yield(gensim.utils.simple_preprocess(str(sentence).encode('utf-8'), deacc=True))  # deacc=True removes punctuations
                                    
 
