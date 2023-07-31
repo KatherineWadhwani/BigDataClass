@@ -114,10 +114,10 @@ if __name__ == "__main__":
                         # Remove new line characters
                         data = re.sub('\s+', ' ', str(data))
                         data = re.sub('[^0-9a-zA-Z]+', '', str(data))
-                        print("hkljlk")
                         return data
                         
             def sent_to_words(sentences):
+                        print("hkljlk")
                         for sentence in sentences:
                                     yield(gensim.utils.simple_preprocess(str(sentence).encode('utf-8'), deacc=True))  # deacc=True removes punctuations
                                     data_words = list(sent_to_words(data))
