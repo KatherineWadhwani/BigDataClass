@@ -134,7 +134,8 @@ if __name__ == "__main__":
             reviewsDF = pd.read_csv('reviews.csv', names=colnames)
             
             for review in reviewsDF.ReviewText:
-                        clean_sents(review)
+                        a = "dfasdf"
+                        clean_sents(a)
             
        
             
