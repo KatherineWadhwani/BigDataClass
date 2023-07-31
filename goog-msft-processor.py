@@ -100,16 +100,12 @@ if __name__ == "__main__":
             words belonging to that tag in the story.
             Your code is expected to work for as many stories as the user wishes to analyze."""
 
-            with open('reviews.csv', newline='') as csvfile:
-                        reader = csv.reader(csvfile, delimiter=' ')
-                        for row in reader:
-                                    reviewsDict.append(row)
+            reviewsDF = pd.read_csv('data.csv')
+            print(reviewsDF.to_string()) 
 
-            reviewsDF = pd.DataFrame(reviewsDict)
             def sent_to_words(sentences):
                         for sentence in sentences:
                                     yield(gensim.utils.simple_preprocess(str(sentence), deacc=True))
 
-            print(reviewsDF)
 
             
