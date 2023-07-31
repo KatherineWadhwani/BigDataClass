@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
             for i in range(21):
                         data = files[i].read()
-                        data = re.sub('\[.*?",\]', '', data)
+                        data = s = re.sub('[^0-9a-zA-Z]+', '*', data)
                         data = data.lower()
             print(data)
                         
