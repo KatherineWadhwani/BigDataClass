@@ -16,6 +16,7 @@ from nltk.corpus.reader.util import StreamBackedCorpusView
 nltk.download('punkt')
 nltk.download('tagsets')
 nltk.download('averaged_perceptron_tagger')
+nltk.download('stopwords')
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.data import load
 from nltk.corpus import stopwords
