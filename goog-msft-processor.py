@@ -162,7 +162,7 @@ if __name__ == "__main__":
                         #print(data_words_nostops)
                         
                         # Form Bigrams
-                        data_words_bigrams = make_bigrams(data_words_nostops)
+                        data_words_bigrams = make_bigrams(data_words)
                         #print(data_words_bigrams)
                         
                         # In the end, we didn't create trigrams. Should have taken the extra time.
