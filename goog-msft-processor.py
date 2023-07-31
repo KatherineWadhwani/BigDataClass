@@ -60,6 +60,7 @@ if __name__ == "__main__":
             all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
 
             tagdict = load('help/tagsets/upenn_tagset.pickle')
-            tagdict.keys()
+            #tagdict.keys()
+            print(tagdict.keys());
 
 
