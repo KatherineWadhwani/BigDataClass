@@ -137,7 +137,9 @@ if __name__ == "__main__":
             colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'ReccomendedIND', 'PositiveFeedbackCount', 'DivisionName', 'DepartmentName', 'ClassName']
             reviewsDF = pd.read_csv('reviews.csv', names=colnames)
             
-            print(reviewsDF.ReviewText) 
+            for review in reviewsDF.ReviewText):
+                        clean_sents(review)
+            
        
             
             
