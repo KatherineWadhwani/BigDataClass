@@ -91,25 +91,9 @@ if __name__ == "__main__":
                         for row in reader:
                                     reviewsDict.append(row)
 
-speechesDict = {fileid: inaugural.sents(fileid) for fileid in nltk.corpus.inaugural.fileids()}
-speechesDF = pd.DataFrame(speechesDict.items(), columns=['Filename', 'Speech'])
-def sent_to_words(sentences):
-    for sentence in sentences:
-        yield(gensim.utils.simple_preprocess(str(sentence), deacc=True))  # deacc=True removes punctuations
+            reviewsDF = pd.DataFrame(speechesDict.items(), columns=['Filename', 'Speech'])
+            def sent_to_words(sentences):
+                        for sentence in sentences:
+                                    yield(gensim.utils.simple_preprocess(str(sentence), deacc=True))
 
-def collect (sentences):
-    speech = []
-    for sent in sentences:
-        for fragment in sent:
-            speech.extend(fragment)
-    return speech
-speechesDF['content'] = speechesDF.apply(lambda row: collect(row[1:]), axis=1)
-speechesDF['contentLen'] = speechesDF.apply(lambda row: len(collect(row[1:])), axis=1)
-# speechesDF['contentLen'] = speechesDF.apply(lambda row: len(collect(row[1:])), axis=1)
-#speechesDF['speechLen'] = speechesDF.apply(lambda row: len(collect(row[1:])), axis=1)
-# df['content'] = df.apply(lambda row: list(sent_to_words(row[1:])), axis=1)
-# df
-# df = df[["Filename","contentLen"]]#,"speechLen"]] # select multiple columns
-speechesDF[["Filename", "content", "contentLen"]]
-            
             
