@@ -47,6 +47,7 @@ if __name__ == "__main__":
                         data = files[i].read()
                         for line in data:
                                     line = re.sub('\[.*?\]', '', line)
+                                    line = line.lower()
             print(data)
                         
 
