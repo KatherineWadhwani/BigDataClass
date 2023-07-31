@@ -23,6 +23,7 @@ from nltk.corpus import stopwords
 #stop_words = stopwords.words('english')
 
 
+
 if __name__ == "__main__":
 #Setup 
 
@@ -71,5 +72,9 @@ if __name__ == "__main__":
               "dictionary": tagdict
             }
             print(df);
+
+            speechesDict = {fileid: inaugural.sents(fileid) for fileid in nltk.corpus.tagsets.fileids()}
+            pp = pprint.PrettyPrinter(indent=2)
+            pp.pprint(speechesDict)
 
 
