@@ -20,10 +20,11 @@ from pyspark.sql import SparkSession
 def hashOne(num):
   M = 2^13 - 1
   list = reviewsMinHash[num]
+  print(list)
   for index in range(len(list)):
     list[index] = ((list[index]*50 + 1) % M)
   reviewsMinHash[num] = list
-  print(reviewsMinHash[num])
+  #print(reviewsMinHash[num])
 
 def hashTwo(num):
   M = 2^13 - 1
@@ -31,7 +32,7 @@ def hashTwo(num):
   for index in range(len(list)):
     list[index] = ((list[index]*100 + 1) % M)
   reviewsMinHash[num] = list
-  print(reviewsMinHash[num])
+  #print(reviewsMinHash[num])
     
 def hashThree(num):
   M = 2^13 - 1
@@ -39,7 +40,7 @@ def hashThree(num):
   for index in range(len(list)):
     list[index] = ((list[index]*200 + 1) % M)
   reviewsMinHash[num] = list
-  print(reviewsMinHash[num])
+  #print(reviewsMinHash[num])
   
 
 def computeJacc(num1, num2):
