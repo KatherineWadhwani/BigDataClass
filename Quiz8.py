@@ -36,6 +36,7 @@ for i in range(len(out)):
   list.append(out.loc[i, "movieId"])
   
 
-print(reviews)
+for num in range(611):
+  print(reviews[num].list)
 
 
