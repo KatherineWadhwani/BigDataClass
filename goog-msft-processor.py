@@ -85,16 +85,16 @@ if __name__ == "__main__":
             tagdict = load('help/tagsets/upenn_tagset.pickle')
             for i in range(len(all_tagged[0])):
             	tagType = all_tagged[0][i][1]
-		adjCount = 0
-		nounCount = 0
-		verbCount = 0
+            	adjCount = 0
+            	nounCount = 0
+            	verbCount = 0
             	if (tagType == "JJ" || tagType == "JJR" || tagType == "JJS"):
 			adjs[adjCount] = all_tagged[0][i][0]
 			adjCount++
-		if (tagType == "NN" || tagType == "NNS" || tagType == "NNP" || tagType == "NNPS"):
+            	if (tagType == "NN" || tagType == "NNS" || tagType == "NNP" || tagType == "NNPS"):
 			nouns[nounCount] = all_tagged[0][i][0]
 			nounCount++
-		if (tagType == "VB" || tagType == "VBD" || tagType == "VBG" || tagType == "VBN" || tagType == "VBP" || tagType == "VBZ"):
+            	if (tagType == "VB" || tagType == "VBD" || tagType == "VBG" || tagType == "VBN" || tagType == "VBP" || tagType == "VBZ"):
 			verbs[verbCount] = all_tagged[0][i][0]
 			verbCount++
 
