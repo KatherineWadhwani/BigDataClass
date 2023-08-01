@@ -67,11 +67,10 @@ if __name__ == "__main__":
             files[20] = open("poe-stories/WILLIAM_WILSON", "r")
 
             #Clean Poe Speaches
-            data = [None] * 21
-            for i in range(21):
-                        data[i] = files[i].read()
-                        data[i] = re.sub('[^0-9a-zA-Z]+', ' ', data[i])
-                        data[i] = data[i].lower()
+            data = [None] * 21for i in range(21):
+            data[i] = files[i].read()
+            data[i] = re.sub('[^0-9a-zA-Z]+', ' ', data[i])
+            data[i] = data[i].lower()
 
             #Tokenize first story using Dr. J's code
             sent_text = nltk.sent_tokenize(data[1])     
@@ -80,8 +79,8 @@ if __name__ == "__main__":
             #Print dict
             tagdict = load('help/tagsets/upenn_tagset.pickle')
             print(all_tagged)
-	    for tag in all_tagged:
-		    print(tag)
+            for tag in all_tagged:
+            	print(tag)
 
 
             """
