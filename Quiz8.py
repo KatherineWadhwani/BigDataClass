@@ -26,8 +26,8 @@ import glob
 
 
 
-f1 = pd.read_csv('movies.csv')
-f2 = pd.read_csv('ratings.csv')
+f1 = pd.read_csv('ml-latest-small/movies.csv')
+f2 = pd.read_csv('ml-latest-small/ratings.csv')
 out = pd.merge(f1,f2,on='movieId',how='inner')
 print(out)
 out.to_csv("merged.csv", index=False)
