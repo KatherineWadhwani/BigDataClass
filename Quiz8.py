@@ -18,12 +18,12 @@ from pyspark.sql import SparkSession
 #does order matter or can use set?
 #Setup 
 def hashOne(num):
-  print("I am being called")
   M = 2^13 - 1
   list = reviews[num]
-  for item in list:
+  print(list)
+  """for item in list:
     item = ((num*50 + 1) % M)
-    print(item)
+    print(item)"""
 
 def hashTwo(num):
   M = 2^13 - 1
@@ -69,7 +69,6 @@ for i in range(len(out)):
       computeJacc(num1, num2)"""
 
 for num in range(611):
-  print(num)
   hashOne(num)
 
 
