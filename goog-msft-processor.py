@@ -79,11 +79,7 @@ if __name__ == "__main__":
 
             #Print dict
             tagdict = load('help/tagsets/upenn_tagset.pickle')
-            df = {
-              "text": data[1],
-              "dictionary": tagdict
-            }
-            print(df);
+            print(tagdict);
 
 #---------------------------------------------------#
 
