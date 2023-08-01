@@ -26,7 +26,7 @@ out.to_csv("merged.csv", index=False)
 reviews = dict()
 
 for num in range(611):
-  list = [-5, -1]
+  list = []
   reviews[num] = list
 
 
