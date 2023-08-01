@@ -32,7 +32,7 @@ for num in range(331):
 
 
 for row in out:
-  print(row['userId'])
+  print(out['userID'][row]
   #list = reviews.get(row['userId'])
   #list.append(movieId)
   #reviews[row['userId']] = list
