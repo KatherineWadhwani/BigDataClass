@@ -31,10 +31,10 @@ def hash3(num1):
   
 
 def computeJacc(num1, num2):
-  list1 = reviews[num1]
-  list2 = reviews[num2]
-  intersect = len(list1.intersection(list2))
-  union = len(list1.union(list2))
+  set1 = set(reviews[num1])
+  set2 = set(reviews[num2])
+  intersect = len(set1.intersection(set2))
+  union = len(set1.union(set2))
   jaccard = (intersect/union)
   if (jaccard > 0.5):
     print("Users " + str(num1) + " and " + str(num2) + " have a Jaccard similarity of " + str(jaccard))
@@ -48,12 +48,12 @@ out.to_csv("merged.csv", index=False)
 reviews = dict()
 
 for num in range(611):
-  list = set()
+  list = []
   reviews[num] = list
 
 for i in range(len(out)):
   list = reviews.get(out.loc[i, "userId"])
-  list.add(out.loc[i, "movieId"])
+  list.append(out.loc[i, "movieId"])
   
 for num1 in range(611):
   for num2 in range(611):
