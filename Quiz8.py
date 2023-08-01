@@ -23,21 +23,16 @@ out = pd.merge(f1,f2,on='movieId',how='inner')
 #print(out)
 out.to_csv("merged.csv", index=False)
 
-
-
-
 reviews = dict()
 
-for num in range(331):
+for num in range(610):
   list = [-5, -1]
   reviews[num] = list
 
 
 for i in range(len(out)):
-  print(reviews.get(out.loc[i, "userId"]))
-  #reviews[out.loc[i, "userId"]]
-  #reviews.get(out.loc[i, "userId"])
-  #append(out.loc[i, "movieId"])
+  list = reviews.get(out.loc[i, "userId"])
+  list.append(out.loc[i, "movieId"])
   
 
 print(reviews)
