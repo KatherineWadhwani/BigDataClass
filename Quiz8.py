@@ -84,7 +84,7 @@ for num in range(611):
   
   
   
-  hashOne(num)
+  #hashOne(num)
 
 
 
