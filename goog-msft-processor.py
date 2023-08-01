@@ -119,7 +119,7 @@ if __name__ == "__main__":
                 return [trigram_mod[bigram_mod[doc]] for doc in texts]
             
             def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
-                """https://spacy.io/api/annotation"""
+                #https://spacy.io/api/annotation
                 texts_out = []
                 for sent in texts:
                     doc = nlp(" ".join(sent)) 
