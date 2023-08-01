@@ -19,15 +19,21 @@ from pyspark.sql import SparkSession
 #Setup 
 def hash1(num):
   M = 2^13 - 1
-  print ((num*50 + 1) % M)
+  list = reviews[num]
+  for item in list:
+    item = ((num*50 + 1) % M)
 
-def hash2(num):
+def hash1(num):
   M = 2^13 - 1
-  print ((num*100 + 1) % M)
-
-def hash3(num1):
+  list = reviews[num]
+  for item in list:
+    item = ((num*100 + 1) % M)
+    
+def hash1(num):
   M = 2^13 - 1
-  print ((num*200 + 1) % M)
+  list = reviews[num]
+  for item in list:
+    item = ((num*200 + 1) % M)
   
 
 def computeJacc(num1, num2):
@@ -59,8 +65,9 @@ for num1 in range(611):
   for num2 in range(611):
     if (num1 != num2):
       computeJacc(num1, num2)
-      hash1(num1)
 
+#for num in range(611):
+    hash1(1)
 
 
 
