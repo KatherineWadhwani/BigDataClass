@@ -43,7 +43,7 @@ stop_words = stopwords.words('english')
 
 #Setup 
 
-all_files = glob.glob(os.path.join(ml-latest-small/, "*.csv"))
+all_files = glob.glob(os.path.join("ml-latest-small/", "*.csv"))
 
 df = pd.concat((pd.read_csv(f) for f in all_files), ignore_index=True)
 print(df)
