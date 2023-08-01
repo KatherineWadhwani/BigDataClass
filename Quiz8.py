@@ -76,7 +76,7 @@ for i in range(len(out)):
       computeJacc(num1, num2)"""
 
 for num in range(611):
-  for movie in reviewsMinHash[movie]:
+  for movie in reviewsMinHash[num]:
     reviewsJaccard[reviewsMinHash[movie]] = 1
   
   
