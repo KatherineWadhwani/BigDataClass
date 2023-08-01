@@ -34,7 +34,9 @@ def computeJacc(num1, num2):
   list2 = reviews[num2]
   intersect = len(list1.intersection(list2))
   union = len(list1.union(list2))
-  return (intersect/union)
+  jaccard = (intersect/union)
+  if (jaccard > 0.5):
+    print("Users " + str(num1) + " and " + str(num2) + " have a Jaccard similarity of " + str(jaccard))
 
 for i in range(len(out)):
   list = reviews.get(out.loc[i, "userId"])
