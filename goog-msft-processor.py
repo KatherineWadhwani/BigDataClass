@@ -88,13 +88,13 @@ if __name__ == "__main__":
             	adjCount = 0
             	nounCount = 0
             	verbCount = 0
-            	if (tagType == "JJ" || tagType == "JJR" || tagType == "JJS"):
+            	if (tagType == "JJ" or tagType == "JJR" or tagType == "JJS"):
 			adjs[adjCount] = all_tagged[0][i][0]
 			adjCount++
-            	if (tagType == "NN" || tagType == "NNS" || tagType == "NNP" || tagType == "NNPS"):
+            	if (tagType == "NN" or tagType == "NNS" or tagType == "NNP" or tagType == "NNPS"):
 			nouns[nounCount] = all_tagged[0][i][0]
 			nounCount++
-            	if (tagType == "VB" || tagType == "VBD" || tagType == "VBG" || tagType == "VBN" || tagType == "VBP" || tagType == "VBZ"):
+            	if (tagType == "VB" or tagType == "VBD" or tagType == "VBG" or tagType == "VBN" or tagType == "VBP" or tagType == "VBZ"):
 			verbs[verbCount] = all_tagged[0][i][0]
 			verbCount++
 
