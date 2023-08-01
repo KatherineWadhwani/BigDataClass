@@ -19,7 +19,7 @@ from pyspark.sql import SparkSession
 #Setup 
 def hashOne(num):
   M = 2^13 - 1
-  list = reviews[num]
+  list = reviewsMinHash[num]
   for index in range(len(list)):
     list[index] = ((list[index]*50 + 1) % M)
   reviews[num] = list
@@ -27,7 +27,7 @@ def hashOne(num):
 
 def hashTwo(num):
   M = 2^13 - 1
-  list = reviews[num]
+  list = reviewsMinHash[num]
   for index in range(len(list)):
     list[index] = ((list[index]*100 + 1) % M)
   reviews[num] = list
@@ -35,7 +35,7 @@ def hashTwo(num):
     
 def hashThree(num):
   M = 2^13 - 1
-  list = reviews[num]
+  list = reviewsMinHash[num]
   for index in range(len(list)):
     list[index] = ((list[index]*200 + 1) % M)
   reviews[num] = list
@@ -63,7 +63,7 @@ reviewsMinHash = dict()
 for num in range(611):
   list = []
   reviewsJaccard[num] = list
-  reviewsMinHash[num] = [None] * 193609
+  reviewsMinHash[num] = [-1] * 193609
 
 for i in range(len(out)):
   list = reviewsJaccard.get(out.loc[i, "userId"])
