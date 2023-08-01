@@ -63,7 +63,7 @@ reviewsMinHash = dict()
 for num in range(611):
   list = []
   reviewsJaccard[num] = list
-  reviewsMinHash[num] = [None] * 1000
+  reviewsMinHash[num] = [None] * 193609
 
 for i in range(len(out)):
   list = reviewsJaccard.get(out.loc[i, "userId"])
@@ -75,6 +75,12 @@ for i in range(len(out)):
       computeJacc(num1, num2)"""
 
 for num in range(611):
+  for movie in reviewsJaccard[num]:
+    reviewsMinHash[movie] = 1
+  
+  
+  
+  
   hashOne(num)
 
 
