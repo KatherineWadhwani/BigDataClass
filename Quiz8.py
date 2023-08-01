@@ -32,11 +32,35 @@ for num in range(331):
 
 
 for row in out:
-  print(out['userID'][row])
+  #print(out['userID'][row])
   #list = reviews.get(row['userId'])
   #list.append(movieId)
   #reviews[row['userId']] = list
 
 #print(reviews)
+
+
+
+
+# Define a dictionary containing students data
+data = {'Name': ['Ankit', 'Amit',
+                 'Aishwarya', 'Priyanka'],
+        'Age': [21, 19, 20, 18],
+        'Stream': ['Math', 'Commerce',
+                   'Arts', 'Biology'],
+        'Percentage': [88, 92, 95, 70]}
+  
+# Convert the dictionary into DataFrame
+df = pd.DataFrame(data, columns=['Name', 'Age', 
+                                 'Stream', 'Percentage'])
+  
+print("Given Dataframe :\n", df)
+  
+print("\nIterating over rows using index attribute :\n")
+  
+# iterate through each row and select
+# 'Name' and 'Stream' column respectively.
+for ind in df.index:
+    print(df['Name'][ind], df['Stream'][ind])
 
 
