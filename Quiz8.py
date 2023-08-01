@@ -29,7 +29,8 @@ def hashTwo(num):
   M = 2^13 - 1
   list = reviewsMinHash[num]
   for index in range(len(list)):
-    list[index] = ((list[index]*100 + 1) % M)
+    if (list[index] > (list[index]*100 + 1) % M):
+      list[index] = ((list[index]*100 + 1) % M)
   reviewsMinHash[num] = list
   #print(reviewsMinHash[num])
     
@@ -37,11 +38,11 @@ def hashThree(num):
   M = 2^13 - 1
   list = reviewsMinHash[num]
   for index in range(len(list)):
-    list[index] = ((list[index]*200 + 1) % M)
+    if (list[index] > (list[index]*200 + 1) % M):
+      list[index] = ((list[index]*200 + 1) % M)
   reviewsMinHash[num] = list
   #print(reviewsMinHash[num])
   
-
 def computeJacc(num1, num2):
   set1 = set(reviews[num1])
   set2 = set(reviews[num2])
@@ -78,12 +79,10 @@ for num in range(611):
   for i in range(193609):
     if (i in reviewsJaccard[num]):
       reviewsMinHash[num][i] = 1
-      print(reviewsMinHash[num][i])
+  hashOne(num)
+  hashTwo(num)
+  hashThree(num)
 
-  
-  
-  
-  #hashOne(num)
 
 
 
