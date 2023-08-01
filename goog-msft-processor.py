@@ -92,11 +92,11 @@ if __name__ == "__main__":
             		adjs[adjCount] = all_tagged[0][i][0]
             		adjCount++
             	if (tagType == "NN" or tagType == "NNS" or tagType == "NNP" or tagType == "NNPS"):
-			nouns[nounCount] = all_tagged[0][i][0]
-			nounCount++
+            		nouns[nounCount] = all_tagged[0][i][0]
+            		nounCount++
             	if (tagType == "VB" or tagType == "VBD" or tagType == "VBG" or tagType == "VBN" or tagType == "VBP" or tagType == "VBZ"):
-			verbs[verbCount] = all_tagged[0][i][0]
-			verbCount++
+            		verbs[verbCount] = all_tagged[0][i][0]
+            		verbCount++
 
             print(adjs)
             print(nouns)
