@@ -77,10 +77,11 @@ if __name__ == "__main__":
             sent_text = nltk.sent_tokenize(data[1])     
             all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
 
+            print(len(all_tagged)
             #Print dict
             tagdict = load('help/tagsets/upenn_tagset.pickle')
             for i in range(len(all_tagged)):
-            	print(all_tagged[i][1])
+            	print(all_tagged[0][1])
 
 
             """
