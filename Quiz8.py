@@ -17,7 +17,7 @@ from pyspark.sql import SparkSession
 
 #does order matter or can use set?
 #Setup 
-def hash1(num):
+def hashOne(num):
   print("I am being called")
   M = 2^13 - 1
   list = reviews[num]
@@ -25,13 +25,13 @@ def hash1(num):
     item = ((num*50 + 1) % M)
     print(item)
 
-def hash1(num):
+def hashTwo(num):
   M = 2^13 - 1
   list = reviews[num]
   for item in list:
     item = ((num*100 + 1) % M)
     
-def hash1(num):
+def hashThree(num):
   M = 2^13 - 1
   list = reviews[num]
   for item in list:
@@ -70,7 +70,7 @@ for i in range(len(out)):
 
 for num in range(611):
   print(num)
-  hash1(num)
+  hashOne(num)
 
 
 
