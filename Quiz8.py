@@ -32,9 +32,10 @@ for num in range(331):
   list = [-1] * 10000
   reviews[num] = list
 
+print(out.keys())
 
 for row in out.index:
-  print(out[row]['userId'])
+  #print(out[row]['userId'])
   #list = reviews.get(row['userId'])
   #list.append(movieId)
   #reviews[row['userId']] = list
