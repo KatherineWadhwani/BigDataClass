@@ -32,12 +32,12 @@ for num in range(331):
   list = [-1] * 10000
   reviews[num] = list
 
-print(out.keys())
-
 
 for i in range(len(out)):
-    print(out.loc[i, "userId"], out.loc[i, "movieId"])
+    list = reviews.get(out.loc[i, "userId"])
+    list.append(out.loc[i, "movieId"])
+    reviews[out.loc[i, "userId"]] = list
 
-#print(reviews)
+print(reviews)
 
 
