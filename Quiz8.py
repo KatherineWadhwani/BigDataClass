@@ -67,9 +67,10 @@ for i in range(len(out)):
   for num2 in range(611):
     if (num1 != num2):
       computeJacc(num1, num2)"""
-print("Got here")
-#for num in range(611):
-hash1(4)
+
+for num in range(611):
+  print(num)
+  #hash1(4)
 
 
 
