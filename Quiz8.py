@@ -57,14 +57,16 @@ out = pd.merge(f1,f2,on='movieId',how='inner')
 #print(out)
 out.to_csv("merged.csv", index=False)
 
-reviews = dict()
+reviewsJaccard = dict()
+reviewsMinHash = dict()
 
 for num in range(611):
   list = []
-  reviews[num] = list
+  reviewsJaccard[num] = list
+  reviewsMinHash[num] = [None] * 1000
 
 for i in range(len(out)):
-  list = reviews.get(out.loc[i, "userId"])
+  list = reviewsJaccard.get(out.loc[i, "userId"])
   list.append(out.loc[i, "movieId"])
   
 """for num1 in range(611):
