@@ -18,14 +18,6 @@ import glob
 
 
 #Setup 
-
-#all_files = glob.glob(os.path.join("ml-latest-small/", "*.csv"))
-
-#df = pd.concat((pd.read_csv(f) for f in all_files), ignore_index=True)
-#print(df.keys())
-
-
-
 f1 = pd.read_csv('ml-latest-small/movies.csv')
 f2 = pd.read_csv('ml-latest-small/ratings.csv')
 out = pd.merge(f1,f2,on='movieId',how='inner')
