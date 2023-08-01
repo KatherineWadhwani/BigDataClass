@@ -61,13 +61,13 @@ for i in range(len(out)):
   list = reviews.get(out.loc[i, "userId"])
   list.append(out.loc[i, "movieId"])
   
-for num1 in range(611):
+"""for num1 in range(611):
   for num2 in range(611):
     if (num1 != num2):
-      computeJacc(num1, num2)
+      computeJacc(num1, num2)"""
 
 #for num in range(611):
-    hash1(1)
+hash1(1)
 
 
 
