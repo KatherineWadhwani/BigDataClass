@@ -44,9 +44,24 @@ def hashThree(num):
   #print(reviewsMinHash[num])
   
 def computeJacc(num1, num2):
-  set1 = set(reviews[num1])
-  set2 = set(reviews[num2])
+  set1 = set(reviewsJaccard[num1])
+  set2 = set(reviewsJaccard[num2])
   intersect = len(set1.intersection(set2))
+  union = len(set1.union(set2))
+  jaccard = (intersect/union)
+  if (jaccard > 0.5):
+    print("Users " + str(num1) + " and " + str(num2) + " have a Jaccard similarity of " + str(jaccard))
+
+def computeMinHash(num1, num2):
+  list1 = reviewsMinHash[num1]
+  list2 = reviewsMinHash[num2]
+  intersect = 0
+  union = len(list1) + list(list2) - union
+  for i in range(193609):
+    if(list1[i] == list2[i]):
+      intersect += 1
+  print(similarity/union)
+      
   union = len(set1.union(set2))
   jaccard = (intersect/union)
   if (jaccard > 0.5):
@@ -69,11 +84,6 @@ for num in range(611):
 for i in range(len(out)):
   list = reviewsJaccard.get(out.loc[i, "userId"])
   list.append(out.loc[i, "movieId"])
-  
-"""for num1 in range(611):
-  for num2 in range(611):
-    if (num1 != num2):
-      computeJacc(num1, num2)"""
 
 for num in range(611):
   for i in range(193609):
@@ -82,6 +92,13 @@ for num in range(611):
   hashOne(num)
   hashTwo(num)
   hashThree(num)
+
+
+for num1 in range(611):
+  for num2 in range(611):
+    if (num1 != num2):
+      computeJacc(num1, num2)
+      computeMinHash(num1, num2)
 
 
 
