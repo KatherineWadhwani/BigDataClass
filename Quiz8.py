@@ -45,6 +45,6 @@ for i in range(len(out)):
 for num1 in range(611):
   for num2 in range(611):
     if (num1 != num2):
-      print(computeJacc(num1, num2))
+      computeJacc(num1, num2)
 
 
