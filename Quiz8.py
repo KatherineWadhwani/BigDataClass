@@ -38,7 +38,7 @@ print(out.keys())
   #print(out[row]['userId'])
   #list = reviews.get(row['userId'])
   #list.append(movieId)
-  #reviews[row['userId']] = list
+  #reviews[out.keys()[3]][row] = list
 
 #print(reviews)
 
