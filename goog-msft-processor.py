@@ -79,8 +79,29 @@ if __name__ == "__main__":
 
             #Print dict
             tagdict = load('help/tagsets/upenn_tagset.pickle')
-            print(tagdict.keys())
             print(all_tagged);
+
+
+            """
+	
+	7.	JJ	Adjective
+	8.	JJR	Adjective, comparative
+	9.	JJS	Adjective, superlative
+
+	12.	NN	Noun, singular or mass
+	13.	NNS	Noun, plural
+	14.	NNP	Proper noun, singular
+	15.	NNPS	Proper noun, plural
+	
+	27.	VB	Verb, base form
+	28.	VBD	Verb, past tense
+	29.	VBG	Verb, gerund or present participle
+	30.	VBN	Verb, past participle
+	31.	VBP	Verb, non-3rd person singular present
+	32.	VBZ	Verb, 3rd person singular present
+
+
+"""
 
 #---------------------------------------------------#
 
