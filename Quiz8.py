@@ -22,6 +22,7 @@ def hash1(num):
   list = reviews[num]
   for item in list:
     item = ((num*50 + 1) % M)
+    print(item)
 
 def hash1(num):
   M = 2^13 - 1
