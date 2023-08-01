@@ -19,9 +19,11 @@ from pyspark.sql import SparkSession
 #Setup 
 f1 = pd.read_csv('ml-latest-small/movies.csv')
 f2 = pd.read_csv('ml-latest-small/ratings.csv')
-out = pd.merge(f1,f2,on='movieId',how='inner')
+out = pd.merge(f1,f2,on='movieId',how='inner', columns=['movieId', 'title', 'genres', 'userId', 'userId', 'timestamp'])
 #print(out)
 out.to_csv("merged.csv", index=False)
+
+
 
 
 reviews = dict()
@@ -38,27 +40,5 @@ for row in out.index:
   #reviews[row['userId']] = list
 
 #print(reviews)
-
-
-
-
-# Define a dictionary containing students data
-data = {'Name': ['Ankit', 'Amit', 'Aishwarya', 'Priyanka'],\
-        'Age': [21, 19, 20, 18],\
-        'Stream': ['Math', 'Commerce','Arts', 'Biology'],\
-        'Percentage': [88, 92, 95, 70]}
-  
-# Convert the dictionary into DataFrame
-df = pd.DataFrame(data, columns=['Name', 'Age', 
-                                 'Stream', 'Percentage'])
-  
-print("Given Dataframe :\n", df)
-  
-print("\nIterating over rows using index attribute :\n")
-  
-# iterate through each row and select
-# 'Name' and 'Stream' column respectively.
-for ind in df.index:
-    print(df['Name'][ind], df['Stream'][ind])
 
 
