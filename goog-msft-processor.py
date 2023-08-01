@@ -84,7 +84,7 @@ if __name__ == "__main__":
             #Print dict
             tagdict = load('help/tagsets/upenn_tagset.pickle')
             for i in range(len(all_tagged[0])):
-		tagType = all_tagged[0][i][1]
+            	tagType = all_tagged[0][i][1]
 		adjCount = 0
 		nounCount = 0
 		verbCount = 0
