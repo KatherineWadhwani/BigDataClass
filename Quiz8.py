@@ -40,7 +40,7 @@ import warnings
 warnings.filterwarnings("ignore",category=DeprecationWarning)
 stop_words = stopwords.words('english')
 
-if __name__ == "__main__":
+
 #Setup 
 
 all_files = glob.glob(os.path.join(ml-latest-small/, "*.csv"))
