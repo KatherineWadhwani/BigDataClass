@@ -31,7 +31,7 @@ for num in range(331):
   reviews[num] = list
 
 
-for row in out:
+#for row in out:
   #print(out['userID'][row])
   #list = reviews.get(row['userId'])
   #list.append(movieId)
@@ -43,9 +43,9 @@ for row in out:
 
 
 # Define a dictionary containing students data
-data = {'Name': ['Ankit', 'Amit', 'Aishwarya', 'Priyanka'],/
-        'Age': [21, 19, 20, 18],/
-        'Stream': ['Math', 'Commerce','Arts', 'Biology'],/
+data = {'Name': ['Ankit', 'Amit', 'Aishwarya', 'Priyanka'],\
+        'Age': [21, 19, 20, 18],\
+        'Stream': ['Math', 'Commerce','Arts', 'Biology'],\
         'Percentage': [88, 92, 95, 70]}
   
 # Convert the dictionary into DataFrame
