@@ -34,9 +34,8 @@ for num in range(331):
 
 
 for i in range(len(out)):
-    list = reviews.get(out.loc[i, "userId"])
-    list.append(out.loc[i, "movieId"])
-    reviews[out.loc[i, "userId"]] = list
+    reviews[out.loc[i, "userId"]] = reviews.get(out.loc[i, "userId"]).append(out.loc[i, "movieId"])
+  
 
 print(reviews)
 
