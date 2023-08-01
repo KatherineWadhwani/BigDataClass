@@ -17,17 +17,17 @@ from pyspark.sql import SparkSession
 
 #does order matter or can use set?
 #Setup 
-def hash1(num1, num2):
+def hash1(num):
   M = 2^13 - 1
-  print ((i*50 + 1) % M)
+  print ((num*50 + 1) % M)
 
-def hash2(num1, num2):
+def hash2(num):
   M = 2^13 - 1
-  print ((i*100 + 1) % M)
+  print ((num*100 + 1) % M)
 
-def hash3(num1, num2):
+def hash3(num1):
   M = 2^13 - 1
-  print ((i*200 + 1) % M)
+  print ((num*200 + 1) % M)
   
 
 def computeJacc(num1, num2):
@@ -59,7 +59,7 @@ for num1 in range(611):
   for num2 in range(611):
     if (num1 != num2):
       computeJacc(num1, num2)
-      hash1(num1, num2)
+      hash1(num1)
 
 
 
