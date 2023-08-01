@@ -37,9 +37,8 @@ def computeJacc(num1, num2):
   return (intersect/union)
 
 for i in range(len(out)):
-  #print(reviews.get(out.loc[i, "userId"])
-  list = list.add(reviews.get(out.loc[i, "userId"]))
-  list.append(out.loc[i, "movieId"])
+  list = reviews.get(out.loc[i, "userId"])
+  list.add(out.loc[i, "movieId"])
   
 for num1 in range(611):
   for num2 in range(611):
