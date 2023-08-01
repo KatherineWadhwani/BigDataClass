@@ -19,7 +19,15 @@ from pyspark.sql import SparkSession
 #Setup 
 def hash1(num1, num2):
   M = 2^13 - 1
+  print ((i*50 + 1) % M)
+
+def hash2(num1, num2):
+  M = 2^13 - 1
   print ((i*100 + 1) % M)
+
+def hash3(num1, num2):
+  M = 2^13 - 1
+  print ((i*200 + 1) % M)
   
 
 def computeJacc(num1, num2):
