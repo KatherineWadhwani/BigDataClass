@@ -22,6 +22,7 @@ def hashOne(num):
   list = reviews[num]
   for item in list:
     item = ((num*50 + 1) % 5)
+  reviews[num] = list
   print(list)
 
 def hashTwo(num):
