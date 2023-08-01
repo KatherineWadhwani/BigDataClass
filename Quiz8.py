@@ -31,8 +31,8 @@ for num in range(331):
   reviews[num] = list
 
 
-#for row in out:
-  #print(out['userID'][row])
+for row in out.index:
+  print(out['userID'][row])
   #list = reviews.get(row['userId'])
   #list.append(movieId)
   #reviews[row['userId']] = list
