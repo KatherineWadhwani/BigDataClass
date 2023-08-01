@@ -34,7 +34,7 @@ for num in range(331):
 
 print(out.keys())
 
-for row in out.index:
+for row in out:
   print(row)
   #list = reviews.get(row['userId'])
   #list.append(movieId)
