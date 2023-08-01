@@ -26,7 +26,7 @@ out.to_csv("merged.csv", index=False)
 reviews = dict()
 
 for num in range(611):
-  list = {}
+  list = set()
   reviews[num] = list
 
 def computeJacc(num1, num2):
