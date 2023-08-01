@@ -22,24 +22,24 @@ def hashOne(num):
   list = reviewsMinHash[num]
   for index in range(len(list)):
     list[index] = ((list[index]*50 + 1) % M)
-  reviews[num] = list
-  print(reviews[num])
+  reviewsMinHash[num] = list
+  print(reviewsMinHash[num])
 
 def hashTwo(num):
   M = 2^13 - 1
   list = reviewsMinHash[num]
   for index in range(len(list)):
     list[index] = ((list[index]*100 + 1) % M)
-  reviews[num] = list
-  print(reviews[num])
+  reviewsMinHash[num] = list
+  print(reviewsMinHash[num])
     
 def hashThree(num):
   M = 2^13 - 1
   list = reviewsMinHash[num]
   for index in range(len(list)):
     list[index] = ((list[index]*200 + 1) % M)
-  reviews[num] = list
-  print(reviews[num])
+  reviewsMinHash[num] = list
+  print(reviewsMinHash[num])
   
 
 def computeJacc(num1, num2):
