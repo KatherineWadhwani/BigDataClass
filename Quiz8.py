@@ -78,7 +78,7 @@ for num in range(611):
   for i in range(193609):
     if (i in reviewsJaccard[num]):
       reviewsMinHash[num][i] = 1
-    print(reviewsMinHash[num][i])
+      print(reviewsMinHash[num][i])
 
   
   
