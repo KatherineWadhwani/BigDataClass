@@ -98,9 +98,9 @@ if __name__ == "__main__":
             		verbs[verbCount] = all_tagged[0][i][0]
             		verbCount+=1
 
-            print("adjectives (10/<total adjective count>):" + adjs)
-            print("nouns (10/<total noun count>):" + nouns)
-            print("verbs (10/<total verb count>):" +  verbs)
+            print("adjectives (10/<total adjective count>):" + str(adjs))
+            print("nouns (10/<total noun count>):" + str(nouns))
+            print("verbs (10/<total verb count>):" +  str(verbs))
 
 
             """
