@@ -25,12 +25,13 @@ out.to_csv("merged.csv", index=False)
 
 reviews = dict()
 
-for num in range(610):
+for num in range(611):
   list = [-5, -1]
   reviews[num] = list
 
 
 for i in range(len(out)):
+  #print(reviews.get(out.loc[i, "userId"])
   list = reviews.get(out.loc[i, "userId"])
   list.append(out.loc[i, "movieId"])
   
