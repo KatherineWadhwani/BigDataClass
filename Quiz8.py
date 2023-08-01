@@ -27,7 +27,7 @@ out.to_csv("merged.csv", index=False)
 reviews = dict()
 
 for num in range(331):
-  list = None * 10000
+  list = [-1] * 10000
   reviews[num] = list
 
 
