@@ -37,6 +37,6 @@ for i in range(len(out)):
   
 
 for num in range(611):
-  print(reviews[num].list)
+  print(reviews[num])
 
 
