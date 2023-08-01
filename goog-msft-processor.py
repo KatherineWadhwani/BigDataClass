@@ -81,7 +81,7 @@ if __name__ == "__main__":
             tagdict = load('help/tagsets/upenn_tagset.pickle')
             print(all_tagged)
             for tag in all_tagged:
-            	print(tag)
+            	print(tag[1])
 
 
             """
