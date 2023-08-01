@@ -63,7 +63,7 @@ reviewsMinHash = dict()
 for num in range(611):
   list = []
   reviewsJaccard[num] = list
-  reviewsMinHash[num] = [-1] * 193609
+  reviewsMinHash[num] = [0] * 193609
 
 for i in range(len(out)):
   list = reviewsJaccard.get(out.loc[i, "userId"])
