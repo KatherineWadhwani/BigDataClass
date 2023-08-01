@@ -78,6 +78,7 @@ for i in range(len(out)):
 for num in range(611):
   for i in range(193609):
     if (i in reviewsJaccard[num]):
+      print("in")
       reviewsMinHash[i] = 1
 
   
