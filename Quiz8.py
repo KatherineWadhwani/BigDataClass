@@ -21,21 +21,25 @@ def hashOne(num):
   M = 2^13 - 1
   list = reviews[num]
   for index in range(len(list)):
-    list[index] = ((list[index]*50 + 1) % 67)
+    list[index] = ((list[index]*50 + 1) % M)
   reviews[num] = list
   print(reviews[num])
 
 def hashTwo(num):
   M = 2^13 - 1
   list = reviews[num]
-  for item in list:
-    item = ((num*100 + 1) % M)
+  for index in range(len(list)):
+    list[index] = ((list[index]*100 + 1) % M)
+  reviews[num] = list
+  print(reviews[num])
     
 def hashThree(num):
   M = 2^13 - 1
   list = reviews[num]
-  for item in list:
-    item = ((num*200 + 1) % M)
+  for index in range(len(list)):
+    list[index] = ((list[index]*200 + 1) % M)
+  reviews[num] = list
+  print(reviews[num])
   
 
 def computeJacc(num1, num2):
