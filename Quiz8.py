@@ -70,7 +70,7 @@ for i in range(len(out)):
 
 for num in range(611):
   print(num)
-  #hash1(4)
+  hash1(num)
 
 
 
