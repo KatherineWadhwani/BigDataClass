@@ -20,5 +20,23 @@ from pyspark.sql import SparkSession
 f1 = pd.read_csv('ml-latest-small/movies.csv')
 f2 = pd.read_csv('ml-latest-small/ratings.csv')
 out = pd.merge(f1,f2,on='movieId',how='inner')
-print(out)
+#print(out)
 out.to_csv("merged.csv", index=False)
+
+
+reviews = dict()
+
+for num in range(331):
+  list = None * 10000
+    reviews[num] = list
+
+
+
+for row in out:
+  list = reviews.get(row.userId)
+  list.append(movieId)
+  reviews[row.userId] = list
+
+print(reviews)
+
+
