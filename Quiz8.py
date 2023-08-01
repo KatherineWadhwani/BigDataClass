@@ -62,7 +62,6 @@ for num in range(611):
 for i in range(len(out)):
   list = reviews.get(out.loc[i, "userId"])
   list.append(out.loc[i, "movieId"])
-  print(list)
   
 """for num1 in range(611):
   for num2 in range(611):
