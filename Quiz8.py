@@ -29,14 +29,21 @@ for num in range(611):
   list = []
   reviews[num] = list
 
+def computeJacc(num1, num2):
+  list1 = reviews[num1]
+  list2 = reviews[num2]
+  intersect = len(list1.intersect(list2))
+  union = len(list1.union(list2))
+  return (intersect/union)
 
 for i in range(len(out)):
   #print(reviews.get(out.loc[i, "userId"])
   list = reviews.get(out.loc[i, "userId"])
   list.append(out.loc[i, "movieId"])
   
-
-for num in range(611):
-  print(reviews[num])
+for num1 in range(611):
+  for num2 in range(611):
+    if (num1 != num2):
+      print(computeJacc(num1, num2))
 
 
