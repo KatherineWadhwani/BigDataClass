@@ -26,7 +26,7 @@ out.to_csv("merged.csv", index=False)
 reviews = dict()
 
 for num in range(611):
-  list = []
+  list = {}
   reviews[num] = list
 
 def computeJacc(num1, num2):
@@ -39,7 +39,7 @@ def computeJacc(num1, num2):
 for i in range(len(out)):
   #print(reviews.get(out.loc[i, "userId"])
   list = reviews.get(out.loc[i, "userId"])
-  list.append(out.loc[i, "movieId"])
+  list.add(out.loc[i, "movieId"])
   
 for num1 in range(611):
   for num2 in range(611):
