@@ -76,8 +76,9 @@ for i in range(len(out)):
       computeJacc(num1, num2)"""
 
 for num in range(611):
-  for movie in reviewsJaccard[num]:
-    print(movie)
+  for i in range(193609):
+    if (reviewsJaccard[num].contains(i)):
+      reviewsMinHash[i] = 1
 
   
   
