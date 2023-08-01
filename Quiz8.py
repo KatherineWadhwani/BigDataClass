@@ -34,11 +34,9 @@ for num in range(331):
 
 print(out.keys())
 
-for row in out:
-  print(row)
-  #list = reviews.get(row['userId'])
-  #list.append(movieId)
-  #reviews[out.keys()[3]][row] = list
+
+for i in range(len(out)):
+    print(out.loc[i, "userId"], out.loc[i, "movieId"])
 
 #print(reviews)
 
