@@ -37,6 +37,6 @@ for row in out:
   #list.append(movieId)
   #reviews[row['userId']] = list
 
-print(reviews)
+#print(reviews)
 
 
