@@ -20,7 +20,6 @@ from pyspark.sql import SparkSession
 def hashOne(num):
   M = 2^13 - 1
   list = reviewsMinHash[num]
-  print(list)
   for index in range(len(list)):
     list[index] = ((list[index]*50 + 1) % M)
   reviewsMinHash[num] = list
@@ -78,8 +77,8 @@ for i in range(len(out)):
 for num in range(611):
   for i in range(193609):
     if (i in reviewsJaccard[num]):
-      print("in")
       reviewsMinHash[i] = 1
+    print(reviewsMinHash[num])
 
   
   
