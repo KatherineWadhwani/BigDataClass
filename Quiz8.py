@@ -32,7 +32,7 @@ for num in range(611):
 def computeJacc(num1, num2):
   list1 = reviews[num1]
   list2 = reviews[num2]
-  intersect = len(list1.intersect(list2))
+  intersect = len(list1.intersection(list2))
   union = len(list1.union(list2))
   return (intersect/union)
 
