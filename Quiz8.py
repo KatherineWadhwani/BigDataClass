@@ -77,7 +77,7 @@ for i in range(len(out)):
 
 for num in range(611):
   for movie in reviewsMinHash[num]:
-    reviewsJaccard[reviewsMinHash[movie]] = 1
+    reviewsMinHash[reviewsJaccard[movie]] = 1
   
   
   
