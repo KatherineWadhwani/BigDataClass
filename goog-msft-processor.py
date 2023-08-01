@@ -89,8 +89,8 @@ if __name__ == "__main__":
             	nounCount = 0
             	verbCount = 0
             	if (tagType == "JJ" or tagType == "JJR" or tagType == "JJS"):
-			adjs[adjCount] = all_tagged[0][i][0]
-			adjCount++
+            		adjs[adjCount] = all_tagged[0][i][0]
+            		adjCount++
             	if (tagType == "NN" or tagType == "NNS" or tagType == "NNP" or tagType == "NNPS"):
 			nouns[nounCount] = all_tagged[0][i][0]
 			nounCount++
