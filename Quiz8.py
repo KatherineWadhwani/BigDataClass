@@ -20,7 +20,7 @@ from pyspark.sql import SparkSession
 def hashOne(num):
   M = 2^13 - 1
   list = reviews[num]
-  for index in range(list):
+  for index in range(len(list)):
     list[index] = ((list[index]*50 + 1) % 5)
   reviews[num] = list
   print(reviews[num])
