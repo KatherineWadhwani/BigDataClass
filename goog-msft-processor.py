@@ -77,9 +77,9 @@ if __name__ == "__main__":
             sent_text = nltk.sent_tokenize(data[1])     
             all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
 	
-            adjs = []
-            nouns = []	
-            verbs = []
+            adjs = [None] * 10
+            nouns = [None] * 10
+            verbs = [None] * 10
 	
             #Print dict
             tagdict = load('help/tagsets/upenn_tagset.pickle')
@@ -88,13 +88,13 @@ if __name__ == "__main__":
             	adjCount = 0
             	nounCount = 0
             	verbCount = 0
-            	if (tagType == "JJ" or tagType == "JJR" or tagType == "JJS"):
+            	if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
             		adjs[adjCount] = all_tagged[0][i][0]
             		adjCount+=1
-            	if (tagType == "NN" or tagType == "NNS" or tagType == "NNP" or tagType == "NNPS"):
+            	if ((tagType == "NN" or tagType == "NNS" or tagType == "NNP" or tagType == "NNPS") and nounCount < 10):
             		nouns[nounCount] = all_tagged[0][i][0]
             		nounCount+=1
-            	if (tagType == "VB" or tagType == "VBD" or tagType == "VBG" or tagType == "VBN" or tagType == "VBP" or tagType == "VBZ"):
+            	if ((tagType == "VB" or tagType == "VBD" or tagType == "VBG" or tagType == "VBN" or tagType == "VBP" or tagType == "VBZ") and verbCount < 10):
             		verbs[verbCount] = all_tagged[0][i][0]
             		verbCount+=1
 
