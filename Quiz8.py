@@ -21,7 +21,7 @@ def hashOne(num):
   M = 2^13 - 1
   list = reviews[num]
   for index in range(len(list)):
-    list[index] = ((list[index]*50 + 1) % 5)
+    list[index] = ((list[index]*50 + 1) % 67)
   reviews[num] = list
   print(reviews[num])
 
