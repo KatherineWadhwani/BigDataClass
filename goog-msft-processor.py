@@ -80,14 +80,14 @@ if __name__ == "__main__":
             adjs = [None] * 10
             nouns = [None] * 10
             verbs = [None] * 10
+            adjCount = 0
+            nounCount = 0
+            verbCount = 0
 	
             #Print dict
             tagdict = load('help/tagsets/upenn_tagset.pickle')
             for i in range(len(all_tagged[0])):
             	tagType = all_tagged[0][i][1]
-            	adjCount = 0
-            	nounCount = 0
-            	verbCount = 0
             	if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
             		adjs[adjCount] = all_tagged[0][i][0]
             		adjCount+=1
