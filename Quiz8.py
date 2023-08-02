@@ -19,6 +19,7 @@ from pyspark.sql import SparkSession
 #Setup 
 def hash(hashNum):
   for num in range(611):
+    #following line doesn't work??
     print(reviewsJaccard[num])
     for integer in range(193609):
       M = 2^13 - 1
