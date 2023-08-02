@@ -42,14 +42,14 @@ stop_words = stopwords.words('english')
 
 if __name__ == "__main__":
 #Setup 
-            #Open Poe Stories
+        #Open Poe Stories
 	files = [None] * 21
-        files[0] = open("poe-stories/A_DESCENT_INTO_THE_MAELSTROM", "r")
-        files[1] = open("poe-stories/BERENICE", "r")
-        files[2] = open("poe-stories/ELEONORA", "r")
-        files[3] = open("poe-stories/LANDORS_COTTAGE", "r")
-        files[4] = open("poe-stories/MESMERIC_REVELATION", "r")
-        files[5] = open("poe-stories/SILENCE_A_FABLE", "r")
+	files[0] = open("poe-stories/A_DESCENT_INTO_THE_MAELSTROM", "r")
+	files[1] = open("poe-stories/BERENICE", "r")
+	files[2] = open("poe-stories/ELEONORA", "r")
+	files[3] = open("poe-stories/LANDORS_COTTAGE", "r")
+	files[4] = open("poe-stories/MESMERIC_REVELATION", "r")
+	files[5] = open("poe-stories/SILENCE_A_FABLE", "r")
         files[6] = open("poe-stories/THE_ASSIGNATION", "r")
         files[7] = open("poe-stories/THE_BLACK_CAT", "r")
         files[8] = open("poe-stories/THE_CASK_OF_AMONTILLADO", "r")
