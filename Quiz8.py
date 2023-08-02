@@ -23,9 +23,9 @@ def hash(hashNum):
       M = 2^13 - 1
       movie = out.iloc[((integer*hashNum + 1) % M)]
       print(movie)
-      #if(movie in reviewsJaccard[integer]):
-            #reviewsMinHash[integer][hashNum] = movie
-            #break
+      if(movie in reviewsJaccard[num2]):
+            reviewsMinHash[integer][hashNum] = movie
+            break
 
 def computeJacc(num1, num2):
   set1 = set(reviewsJaccard[num1])
