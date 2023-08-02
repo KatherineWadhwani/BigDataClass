@@ -18,11 +18,11 @@ from pyspark.sql import SparkSession
 #does order matter or can use set?
 #Setup 
 def hash(hashNum):
-  for num2 in range(611):
+  for num in range(611):
     for integer in range(193609):
       M = 2^13 - 1
       movie = out.iloc[((integer*hashNum + 1) % M)]
-      if(movie in reviewsJaccard[num2]):
+      if(movie in reviewsJaccard[num]):
             reviewsMinHash[integer][hashNum] = movie
             break
 
@@ -76,8 +76,8 @@ for num1 in range(611):
       computeJacc(num1, num2)
 
 for num in range(50):
-  #hash(num)
-  print(reviewsJaccard[num])
+  hash(num)
+  print(reviewsMinHash)
 
 
 
