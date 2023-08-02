@@ -48,7 +48,6 @@ if __name__ == "__main__":
             #Clean Poe Story
 
             story = story.read()
-            story = re.sub('[^0-9a-zA-Z]+', ' ', story)
             story = story.lower()
 
             #Tokenize first story using Dr. J's code
