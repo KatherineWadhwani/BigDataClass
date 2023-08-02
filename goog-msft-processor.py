@@ -47,9 +47,9 @@ if __name__ == "__main__":
 
 
         #Convert Poe Stories to Lower
-	for i in range(21):
-		story = story.read()
-		story = story.lower()
+	story = story.read()
+	story = story.lower()
+
 
 	#Tokenize story using Dr. J's code
 	sent_text = nltk.sent_tokenize(story)     
