@@ -167,37 +167,37 @@ for review in reviewsDF.ReviewText:
 	#print(data_words_nostops)
                         
         # Form Bigrams
-        data_words_bigrams = make_bigrams(data_words_nostops)
-        #print(data_words_bigrams)
+	data_words_bigrams = make_bigrams(data_words_nostops)
+	#print(data_words_bigrams)
                         
-        # In the end, we didn't create trigrams. Should have taken the extra time.
+	# In the end, we didn't create trigrams. Should have taken the extra time.
                         
-        # Initialize spacy 'en' model, keeping only tagger component (for efficiency)
-        # python3 -m spacy download en
-        nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
+	# Initialize spacy 'en' model, keeping only tagger component (for efficiency)
+	# python3 -m spacy download en
+	nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
                         
-        # Do lemmatization keeping only noun, adj, vb, adv
-        data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
-        #print(data_lemmatized[:1])
+	# Do lemmatization keeping only noun, adj, vb, adv
+	data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
+	#print(data_lemmatized[:1])
             
-        # Create Dictionary
-        id2word = corpora.Dictionary(data_lemmatized)
+	# Create Dictionary
+	id2word = corpora.Dictionary(data_lemmatized)
                         
-        # Create Corpus
-        texts = data_lemmatized
+	# Create Corpus
+	texts = data_lemmatized
                         
-        # Term Document Frequency
-        corpus = [id2word.doc2bow(text) for text in texts]
+	# Term Document Frequency
+	corpus = [id2word.doc2bow(text) for text in texts]
                         
-        #print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
-        speeches_corpus = dict(id2word)
-        #print(speeches_corpus)
+	#print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
+	speeches_corpus = dict(id2word)
+	#print(speeches_corpus)
 
-        num_topics = 10
-        #print(corpus)
-        #print(len(corpus))
-        lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=id2word, num_topics=num_topics, random_state=100, update_every=1, chunksize=100, passes=10, alpha='auto', per_word_topics=True)
-        #print(lda_model.print_topics())
+	num_topics = 10
+	#print(corpus)
+	#print(len(corpus))
+	lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=id2word, num_topics=num_topics, random_state=100, update_every=1, chunksize=100, passes=10, alpha='auto', per_word_topics=True)
+	#print(lda_model.print_topics())
         #doc_lda = lda_model[corpus]
         #https://stackoverflow.com/questions/40840731/valueerror-cannot-compute-lda-over-an-empty-collection-no-terms
         #print ([itm for itm in dir(doc_lda) if not itm.startswith('__')])
