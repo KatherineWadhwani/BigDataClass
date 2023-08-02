@@ -17,13 +17,14 @@ from pyspark.sql import SparkSession
 
 #does order matter or can use set?
 #Setup 
-"""def hash(hashNum):
+def hash(hashNum):
   for num2 in range(611):
-    for (integer in range(9743])):
+    for (integer in range(193609])):
       M = 2^13 - 1
       movie = ((list[index]*hashNum + 1) % M)
           if(movie in reviewsJaccard[num1]):
-            reviewsMinHash[hashNum] = movie"""
+            reviewsMinHash[hashNum] = movie
+            break
 
 def computeJacc(num1, num2):
   set1 = set(reviewsJaccard[num1])
@@ -72,6 +73,9 @@ for num1 in range(611):
   for num2 in range(611):
     if (num1 != num2):
       computeJacc(num1, num2)
+      for num in range(50):
+          hash(num)
+          print(reviewsMinHash)
 
 
 
