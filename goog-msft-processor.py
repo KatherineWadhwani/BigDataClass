@@ -62,8 +62,7 @@ if __name__ == "__main__":
             #print(all_tagged)
             #Print dict
             tagdict = load('help/tagsets/upenn_tagset.pickle')
-            print(all_tagged)
-            for i in range(len(all_tagged[0])):
+            for i in range(len(all_tagged)):
             	tagType = all_tagged[0][i][1]
             	if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
             		adjs[adjCount] = all_tagged[0][i][0]
