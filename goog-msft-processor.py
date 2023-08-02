@@ -70,7 +70,7 @@ if __name__ == "__main__":
             data = [None] * 21
             for i in range(21):
             	data[i] = files[i].read()
-            	data[i] = re.sub('[^0-9a-zA-Z]+', ' ', data[i])
+            	#data[i] = re.sub('[^0-9a-zA-Z]+', ' ', data[i])
             	data[i] = data[i].lower()
 
             #Tokenize story using Dr. J's code
@@ -86,7 +86,8 @@ if __name__ == "__main__":
             verbCount = 0
 	
             #Print word types
-            for i in range(len(all_tagged[0])):
+            for j in range(len(all_tagged)):
+            for i in range(len(all_tagged[j])):
             	tagType = all_tagged[0][i][1]
             	if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
             		adjs[adjCount] = all_tagged[0][i][0]
