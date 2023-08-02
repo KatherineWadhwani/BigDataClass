@@ -46,6 +46,7 @@ if __name__ == "__main__":
             story = open("poe-stories/THE_BLACK_CAT", "r")
 
             #Clean Poe Story
+
             story = story.read()
             story = story.lower()
 
@@ -60,26 +61,23 @@ if __name__ == "__main__":
             nounCount = 0
             verbCount = 0
 	
-            #Print first 10 adjs/nouns/verbs
-
-            for i in range(len(all_tagged)):
-            	tagType = all_tagged[i][1]
-            	print(tagType)
-            	print(all_tagged[i])
+            #Print dict
+            tagdict = load('help/tagsets/upenn_tagset.pickle')
+            for i in range(len(all_tagged[0])):
+            	tagType = all_tagged[0][i][1]
             	if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
-            		adjs[adjCount] = all_tagged[i][0]
+            		adjs[adjCount] = all_tagged[0][i][0]
             		adjCount+=1
             	if ((tagType == "NN" or tagType == "NNS" or tagType == "NNP" or tagType == "NNPS") and nounCount < 10):
-            		nouns[nounCount] = all_tagged[i][0]
+            		nouns[nounCount] = all_tagged[0][i][0]
             		nounCount+=1
             	if ((tagType == "VB" or tagType == "VBD" or tagType == "VBG" or tagType == "VBN" or tagType == "VBP" or tagType == "VBZ") and verbCount < 10):
-            		verbs[verbCount] = all_tagged[i][0]
+            		verbs[verbCount] = all_tagged[0][i][0]
             		verbCount+=1
 
             print("adjectives (10/<total adjective count>):" + str(adjs))
             print("nouns (10/<total noun count>):" + str(nouns))
             print("verbs (10/<total verb count>):" +  str(verbs))
-
 
             """
 	
