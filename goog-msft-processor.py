@@ -76,7 +76,6 @@ if __name__ == "__main__":
 	#Tokenize story using Dr. J's code
 	sent_text = nltk.sent_tokenize(data[7])     
 	all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
-	print(all_tagged)
 	
 	adjs = [None] * 10
 	nouns = [None] * 10
@@ -86,19 +85,18 @@ if __name__ == "__main__":
 	verbCount = 0
 	
 	#Print word types
-	for j in range(len(all_tagged)):
-		for i in range(len(all_tagged[j])):
-			print(all_tagged[j][i])
-			"""tagType = all_tagged[0][i][1]
+	for i in range(len(all_tagged)):
+		for j in range(len(all_tagged[i])):
+			tagType = all_tagged[i][j][1]
 	            	if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
-	            		adjs[adjCount] = all_tagged[0][i][0]
+	            		adjs[adjCount] = all_tagged[i][j][0]
 	            		adjCount+=1
 	            	if ((tagType == "NN" or tagType == "NNS" or tagType == "NNP" or tagType == "NNPS") and nounCount < 10):
-	            		nouns[nounCount] = all_tagged[0][i][0]
+	            		nouns[nounCount] = all_tagged[i][j][0]
 	            		nounCount+=1
 	            	if ((tagType == "VB" or tagType == "VBD" or tagType == "VBG" or tagType == "VBN" or tagType == "VBP" or tagType == "VBZ") and verbCount < 10):
-	            		verbs[verbCount] = all_tagged[0][i][0]
-	            		verbCount+=1"""
+	            		verbs[verbCount] = all_tagged[i][j][0]
+	            		verbCount+=1
 
 	print("adjectives (10/<total adjective count>):" + str(adjs))
 	print("nouns (10/<total noun count>):" + str(nouns))
