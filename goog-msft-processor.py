@@ -64,6 +64,7 @@ if __name__ == "__main__":
 
             for i in range(len(all_tagged)):
             	tagType = all_tagged[i][1]
+		print(tagType)
             	if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
             		adjs[adjCount] = all_tagged[i][0]
             		adjCount+=1
