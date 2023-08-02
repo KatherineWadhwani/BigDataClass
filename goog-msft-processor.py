@@ -88,7 +88,7 @@ if __name__ == "__main__":
 	for i in range(len(all_tagged)):
 		for j in range(len(all_tagged[i])):
 			tagType = all_tagged[i][j][1]
-	            	if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
+			if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
 	            		adjs[adjCount] = all_tagged[i][j][0]
 	            		adjCount+=1
 	            	if ((tagType == "NN" or tagType == "NNS" or tagType == "NNP" or tagType == "NNPS") and nounCount < 10):
