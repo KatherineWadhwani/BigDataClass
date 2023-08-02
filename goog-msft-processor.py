@@ -128,8 +128,8 @@ if __name__ == "__main__":
 
 #---------------------------------------------------#
 
-            #Print word in file
-            reviewsDict = []
+        #Print word in file
+        reviewsDict = []
             
             """def collect (sentences):
                         speech = []
