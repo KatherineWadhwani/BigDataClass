@@ -74,7 +74,7 @@ for num1 in range(611):
   for num2 in range(611):
     if (num1 != num2):
       computeJacc(num1, num2)
-      for num in range(50):
+      #for num in range(50):
           #hash(num)
 
 print(reviewsJaccard[1])
