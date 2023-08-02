@@ -46,9 +46,9 @@ if __name__ == "__main__":
             story = open("poe-stories/THE_BLACK_CAT", "r")
 
             #Clean Poe Story
-
             story = story.read()
             story = story.lower()
+            print(story)
 
             #Tokenize first story using Dr. J's code
             sent_text = nltk.sent_tokenize(story)     
