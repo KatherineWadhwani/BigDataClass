@@ -22,6 +22,7 @@ def hash(hashNum):
     for integer in range(193609):
       M = 2^13 - 1
       movie = out.iloc[((integer*hashNum + 1) % M)]
+      print(reviewsJaccard[num])
       if(movie in reviewsJaccard[num]):
             reviewsMinHash[integer][hashNum] = movie
             break
@@ -53,7 +54,6 @@ def computeMinHash(num1, num2):
 f1 = pd.read_csv('ml-latest-small/movies.csv')
 f2 = pd.read_csv('ml-latest-small/ratings.csv')
 out = pd.merge(f1,f2,on='movieId',how='inner')
-print(out)
 out.to_csv("merged.csv", index=False)
 
 reviewsJaccard = dict()
