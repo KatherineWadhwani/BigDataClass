@@ -52,6 +52,7 @@ if __name__ == "__main__":
 	#Tokenize Story
 	sent_text = nltk.sent_tokenize(story)     
 	all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
+	print(all_tagged)
 
 	#Create structure to count adjs/nouns/verbs and store counts
 	adjs = [None] * 10
