@@ -70,7 +70,7 @@ if __name__ == "__main__":
             data = [None] * 21
             for i in range(21):
             	data[i] = files[i].read()
-            	#data[i] = re.sub('[^0-9a-zA-Z]+', ' ', data[i])
+            	data[i] = re.sub('[^0-9a-zA-Z]+', ' ', data[i])
             	data[i] = data[i].lower()
 
             #Tokenize story using Dr. J's code
