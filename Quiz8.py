@@ -17,32 +17,14 @@ from pyspark.sql import SparkSession
 
 #does order matter or can use set?
 #Setup 
-def hashOne(num):
+def hash(hashNum):
   M = 2^13 - 1
   list = reviewsMinHash[num]
   for index in range(len(list)):
-    list[index] = ((list[index]*50 + 1) % M)
+    list[index] = ((list[index]*hashNum + 1) % M)
   reviewsMinHash[num] = list
   #print(reviewsMinHash[num])
 
-def hashTwo(num):
-  M = 2^13 - 1
-  list = reviewsMinHash[num]
-  for index in range(len(list)):
-    if (list[index] > (list[index]*100 + 1) % M):
-      list[index] = ((list[index]*100 + 1) % M)
-  reviewsMinHash[num] = list
-  #print(reviewsMinHash[num])
-    
-def hashThree(num):
-  M = 2^13 - 1
-  list = reviewsMinHash[num]
-  for index in range(len(list)):
-    if (list[index] > (list[index]*200 + 1) % M):
-      list[index] = ((list[index]*200 + 1) % M)
-  reviewsMinHash[num] = list
-  #print(reviewsMinHash[num])
-  
 def computeJacc(num1, num2):
   set1 = set(reviewsJaccard[num1])
   set2 = set(reviewsJaccard[num2])
@@ -79,25 +61,17 @@ reviewsMinHash = dict()
 for num in range(611):
   list = []
   reviewsJaccard[num] = list
-  reviewsMinHash[num] = [0] * 193609
+  reviewsMinHash[num] = [0] * 10,000
 
+#Assign movie to user who reviewd it
 for i in range(len(out)):
   list = reviewsJaccard.get(out.loc[i, "userId"])
   list.append(out.loc[i, "movieId"])
-
-for num in range(611):
-  for i in range(193609):
-    if (i in reviewsJaccard[num]):
-      reviewsMinHash[num][i] = 1
-  hashOne(num)
-  hashTwo(num)
-  hashThree(num)
 
 for num1 in range(611):
   for num2 in range(611):
     if (num1 != num2):
       computeJacc(num1, num2)
-      computeMinHash(num1, num2)
 
 
 
