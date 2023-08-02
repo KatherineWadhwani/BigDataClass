@@ -74,7 +74,7 @@ if __name__ == "__main__":
             	data[i] = data[i].lower()
 
             #Tokenize first story using Dr. J's code
-            sent_text = nltk.sent_tokenize(data[1])     
+            sent_text = nltk.sent_tokenize(data[0])     
             all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
 	
             adjs = [None] * 10
