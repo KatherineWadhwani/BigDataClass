@@ -48,7 +48,6 @@ if __name__ == "__main__":
             #Clean Poe Story
             story = story.read()
             story = story.lower()
-            print(story)
 
             #Tokenize first story using Dr. J's code
             sent_text = nltk.sent_tokenize(story)     
@@ -60,7 +59,7 @@ if __name__ == "__main__":
             adjCount = 0
             nounCount = 0
             verbCount = 0
-	
+            print(all_tagged)
             #Print dict
             tagdict = load('help/tagsets/upenn_tagset.pickle')
             for i in range(len(all_tagged[0])):
