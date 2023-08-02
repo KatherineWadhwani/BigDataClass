@@ -21,7 +21,7 @@ def hash(hashNum):
   for num2 in range(611):
     for integer in range(193609):
       M = 2^13 - 1
-      movie = ((list[index]*hashNum + 1) % M)
+      movie = out.iloc[((integer*hashNum + 1) % M)]
       if(movie in reviewsJaccard[integer]):
             reviewsMinHash[integer][hashNum] = movie
             break
