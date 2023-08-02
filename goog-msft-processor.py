@@ -66,11 +66,11 @@ if __name__ == "__main__":
             files[19] = open("poe-stories/VON_KEMPELEN_AND_HIS_DISCOVERY", "r")
             files[20] = open("poe-stories/WILLIAM_WILSON", "r")
 
-            #Clean Poe Stories
+            #Convert Poe Stories to Lower
             data = [None] * 21
             for i in range(21):
             	data[i] = files[i].read()
-            	data[i] = re.sub('[^0-9a-zA-Z]+', ' ', data[i])
+            	#data[i] = re.sub('[^0-9a-zA-Z]+', ' ', data[i])
             	data[i] = data[i].lower()
 
             #Tokenize story using Dr. J's code
