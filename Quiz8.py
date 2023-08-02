@@ -19,6 +19,7 @@ from pyspark.sql import SparkSession
 #Setup 
 def hash(hashNum):
   for num in range(611):
+    print(reviewsJaccard[num])
     for integer in range(193609):
       M = 2^13 - 1
       movie = out.iloc[((integer*hashNum + 1) % M)]
@@ -76,12 +77,8 @@ for num1 in range(611):
     if (num1 != num2):
       computeJacc(num1, num2)
 
-#for num in range(50):
-  #hash(num)
-
-
-for num in range(611):
-  print(reviewsJaccard[num])
+for num in range(50):
+  hash(num)
 
 
 
