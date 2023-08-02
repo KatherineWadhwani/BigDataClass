@@ -42,7 +42,7 @@ stop_words = stopwords.words('english')
 
 if __name__ == "__main__":
 #Setup 
-            #Open Poe Speaches
+            #Open Poe Stories
             files = [None] * 21
             files[0] = open("poe-stories/A_DESCENT_INTO_THE_MAELSTROM", "r")
             files[1] = open("poe-stories/BERENICE", "r")
@@ -66,16 +66,18 @@ if __name__ == "__main__":
             files[19] = open("poe-stories/VON_KEMPELEN_AND_HIS_DISCOVERY", "r")
             files[20] = open("poe-stories/WILLIAM_WILSON", "r")
 
-            #Clean Poe Speaches
+            #Clean Poe Stories
             data = [None] * 21
             for i in range(21):
             	data[i] = files[i].read()
             	data[i] = re.sub('[^0-9a-zA-Z]+', ' ', data[i])
             	data[i] = data[i].lower()
 
-            #Tokenize first story using Dr. J's code
+            #Tokenize story using Dr. J's code
             sent_text = nltk.sent_tokenize(data[7])     
             all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
+            print(all_tagged)
+            print(sent_text)
 	
             adjs = [None] * 10
             nouns = [None] * 10
@@ -84,8 +86,7 @@ if __name__ == "__main__":
             nounCount = 0
             verbCount = 0
 	
-            #Print dict
-            tagdict = load('help/tagsets/upenn_tagset.pickle')
+            #Print word types
             for i in range(len(all_tagged[0])):
             	tagType = all_tagged[0][i][1]
             	if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
