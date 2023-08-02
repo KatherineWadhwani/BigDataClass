@@ -88,7 +88,8 @@ if __name__ == "__main__":
             #Print word types
             for j in range(len(all_tagged)):
 	            for i in range(len(all_tagged[j])):
-	            	tagType = all_tagged[0][i][1]
+			print(all_tagged[i][j])
+	            	"""tagType = all_tagged[0][i][1]
 	            	if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
 	            		adjs[adjCount] = all_tagged[0][i][0]
 	            		adjCount+=1
@@ -97,7 +98,7 @@ if __name__ == "__main__":
 	            		nounCount+=1
 	            	if ((tagType == "VB" or tagType == "VBD" or tagType == "VBG" or tagType == "VBN" or tagType == "VBP" or tagType == "VBZ") and verbCount < 10):
 	            		verbs[verbCount] = all_tagged[0][i][0]
-	            		verbCount+=1
+	            		verbCount+=1"""
 
             print("adjectives (10/<total adjective count>):" + str(adjs))
             print("nouns (10/<total noun count>):" + str(nouns))
