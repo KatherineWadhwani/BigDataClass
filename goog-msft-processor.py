@@ -105,7 +105,7 @@ if __name__ == "__main__":
         print("verbs (10/<total verb count>):" +  str(verbs))
 
 
-            """
+"""
 	
 	7.	JJ	Adjective
 	8.	JJR	Adjective, comparative
