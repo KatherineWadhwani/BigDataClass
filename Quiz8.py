@@ -19,11 +19,11 @@ from pyspark.sql import SparkSession
 #Setup 
 def hash(hashNum):
   for num2 in range(611):
-    for (integer in range(193609])):
+    for integer in range(193609):
       M = 2^13 - 1
       movie = ((list[index]*hashNum + 1) % M)
-          if(movie in reviewsJaccard[num1]):
-            reviewsMinHash[hashNum] = movie
+          if(movie in reviewsJaccard[integer]):
+            reviewsMinHash[integer][hashNum] = movie
             break
 
 def computeJacc(num1, num2):
@@ -61,8 +61,9 @@ reviewsMinHash = dict()
 
 for num in range(611):
   list = []
+  listTwo = []
   reviewsJaccard[num] = list
-  reviewsMinHash[num] = [0] * 10,000
+  reviewsMinHash[num] = listTwo
 
 #Assign movie to user who reviewd it
 for i in range(len(out)):
