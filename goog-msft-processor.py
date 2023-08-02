@@ -77,7 +77,6 @@ if __name__ == "__main__":
             sent_text = nltk.sent_tokenize(data[7])     
             all_tagged = [nltk.pos_tag(nltk.word_tokenize(sent)) for sent in sent_text]
             print(all_tagged)
-            print(sent_text)
 	
             adjs = [None] * 10
             nouns = [None] * 10
