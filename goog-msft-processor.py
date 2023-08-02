@@ -91,10 +91,10 @@ if __name__ == "__main__":
 			if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
 	            		adjs[adjCount] = all_tagged[i][j][0]
 	            		adjCount+=1
-	            	if ((tagType == "NN" or tagType == "NNS" or tagType == "NNP" or tagType == "NNPS") and nounCount < 10):
+			if ((tagType == "NN" or tagType == "NNS" or tagType == "NNP" or tagType == "NNPS") and nounCount < 10):
 	            		nouns[nounCount] = all_tagged[i][j][0]
 	            		nounCount+=1
-	            	if ((tagType == "VB" or tagType == "VBD" or tagType == "VBG" or tagType == "VBN" or tagType == "VBP" or tagType == "VBZ") and verbCount < 10):
+			if ((tagType == "VB" or tagType == "VBD" or tagType == "VBG" or tagType == "VBN" or tagType == "VBP" or tagType == "VBZ") and verbCount < 10):
 	            		verbs[verbCount] = all_tagged[i][j][0]
 	            		verbCount+=1
 
