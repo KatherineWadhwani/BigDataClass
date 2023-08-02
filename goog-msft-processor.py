@@ -89,7 +89,7 @@ if __name__ == "__main__":
 	for j in range(len(all_tagged)):
 		for i in range(len(all_tagged[j])):
 			print(all_tagged[j][i])
-	            	"""tagType = all_tagged[0][i][1]
+			"""tagType = all_tagged[0][i][1]
 	            	if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
 	            		adjs[adjCount] = all_tagged[0][i][0]
 	            		adjCount+=1
