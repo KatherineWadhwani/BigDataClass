@@ -59,20 +59,19 @@ if __name__ == "__main__":
             adjCount = 0
             nounCount = 0
             verbCount = 0
-            #print(all_tagged)
-            #Print dict
-            tagdict = load('help/tagsets/upenn_tagset.pickle')
-            print(len(all_tagged))
-            for i in range(len(all_tagged[0])):
-            	tagType = all_tagged[0][i][1]
+	
+            #Print first 10 adjs/nouns/verbs
+
+            for i in range(len(all_tagged)):
+            	tagType = all_tagged[i][1]
             	if ((tagType == "JJ" or tagType == "JJR" or tagType == "JJS") and adjCount < 10):
-            		adjs[adjCount] = all_tagged[0][i][0]
+            		adjs[adjCount] = all_tagged[i][0]
             		adjCount+=1
             	if ((tagType == "NN" or tagType == "NNS" or tagType == "NNP" or tagType == "NNPS") and nounCount < 10):
-            		nouns[nounCount] = all_tagged[0][i][0]
+            		nouns[nounCount] = all_tagged[i][0]
             		nounCount+=1
             	if ((tagType == "VB" or tagType == "VBD" or tagType == "VBG" or tagType == "VBN" or tagType == "VBP" or tagType == "VBZ") and verbCount < 10):
-            		verbs[verbCount] = all_tagged[0][i][0]
+            		verbs[verbCount] = all_tagged[i][0]
             		verbCount+=1
 
             print("adjectives (10/<total adjective count>):" + str(adjs))
