@@ -76,7 +76,8 @@ for num1 in range(611):
       computeJacc(num1, num2)
       for num in range(50):
           #hash(num)
-          print(reviewsJaccard[num1])
+
+print(reviewsJaccard[1])
 
 
 
