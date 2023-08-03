@@ -24,6 +24,7 @@ def hash(hashNum):
         movie = f1.loc[((integer*hashNum + 1) % M, "movieCount")]
         if(movie not in reviewsJaccard[num]):
           print(num)
+          break
         if(movie in reviewsJaccard[num]):
           print(num)
           list = reviewsMinHash[num]
