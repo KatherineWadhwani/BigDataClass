@@ -59,7 +59,6 @@ out = pd.merge(f1,f2,on='movieId',how='inner')
 out.to_csv("merged.csv", index=False)
 del out['timestamp']
 del out['rating']
-print(out)
 
 reviewsJaccard = dict()
 reviewsMinHash = dict()
@@ -73,12 +72,9 @@ for num in range(611):
 #Assign movie to user who reviewd it
 for i in range(len(out)):
   out.loc[i, "movieId"] =  out.loc[i, "movieCount"]
-
-print(out)
-
-"""list = reviewsJaccard.get(out.loc[i, "userId"])
+  list = reviewsJaccard.get(out.loc[i, "userId"])
   list.append(out.loc[i, "movieId"])
-  #reviewsJaccard.update(out.loc[i, "userId"], list)
+  reviewsJaccard.update(out.loc[i, "userId"], list)
   
 
 for num1 in range(611):
@@ -86,7 +82,7 @@ for num1 in range(611):
     if (num1 != num2):
       computeJacc(num1, num2)
 
-for num in range(50):
+"""for num in range(50):
   hash(num)"""
 
 
