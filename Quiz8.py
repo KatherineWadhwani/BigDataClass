@@ -86,7 +86,7 @@ for num in range(1, 51):
   hash(num)
 
 
-print(reviewsMinHash[600])
+print(reviewsMinHash[3])
 
 
 
