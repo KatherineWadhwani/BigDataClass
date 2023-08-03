@@ -74,7 +74,7 @@ for num in range(1, 51):
   hash(num)
 
 
-"""for num in range(51, 101):
+for num in range(51, 101):
   hash(num)
 for num in range(101, 201):
   hash(num)
@@ -82,8 +82,8 @@ for num in range(101, 201):
 for num1 in range(611):
   for num2 in range(611):
     if (num1 != num2 and num1 < num2):
-      computeJacc(num1, num2)"""
-      #computeMinHash(num1, num2)
+      computeJacc(num1, num2)
+      computeMinHash(num1, num2)
 
 
 
