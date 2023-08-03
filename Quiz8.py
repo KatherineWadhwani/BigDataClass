@@ -26,7 +26,7 @@ def hash(hashNum):
         M = 2^13 - 1
         movie = out.iloc[((integer*hashNum + 1) % M)]
         print(movie)
-        "if(movie in reviewsJaccard[num]):
+        """if(movie in reviewsJaccard[num]):
               reviewsMinHash[integer][hashNum] = movie
               break"
 
