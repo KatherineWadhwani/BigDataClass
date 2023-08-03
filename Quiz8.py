@@ -25,7 +25,7 @@ def hash(hashNum):
       for integer in range(9742):
         M = 2^13 - 1
         movie = f1.loc[((integer*hashNum + 1) % M, "movieCount")]
-        print((integer*hashNum + 1) % M)
+        print((integer*hashNum + 1))
         """if(movie in reviewsJaccard[num]):
               reviewsMinHash[integer][hashNum] = movie
               break"""
