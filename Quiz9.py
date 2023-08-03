@@ -162,6 +162,7 @@ for key in newDict.keys():
 	newDict[key] = clean_sents(newDict[key])
 	data_words = sent_to_words(newDict[key])
 	data_words = [dw for dw in data_words if len(dw)>0]
+	print(data_words)
         
 	# Build the bigram and trigram models
 	bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
@@ -203,7 +204,7 @@ for key in newDict.keys():
                         
 	#print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
 	speeches_corpus = dict(id2word)
-	print(speeches_corpus)
+	#print(speeches_corpus)
 
 	num_topics = 10
 	#print(corpus)
