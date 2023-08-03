@@ -84,7 +84,7 @@ for i in range(len(out)):
     if (num1 != num2 and num1 < num2):
       computeJacc(num1, num2)"""
 
-for num in range(50):
+for num in range(1, 51):
   hash(num)
 
 
