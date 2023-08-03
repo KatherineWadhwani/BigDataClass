@@ -163,39 +163,39 @@ for key in newDict.keys():
 	data_words = sent_to_words(newDict[key])
 	data_words = [dw for dw in data_words if len(dw)>0]
         
-# Build the bigram and trigram models
-bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
-trigram = gensim.models.Phrases(bigram[data_words], threshold=100)  
-                        
-# Faster way to get a sentence clubbed as a trigram/bigram
-bigram_mod = gensim.models.phrases.Phraser(bigram)
-trigram_mod = gensim.models.phrases.Phraser(trigram)
-                        
-# See trigram example
-#print(trigram_mod[bigram_mod[data_words[0]]])
-
-# Remove Stop Words
-data_words_nostops = remove_stopwords(data_words)
-#print(data_words_nostops)
-                        
-# Form Bigrams
-data_words_bigrams = make_bigrams(data_words_nostops)
-print(data_words_bigrams)
-                        
-                        
-# Initialize spacy 'en' model, keeping only tagger component (for efficiency)
-# python3 -m spacy download en
-nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
-                        
-# Do lemmatization keeping only noun, adj, vb, adv
-data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
-#print(data_lemmatized[:1])
-            
-# Create Dictionary
-id2word = corpora.Dictionary(data_lemmatized)
-                        
-# Create Corpus
-texts = data_lemmatized
+	# Build the bigram and trigram models
+	bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
+	trigram = gensim.models.Phrases(bigram[data_words], threshold=100)  
+	                        
+	# Faster way to get a sentence clubbed as a trigram/bigram
+	bigram_mod = gensim.models.phrases.Phraser(bigram)
+	trigram_mod = gensim.models.phrases.Phraser(trigram)
+	                        
+	# See trigram example
+	#print(trigram_mod[bigram_mod[data_words[0]]])
+	
+	# Remove Stop Words
+	data_words_nostops = remove_stopwords(data_words)
+	#print(data_words_nostops)
+	                        
+	# Form Bigrams
+	data_words_bigrams = make_bigrams(data_words_nostops)
+	print(data_words_bigrams)
+	                        
+	                        
+	# Initialize spacy 'en' model, keeping only tagger component (for efficiency)
+	# python3 -m spacy download en
+	nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
+	                        
+	# Do lemmatization keeping only noun, adj, vb, adv
+	data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
+	#print(data_lemmatized[:1])
+	            
+	# Create Dictionary
+	id2word = corpora.Dictionary(data_lemmatized)
+	                        
+	# Create Corpus
+	texts = data_lemmatized
                         
 # Term Document Frequency
 corpus = [id2word.doc2bow(text) for text in texts]
