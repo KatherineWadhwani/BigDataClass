@@ -154,9 +154,10 @@ for key in reviewsDict.keys():
 	if (isinstance(reviewsDict[key], float)):
 		print("HERE", reviewsDict[key])
 
-for review in reviewsDict.ReviewText:
-	review = clean_sents(review)
-	data_words = sent_to_words(review)
+
+for key in reviewsDict.keys():
+	key = clean_sents(reviewsDict[key])
+	data_words = sent_to_words(reviewsDict[key])
 	data_words = [dw for dw in data_words if len(dw)>0]
         
 	# Build the bigram and trigram models
