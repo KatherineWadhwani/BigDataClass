@@ -151,8 +151,9 @@ reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for row in range (len(reviewsDF))}
 
 for int in range(len(reviewsDict)):
-	if (isinstance(reviewsDict[int], float)):
-		print("HERE", reviewsDict[int])
+	print(reviewsDict[int])
+	#if (isinstance(reviewsDict[int], float)):
+		#print("HERE", reviewsDict[int])
 
 for review in reviewsDict.ReviewText:
 	review = clean_sents(review)
