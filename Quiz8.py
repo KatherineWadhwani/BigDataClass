@@ -21,12 +21,12 @@ def hash(hashNum):
   for num in range(611):
     #following line doesn't work??
     print(reviewsJaccard[num])
-    for integer in range(193609):
+    """for integer in range(9742):
       M = 2^13 - 1
       movie = out.iloc[((integer*hashNum + 1) % M)]
       if(movie in reviewsJaccard[num]):
             reviewsMinHash[integer][hashNum] = movie
-            break
+            break"""
 
 def computeJacc(num1, num2):
   set1 = set(reviewsJaccard[num1])
@@ -82,8 +82,8 @@ for num1 in range(611):
     if (num1 != num2 and num1 < num2):
       computeJacc(num1, num2)
 
-"""for num in range(50):
-  hash(num)"""
+for num in range(50):
+  hash(num)
 
 
 
