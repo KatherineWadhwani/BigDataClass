@@ -26,8 +26,10 @@ def hash(hashNum):
         M = 2^13 - 1
         movie = f1.loc[((integer*hashNum + 1) % M, "movieCount")]
         if(movie in reviewsJaccard[num]):
-              reviewsMinHash[integer][hashNum] = movie
-              break
+            list = reviewsMinHash[hashNum]
+            list.append(movie)
+            reviewsMinHash[hashNum] = list
+            break
 
 def computeJacc(num1, num2):
   set1 = set(reviewsJaccard[num1])
