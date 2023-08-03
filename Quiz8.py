@@ -81,8 +81,6 @@ for i in range(len(out)):
   list = reviewsJaccard.get(out.loc[i, "userId"])
   list.append(out.loc[i, "userId"])
   reviewsJaccard[out.loc[i, "userId"]] = list
-  if (out.loc[i, "userId"] == 2):
-    print(2)
   
 
 """for num1 in range(611):
