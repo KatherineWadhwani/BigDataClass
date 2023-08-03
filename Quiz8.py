@@ -23,7 +23,8 @@ def hash(hashNum):
       for integer in range(9742):
         movie = f1.loc[((integer*hashNum + 1) % M, "movieCount")]
         if(movie not in reviewsJaccard[num]):
-          print(num)
+          print(movie)
+          print(reviewsJaccard[num])
           break
         if(movie in reviewsJaccard[num]):
           print(num)
