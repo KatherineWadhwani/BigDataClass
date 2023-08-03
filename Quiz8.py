@@ -24,7 +24,6 @@ def hash(hashNum):
           list = reviewsMinHash[num]
           list.append(movie)
           reviewsMinHash[num] = list
-          print(list)
           break
 
 def computeJacc(num1, num2):
