@@ -151,8 +151,10 @@ reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for row in range (len(reviewsDF))}
 
 for key in reviewsDict.keys():
-	if !(isinstance(reviewsDict[key], float)):
+	if (isinstance(reviewsDict[key], float)):
 		print("HERE", str(reviewsDict[key]))
+	else:
+		print(str(reviewsDict[key]))
 
 
 for key in reviewsDict.keys():
