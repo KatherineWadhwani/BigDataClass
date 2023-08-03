@@ -152,7 +152,7 @@ reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for
 
 for key in reviewsDict.keys():
 	if (isinstance(reviewsDict[key], float)):
-		print("HERE", reviewsDict[int])
+		print("HERE", reviewsDict[key])
 
 for review in reviewsDict.ReviewText:
 	review = clean_sents(review)
