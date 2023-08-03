@@ -19,7 +19,6 @@ from pyspark.sql import SparkSession
 #Setup 
 def hash(hashNum):
   for num in range(611):
-    if(len(reviewsJaccard[num]) > 0):
       M = 2^13 - 1
       for integer in range(9742):
         movie = f1.loc[((3*hashNum + 1) % M, "movieCount")]
@@ -85,6 +84,10 @@ for i in range(len(out)):
       computeJacc(num1, num2)"""
 
 for num in range(1, 51):
+  hash(num)
+for num in range(51, 101):
+  hash(num)
+for num in range(101, 201):
   hash(num)
 
 
