@@ -19,17 +19,14 @@ from pyspark.sql import SparkSession
 #Setup 
 def hash(hashNum):
   for num in range(611):
-    #following line doesn't work??
-    #print(reviewsJaccard[num])
     if(len(reviewsJaccard[num]) > 0):
-      for integer in range(9742):
-        M = 2^13 - 1
-        movie = f1.loc[((integer*hashNum + 1) % M, "movieCount")]
-        if(movie in reviewsJaccard[num]):
-            list = reviewsMinHash[hashNum]
-            list.append(movie)
-            reviewsMinHash[hashNum] = list
-            break
+      M = 2^13 - 1
+      movie = f1.loc[((integer*hashNum + 1) % M, "movieCount")]
+      if(movie in reviewsJaccard[num]):
+        list = reviewsMinHash[num]
+        list.append(movie)
+        reviewsMinHash[num] = list
+        break
 
 def computeJacc(num1, num2):
   set1 = set(reviewsJaccard[num1])
