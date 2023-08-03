@@ -84,14 +84,14 @@ for i in range(len(out)):
   reviewsJaccard[out.loc[i, "userId"]] = list
   
 
-"""for num1 in range(611):
+for num1 in range(611):
   for num2 in range(611):
     if (num1 != num2 and num1 < num2):
-      computeJacc(num1, num2)"""
+      computeJacc(num1, num2)
 
-"""for num in range(1, 51):
+for num in range(1, 51):
   hash(num)
-for num in range(51, 101):
+"""for num in range(51, 101):
   hash(num)
 for num in range(101, 201):
   hash(num)
