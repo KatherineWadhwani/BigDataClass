@@ -149,7 +149,7 @@ reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 
 		
 reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for row in range (len(reviewsDF))}
-print(reviewsDict)
+print(reviewsDict[0])
 
 #for int in range(len(reviewsDict)):
 	#print(reviewsDict[int])
