@@ -176,13 +176,12 @@ for key in newDict.keys():
 
 	# Remove Stop Words
 	data_words_nostops = remove_stopwords(data_words)
-	print(data_words_nostops)
+	#print(data_words_nostops)
                         
         # Form Bigrams
 	data_words_bigrams = make_bigrams(data_words_nostops)
 	#print(data_words_bigrams)
                         
-	# In the end, we didn't create trigrams. Should have taken the extra time.
                         
 	# Initialize spacy 'en' model, keeping only tagger component (for efficiency)
 	# python3 -m spacy download en
@@ -190,7 +189,7 @@ for key in newDict.keys():
                         
 	# Do lemmatization keeping only noun, adj, vb, adv
 	data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
-	#print(data_lemmatized[:1])
+	print(data_lemmatized[:1])
             
 	# Create Dictionary
 	id2word = corpora.Dictionary(data_lemmatized)
