@@ -72,7 +72,7 @@ for num in range(611):
 
 #Assign movie to user who reviewd it
 for i in range(len(out)):
-  out.loc[i, "movieId"] = movieCount
+  out.loc[i, "movieId"] =  out.loc[i, "movieCount"]
 
 print(out)
 
