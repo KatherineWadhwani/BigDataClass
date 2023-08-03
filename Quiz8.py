@@ -73,8 +73,10 @@ for num in range(611):
 #Assign movie to user who reviewd it
 for i in range(len(out)):
   out.loc[i, "movieId"] = movieCount
+
 print(out)
-  """list = reviewsJaccard.get(out.loc[i, "userId"])
+
+"""list = reviewsJaccard.get(out.loc[i, "userId"])
   list.append(out.loc[i, "movieId"])
   #reviewsJaccard.update(out.loc[i, "userId"], list)
   
