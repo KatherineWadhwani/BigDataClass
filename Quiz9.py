@@ -158,9 +158,9 @@ for key in reviewsDict.keys():
 		newDict[key] = reviewsDict[key]
 
 
-for key in reviewsDict.keys():
-	reviewsDict[key] = clean_sents(reviewsDict[key])
-	data_words = sent_to_words(reviewsDict[key])
+for key in newDict.keys():
+	newDict[key] = clean_sents(newDict[key])
+	data_words = sent_to_words(newDict[key])
 	data_words = [dw for dw in data_words if len(dw)>0]
         
 	# Build the bigram and trigram models
