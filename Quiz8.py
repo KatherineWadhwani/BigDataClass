@@ -57,7 +57,8 @@ def compare():
       truePos+=1
     if (pairsMinHash[int] not in pairsJaccard):
       falsePos+=1
-  print("True Positive count is: " + str(truePos) + " and False Positive count is: " + str(falsePos))
+  print("True Positive count is: " + str(truePos))
+  print("False Positive count is: " + str(falsePos))
   
   for int in range(len(pairsJaccard)):
     if (pairsJaccard[int] not in pairsMinHash):
