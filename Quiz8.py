@@ -21,7 +21,7 @@ def hash(hashNum):
   for num in range(611):
     #following line doesn't work??
     #print(reviewsJaccard[num])
-    if(len(reviewsJaccard[num]) > 0)
+    if(len(reviewsJaccard[num]) > 0):
       for integer in range(9742):
         M = 2^13 - 1
         movie = out.iloc[((integer*hashNum + 1) % M)]
