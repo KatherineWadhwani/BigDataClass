@@ -193,6 +193,7 @@ for key in newDict.keys():
 	            
 	# Create Dictionary
 	id2word = corpora.Dictionary(data_lemmatized)
+	print(id2word)
 	                        
 # Create Corpus
 texts = data_lemmatized
