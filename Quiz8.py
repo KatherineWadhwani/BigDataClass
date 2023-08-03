@@ -79,6 +79,7 @@ for num in range(611):
 for i in range(len(out)):
   out.loc[i, "movieId"] =  out.loc[i, "movieCount"]
   list = reviewsJaccard.get(out.loc[i, "userId"])
+  print(out.loc[i, "userId"])
   list.append(out.loc[i, "movieId"])
   reviewsJaccard[out.loc[i, "userId"]] = list
   
@@ -88,7 +89,7 @@ for i in range(len(out)):
     if (num1 != num2 and num1 < num2):
       computeJacc(num1, num2)"""
 
-for num in range(1, 51):
+"""for num in range(1, 51):
   hash(num)
 for num in range(51, 101):
   hash(num)
@@ -96,7 +97,7 @@ for num in range(101, 201):
   hash(num)
 
 
-print(reviewsMinHash[500])
+print(reviewsMinHash[500])"""
 
 
 
