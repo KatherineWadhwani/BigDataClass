@@ -156,7 +156,7 @@ for key in reviewsDict.keys():
 
 
 for key in reviewsDict.keys():
-	key = clean_sents(reviewsDict[key])
+	reviewsDict[key] = clean_sents(reviewsDict[key])
 	data_words = sent_to_words(reviewsDict[key])
 	data_words = [dw for dw in data_words if len(dw)>0]
         
