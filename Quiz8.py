@@ -74,7 +74,7 @@ for i in range(len(out)):
   out.loc[i, "movieId"] =  out.loc[i, "movieCount"]
   list = reviewsJaccard.get(out.loc[i, "userId"])
   list.append(out.loc[i, "movieId"])
-  reviewsJaccard.update(out.loc[i, "userId"], list)
+  reviewsJaccard[out.loc[i, "userId"]] = list
   
 
 for num1 in range(611):
