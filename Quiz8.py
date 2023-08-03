@@ -19,7 +19,7 @@ from pyspark.sql import SparkSession
 #Setup 
 def hash(hashNum):
   for num in range(611):
-      M = 2^13 - 1
+      M = 2**13 - 1
       for integer in range(9742):
         movie = f1.loc[((integer*hashNum + 1) % M, "movieCount")]
         print(movie)
