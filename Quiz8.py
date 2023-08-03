@@ -28,7 +28,7 @@ def hash(hashNum):
         print(movie)
         """if(movie in reviewsJaccard[num]):
               reviewsMinHash[integer][hashNum] = movie
-              break"
+              break"""
 
 def computeJacc(num1, num2):
   set1 = set(reviewsJaccard[num1])
