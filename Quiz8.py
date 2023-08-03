@@ -18,7 +18,7 @@ from pyspark.sql import SparkSession
 #does order matter or can use set?
 #Setup 
 def hash(hashNum):
-  """for num in range(611):
+  for num in range(611):
       M = 2^13 - 1
       for integer in range(9742):
         movie = f1.loc[((integer*hashNum + 1) % M, "movieCount")]
@@ -32,7 +32,7 @@ def hash(hashNum):
           print("My num is " + str(num))
           print("We've gone thorough " + str(integer) + " numbers to find a movie I contain")
           print("Here are my movies")
-          print(reviewsMinHash[num])"""
+          print(reviewsMinHash[num])
 
 def computeJacc(num1, num2):
   set1 = set(reviewsJaccard[num1])
@@ -88,10 +88,9 @@ for i in range(len(out)):
     if (num1 != num2 and num1 < num2):
       computeJacc(num1, num2)"""
 
-print(reviewsJaccard[2])
-"""for num in range(1, 51):
+for num in range(1, 51):
   hash(num)
-for num in range(51, 101):
+"""for num in range(51, 101):
   hash(num)
 for num in range(101, 201):
   hash(num)
