@@ -157,6 +157,8 @@ for key in reviewsDict.keys():
 	else:
 		newDict[key] = reviewsDict[key]
 
+print(newDict)
+
 
 for key in newDict.keys():
 	newDict[key] = clean_sents(newDict[key])
