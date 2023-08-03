@@ -184,7 +184,7 @@ for key in newDict.keys():
 	                        
 	# Form Bigrams
 	data_words_bigrams = make_bigrams(data_words_nostops)
-	print(data_words_bigrams)
+	#print(data_words_bigrams)
 	                        
 	                        
 	# Do lemmatization keeping only noun, adj, vb, adv
@@ -194,8 +194,8 @@ for key in newDict.keys():
 	# Create Dictionary
 	id2word = corpora.Dictionary(data_lemmatized)
 	                        
-	# Create Corpus
-	texts = data_lemmatized
+# Create Corpus
+texts = data_lemmatized
                         
 # Term Document Frequency
 corpus = [id2word.doc2bow(text) for text in texts]
