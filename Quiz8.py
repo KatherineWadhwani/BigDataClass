@@ -79,7 +79,8 @@ for num in range(611):
 for i in range(len(out)):
   out.loc[i, "movieId"] =  out.loc[i, "movieCount"]
   list = reviewsJaccard.get(out.loc[i, "userId"])
-  print(out.loc[i, "userId"])
+  if (out.loc[i, "userId"] is 2):
+    print(out.loc[i, "userId"])
   list.append(out.loc[i, "movieId"])
   reviewsJaccard[out.loc[i, "userId"]] = list
   
