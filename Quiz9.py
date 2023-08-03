@@ -147,6 +147,10 @@ def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
 colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'ReccomendedIND', 'PositiveFeedbackCount', 'DivisionName', 'DepartmentName', 'ClassName']
 reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 
+for int in len(reviewsDF):
+	if (reviewsDF.loc[int, "ReviewText"] == ""):
+		reviewsDF = reviewsDF.drop(reviewsDF.index[int])
+
 for review in reviewsDF.ReviewText:
 	review = clean_sents(review)
 	data_words = sent_to_words(review)
