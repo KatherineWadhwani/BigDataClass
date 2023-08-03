@@ -44,7 +44,7 @@ def computeMinHash(num1, num2):
   union = len(set1.union(set2))
   minHash = (intersect/union)
   if (minHash > 0.5):
-    pairsMinHash.append([num1, num2)
+    pairsMinHash.append([num1, num2])
     print("Users " + str(num1) + " and " + str(num2) + " have a minHash similarity of " + str(minHash))
 
 def compare():
