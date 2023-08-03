@@ -34,7 +34,7 @@ def computeJacc(num1, num2):
   union = len(set1.union(set2))
   jaccard = (intersect/union)
   if (jaccard > 0.5):
-    pairsJaccard.append([num1, num2)
+    pairsJaccard.append([num1, num2])
     print("Users " + str(num1) + " and " + str(num2) + " have a Jaccard similarity of " + str(jaccard))
 
 def computeMinHash(num1, num2):
