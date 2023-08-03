@@ -24,7 +24,7 @@ def hash(hashNum):
     if(len(reviewsJaccard[num]) > 0):
       for integer in range(9742):
         M = 2^13 - 1
-        movie = out.iloc[((integer*hashNum + 1) % M)]
+        movie = f1.iloc[((integer*hashNum + 1) % M)]
         print(movie)
         """if(movie in reviewsJaccard[num]):
               reviewsMinHash[integer][hashNum] = movie
