@@ -57,6 +57,8 @@ f1['movieCount'] = range(9742)
 f2 = pd.read_csv('ml-latest-small/ratings.csv')
 out = pd.merge(f1,f2,on='movieId',how='inner')
 out.to_csv("merged.csv", index=False)
+del out.timestamp
+del out.rating
 print(out)
 
 """reviewsJaccard = dict()
