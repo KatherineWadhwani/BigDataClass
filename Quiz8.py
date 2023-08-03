@@ -23,7 +23,7 @@ def hash(hashNum):
       M = 2^13 - 1
       movie = f1.loc[((3*hashNum + 1) % M, "movieCount")]
       if(movie in reviewsJaccard[num]):
-        print(reviewsMinHash[num])
+        print(num)
         list = reviewsMinHash[num]
         list.append(movie)
         reviewsMinHash[num] = list
