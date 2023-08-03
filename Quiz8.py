@@ -54,12 +54,11 @@ def computeMinHash(num1, num2):
 
 f1 = pd.read_csv('ml-latest-small/movies.csv')
 f1['movieCount'] = range(9742)
-print(f1)
 f2 = pd.read_csv('ml-latest-small/ratings.csv')
-"""out = pd.merge(f1,f2,on='movieId',how='inner')
+out = pd.merge(f1,f2,on='movieId',how='inner')
 out.to_csv("merged.csv", index=False)
 
-reviewsJaccard = dict()
+"""reviewsJaccard = dict()
 reviewsMinHash = dict()
 
 for num in range(611):
