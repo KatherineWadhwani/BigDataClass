@@ -43,11 +43,6 @@ def computeMinHash(num1, num2):
   minHash = (intersect/union)
   if (minHash > 0.5):
     print("Users " + str(num1) + " and " + str(num2) + " have a minHash similarity of " + str(minHash))
-      
-  union = len(set1.union(set2))
-  jaccard = (intersect/union)
-  if (jaccard > 0.5):
-    print("Users " + str(num1) + " and " + str(num2) + " have a Jaccard similarity of " + str(jaccard))
 
 f1 = pd.read_csv('ml-latest-small/movies.csv')
 f1['movieCount'] = range(9742)
