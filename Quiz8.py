@@ -18,9 +18,9 @@ from pyspark.sql import SparkSession
 #does order matter or can use set?
 #Setup 
 def hash(hashNum):
-  for num in range(611):
+  for num in range(1, 611):
     #following line doesn't work??
-    print(reviewsJaccard[num])
+    #print(reviewsJaccard[num])
     for integer in range(9742):
       M = 2^13 - 1
       movie = out.iloc[((integer*hashNum + 1) % M)]
