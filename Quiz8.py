@@ -21,13 +21,14 @@ def hash(hashNum):
   for num in range(611):
     if(len(reviewsJaccard[num]) > 0):
       M = 2^13 - 1
-      movie = f1.loc[((3*hashNum + 1) % M, "movieCount")]
-      if(movie in reviewsJaccard[num]):
-        print(num)
-        list = reviewsMinHash[num]
-        list.append(movie)
-        reviewsMinHash[num] = list
-        break
+      for integer in range(9742):
+        movie = f1.loc[((3*hashNum + 1) % M, "movieCount")]
+        if(movie in reviewsJaccard[num]):
+          print(num)
+          list = reviewsMinHash[num]
+          list.append(movie)
+          reviewsMinHash[num] = list
+          break
 
 def computeJacc(num1, num2):
   set1 = set(reviewsJaccard[num1])
@@ -85,6 +86,9 @@ for i in range(len(out)):
 
 for num in range(1, 51):
   hash(num)
+
+
+print(reviewsMinHash[500])
 
 
 
