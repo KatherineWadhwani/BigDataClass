@@ -148,8 +148,8 @@ colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'Recc
 reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 
 for int in range(len(reviewsDF)):
-	if (len(reviewsDF.loc[int, "ReviewText"]) == 0):
-		print("HERE")
+	if (isinstance((reviewsDF.loc[int, "ReviewText"]), float)):
+		print("HERE", reviewsDF.loc[int, "ReviewText"])
 		reviewsDF = reviewsDF.drop(reviewsDF.index[int])
 
 for review in reviewsDF.ReviewText:
