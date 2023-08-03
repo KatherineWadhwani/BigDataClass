@@ -15,8 +15,6 @@ from pyspark.sql import SQLContext
 from pyspark.sql import Row
 from pyspark.sql import SparkSession
 
-#does order matter or can use set?
-#Setup 
 def hash(hashNum):
   for num in range(611):
       M = 2**13 - 1
@@ -74,7 +72,7 @@ for num in range(611):
 for i in range(len(out)):
   out.loc[i, "movieId"] =  out.loc[i, "movieCount"]
   list = reviewsJaccard.get(out.loc[i, "userId"])
-  list.append(out.loc[i, "movieCount"])
+  list.append(out.loc[i, "movieId"])
   reviewsJaccard[out.loc[i, "userId"]] = list
   
 
@@ -85,13 +83,13 @@ for i in range(len(out)):
 
 for num in range(1, 51):
   hash(num)
-"""for num in range(51, 101):
+for num in range(51, 101):
   hash(num)
 for num in range(101, 201):
   hash(num)
 
 
-print(reviewsMinHash[500])"""
+print(reviewsMinHash[500])
 
 
 
