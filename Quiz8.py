@@ -18,6 +18,7 @@ from pyspark.sql import SparkSession
 #does order matter or can use set?
 #Setup 
 def hash(hashNum):
+  print(eviewsMinHash[2])
   for num in range(611):
       M = 2^13 - 1
       for integer in range(9742):
@@ -79,8 +80,6 @@ for num in range(611):
 for i in range(len(out)):
   out.loc[i, "movieId"] =  out.loc[i, "movieCount"]
   list = reviewsJaccard.get(out.loc[i, "userId"])
-  if (out.loc[i, "userId"] == 2):
-    print(out.loc[i, "userId"])
   list.append(out.loc[i, "movieId"])
   reviewsJaccard[out.loc[i, "userId"]] = list
   
