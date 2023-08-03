@@ -149,6 +149,7 @@ reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 
 for int in range(len(reviewsDF)):
 	if (reviewsDF.loc[int, "ReviewText"] == ""):
+		print(here)
 		reviewsDF = reviewsDF.drop(reviewsDF.index[int])
 
 for review in reviewsDF.ReviewText:
