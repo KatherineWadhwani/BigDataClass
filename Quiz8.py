@@ -21,7 +21,6 @@ def hash(hashNum):
       for integer in range(9742):
         movie = f1.loc[((integer*hashNum + 1) % M, "movieCount")]
         if(movie in reviewsJaccard[num]):
-          print(num)
           list = reviewsMinHash[num]
           list.append(movie)
           reviewsMinHash[num] = list
@@ -90,7 +89,6 @@ for num1 in range(611):
   for num2 in range(611):
     if (num1 != num2 and num1 < num2):
       computeJacc(num1, num2)
-      computeMinHash(num1, num2)
 
 
 
