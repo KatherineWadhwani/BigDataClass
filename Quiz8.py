@@ -28,11 +28,6 @@ def hash(hashNum):
           list.append(movie)
           reviewsMinHash[num] = list
           break
-        else:
-          print("My num is " + str(num))
-          print("We've gone thorough " + str(integer) + " numbers to find a movie I contain")
-          print("Here are my movies")
-          print(reviewsMinHash[num])
 
 def computeJacc(num1, num2):
   set1 = set(reviewsJaccard[num1])
