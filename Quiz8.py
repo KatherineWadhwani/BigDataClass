@@ -53,7 +53,7 @@ def computeMinHash(num1, num2):
     print("Users " + str(num1) + " and " + str(num2) + " have a Jaccard similarity of " + str(jaccard))
 
 f1 = pd.read_csv('ml-latest-small/movies.csv')
-f1['movieCount'] = range(9743)
+f1['movieCount'] = range(9742)
 print(f1)
 f2 = pd.read_csv('ml-latest-small/ratings.csv')
 """out = pd.merge(f1,f2,on='movieId',how='inner')
