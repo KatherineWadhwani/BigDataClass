@@ -153,7 +153,6 @@ reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for
 for key in reviewsDict.keys():
 	if (isinstance(reviewsDict[key], float)):
 		reviewsDict.pop(key)
-		print("HERE", str(reviewsDict[key]))
 
 
 for key in reviewsDict.keys():
