@@ -150,7 +150,8 @@ reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 		
 reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for row in range (len(reviewsDF))}
 
-for key in reviewsDict.keys():
+keys[] = reviewsDict.keys()
+for key in keys:
 	if (isinstance(reviewsDict[key], float)):
 		reviewsDict.pop(key)
 
