@@ -189,7 +189,7 @@ for key in newDict.keys():
                         
 	# Do lemmatization keeping only noun, adj, vb, adv
 	data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
-	print(data_lemmatized[:1])
+	#print(data_lemmatized[:1])
             
 	# Create Dictionary
 	id2word = corpora.Dictionary(data_lemmatized)
@@ -202,7 +202,7 @@ for key in newDict.keys():
                         
 	#print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
 	speeches_corpus = dict(id2word)
-	#print(speeches_corpus)
+	print(speeches_corpus)
 
 	num_topics = 10
 	#print(corpus)
