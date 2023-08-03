@@ -18,7 +18,7 @@ from pyspark.sql import SparkSession
 def hash(hashNum):
   for num in range(611):
       M = 2**13 - 1
-      for integer in range(9742):
+      for integer in range(1, 9743):
         movie = f1.loc[((integer*hashNum + 1) % M, "movieCount")]
         if(movie in reviewsJaccard[num]):
           list = reviewsMinHash[num]
