@@ -201,9 +201,7 @@ texts = data_lemmatized
 # Term Document Frequency
 corpus = [id2word.doc2bow(text) for text in texts]
                         
-#print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
-speeches_corpus = dict(id2word)
-print(speeches_corpus)
+print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
 
 num_topics = 10
 #print(corpus)
