@@ -24,7 +24,7 @@ def hash(hashNum):
     for integer in range(193609):
       M = 2^13 - 1
       movie = out.iloc[((integer*hashNum + 1) % M)]
-      if(movie in reviewsJaccard[num] and num < integer):
+      if(movie in reviewsJaccard[num]):
             reviewsMinHash[integer][hashNum] = movie
             break
 
@@ -79,7 +79,7 @@ for i in range(len(out)):
 
 for num1 in range(611):
   for num2 in range(611):
-    if (num1 != num2):
+    if (num1 != num2 and num1 < num2):
       computeJacc(num1, num2)
 
 """for num in range(50):
