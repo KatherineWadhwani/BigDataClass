@@ -22,16 +22,17 @@ def hash(hashNum):
       M = 2^13 - 1
       for integer in range(9742):
         movie = f1.loc[((integer*hashNum + 1) % M, "movieCount")]
-        if(movie not in reviewsJaccard[num]):
-          print(movie)
-          print(reviewsJaccard[num])
-          break
         if(movie in reviewsJaccard[num]):
           print(num)
           list = reviewsMinHash[num]
           list.append(movie)
           reviewsMinHash[num] = list
           break
+        else:
+          print("My num is " + str(num))
+          print("We've gone thorough " + str(integer) + " numbers to find a movie I contain")
+          print("Here are my movies")
+          print(reviewsMinHash[num])
 
 def computeJacc(num1, num2):
   set1 = set(reviewsJaccard[num1])
