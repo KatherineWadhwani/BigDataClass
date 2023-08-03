@@ -162,7 +162,6 @@ for key in newDict.keys():
 	newDict[key] = clean_sents(newDict[key])
 	data_words = sent_to_words(newDict[key])
 	data_words = [dw for dw in data_words if len(dw)>0]
-	print(data_words)
         
 	# Build the bigram and trigram models
 	bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
@@ -177,7 +176,7 @@ for key in newDict.keys():
 
 	# Remove Stop Words
 	data_words_nostops = remove_stopwords(data_words)
-	#print(data_words_nostops)
+	print(data_words_nostops)
                         
         # Form Bigrams
 	data_words_bigrams = make_bigrams(data_words_nostops)
