@@ -40,6 +40,10 @@ import warnings
 warnings.filterwarnings("ignore",category=DeprecationWarning)
 stop_words = stopwords.words('english')
 
+# Initialize spacy 'en' model, keeping only tagger component (for efficiency)
+# python3 -m spacy download en
+nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
+
 if __name__ == "__main__":
 #Setup 
         #Open Poe Story
@@ -182,10 +186,6 @@ for key in newDict.keys():
 	data_words_bigrams = make_bigrams(data_words_nostops)
 	#print(data_words_bigrams)
 	                        
-	                        
-	# Initialize spacy 'en' model, keeping only tagger component (for efficiency)
-	# python3 -m spacy download en
-	nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
 	                        
 	# Do lemmatization keeping only noun, adj, vb, adv
 	data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
