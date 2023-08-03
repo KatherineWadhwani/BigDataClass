@@ -90,7 +90,7 @@ for i in range(len(out)):
     if (num1 != num2 and num1 < num2):
       computeJacc(num1, num2)"""
 
-print(reviewsMinHash[2])
+print(reviewsJaccard[2])
 """for num in range(1, 51):
   hash(num)
 for num in range(51, 101):
