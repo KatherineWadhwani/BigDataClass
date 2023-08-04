@@ -120,6 +120,7 @@ def clean_sents(data):
 	data = re.sub('[(.*!@#$%^&*\'";:/?,~`+=|)]', '', str(data))
 	data = data.lower()
 	return data
+	
                         
 def sent_to_words(sentence):
 	words = sentence.split(" ")
@@ -158,7 +159,7 @@ for key in reviewsDict.keys():
 
 speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
 
-content = []
+"""content = []
 
 for int in range(len(speechesDF)):
 	review = clean_sents(speechesDF.loc[int, 'ReviewText'] )
@@ -178,7 +179,7 @@ trigram_mod = gensim.models.phrases.Phraser(trigram)
 # See trigram example
 print(trigram_mod[bigram_mod[data_words[0]]])
 
-"""# Remove Stop Words
+# Remove Stop Words
 	data_words_nostops = remove_stopwords(data_words)
 	#print(data_words_nostops)
                         
