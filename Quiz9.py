@@ -197,8 +197,9 @@ speeches_corpus = dict(id2word)
 num_topics = 10
 #print(corpus)
 #print(len(corpus))
-lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=id2word, num_topics=num_topics, random_state=100, update_every=1, chunksize=100, passes=1, alpha='auto', per_word_topics=True)
+lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=id2word, num_topics=num_topics, passes=3, alpha='auto', per_word_topics=True)
 print(lda_model.print_topics())
+
 #doc_lda = lda_model[corpus]
 #https://stackoverflow.com/questions/40840731/valueerror-cannot-compute-lda-over-an-empty-collection-no-terms
 #print ([itm for itm in dir(doc_lda) if not itm.startswith('__')])
