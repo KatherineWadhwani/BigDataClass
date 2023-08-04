@@ -178,7 +178,7 @@ trigram_mod = gensim.models.phrases.Phraser(trigram)
 # See trigram example
 print(trigram_mod[bigram_mod[data_words[0]]])
 
-	"""# Remove Stop Words
+"""# Remove Stop Words
 	data_words_nostops = remove_stopwords(data_words)
 	#print(data_words_nostops)
                         
