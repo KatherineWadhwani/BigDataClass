@@ -179,8 +179,9 @@ print(speechesDF)
 
 speeches = speechesDF['recNo']
 data = speechify(speeches)
+print(data)
 
-data_words = list(sent_to_words(data))
+"""data_words = list(sent_to_words(data))
 data_words = [dw for dw in data_words if len(dw)>0]
 print(data_words[3401:3406])
 
@@ -189,7 +190,7 @@ print(data_words[3401:3406])
 
 
 
-"""for key in newDict.keys():
+for key in newDict.keys():
 	newDict[key] = clean_sents(newDict[key])
 	newDict[key] = sent_to_words(newDict[key])
 	newDict[key] = [dw for dw in data_words if len(dw)>0]
