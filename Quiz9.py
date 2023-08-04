@@ -40,10 +40,6 @@ import warnings
 warnings.filterwarnings("ignore",category=DeprecationWarning)
 stop_words = stopwords.words('english')
 
-# Initialize spacy 'en' model, keeping only tagger component (for efficiency)
-# python3 -m spacy download en
-nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
-
 if __name__ == "__main__":
 #Setup 
         #Open Poe Story
@@ -118,18 +114,6 @@ def collect (sentences):
 			speech.extend(fragment)
 			return speech
 
-def speechify(speeches):
-    words = []
-    # print(speech)
-    content = speechesDF[speechesDF['recNo'] == speech].ReviewText[:2]
-    # print(content)
-    contentList = content.to_list()
-    # print(contentList)
-    words.extend(contentList[0])
-    # print(speech, len(words), words)
-    return words
-	
-
 def clean_sents(data):
 	# Remove new line characters
 	data = re.sub('\s+', ' ', str(data))
@@ -137,9 +121,10 @@ def clean_sents(data):
 	data = data.lower()
 	return data
                         
-def sent_to_words(sentences):
-	for sentence in sentences:
-		yield(gensim.utils.simple_preprocess(str(sentence).encode('utf-8'), deacc=True))  # deacc=True removes punctuations
+def sent_to_words(sentence):
+	words = sentence.split(" ")
+	for word in words:
+		yield(gensim.utils.simple_preprocess(str(word).encode('utf-8'), deacc=True))  # deacc=True removes punctuations
 
 def remove_stopwords(texts):
 	return [[word for word in simple_preprocess(str(doc)) if word not in stop_words] for doc in texts]
@@ -162,8 +147,8 @@ def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
 colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'ReccomendedIND', 'PositiveFeedbackCount', 'DivisionName', 'DepartmentName', 'ClassName']
 reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 
-		
 reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for row in range (1,len(reviewsDF))}
+speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
 
 newDict = {}
 for key in reviewsDict.keys():
@@ -172,79 +157,74 @@ for key in reviewsDict.keys():
 	else:
 		newDict[key] = reviewsDict[key]
 
-speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
-print(speechesDF)
 
-
-speeches = speechesDF['ReviewText']
-print(speeches)
-
-"""data_words = list(sent_to_words(data))
-data_words = [dw for dw in data_words if len(dw)>0]
-print(data_words[3401:3406])
-
-
-
-
-
-
-for key in newDict.keys():
-	newDict[key] = clean_sents(newDict[key])
-	newDict[key] = sent_to_words(newDict[key])
-	newDict[key] = [dw for dw in data_words if len(dw)>0]
+for review in speechesDF.ReviewText:
+	review = clean_sents(review)
+	data_words = sent_to_words(review)
+	data_words = [dw for dw in data_words if len(dw)>0]
         
-# Build the bigram and trigram models
-bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
-trigram = gensim.models.Phrases(bigram[data_words], threshold=100)  
-	                        
-# Faster way to get a sentence clubbed as a trigram/bigram
-bigram_mod = gensim.models.phrases.Phraser(bigram)
-trigram_mod = gensim.models.phrases.Phraser(trigram)
-	                        
-# See trigram example
-#print(trigram_mod[bigram_mod[data_words[0]]])
-	
-# Remove Stop Words
-data_words_nostops = remove_stopwords(data_words)
-#print(data_words_nostops)
-	                        
-# Form Bigrams
-data_words_bigrams = make_bigrams(data_words_nostops)
-#print(data_words_bigrams)
-	                        
-	                        
-# Do lemmatization keeping only noun, adj, vb, adv
-data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
-#print(data_lemmatized[:1])
-	            
-# Create Dictionary
-id2word = corpora.Dictionary(data_lemmatized)
-print(id2word)
-	                        
-# Create Corpus
-texts = data_lemmatized
+	# Build the bigram and trigram models
+	bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
+	trigram = gensim.models.Phrases(bigram[data_words], threshold=100)  
                         
-# Term Document Frequency
-corpus = [id2word.doc2bow(text) for text in texts]
+	# Faster way to get a sentence clubbed as a trigram/bigram
+	bigram_mod = gensim.models.phrases.Phraser(bigram)
+	trigram_mod = gensim.models.phrases.Phraser(trigram)
                         
-print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
+	# See trigram example
+	#print(trigram_mod[bigram_mod[data_words[0]]])
 
-num_topics = 10
-#print(corpus)
-#print(len(corpus))
-lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=id2word, num_topics=num_topics, random_state=100, update_every=1, chunksize=100, passes=10, alpha='auto', per_word_topics=True)
-#print(lda_model.print_topics())
-#doc_lda = lda_model[corpus]
-#https://stackoverflow.com/questions/40840731/valueerror-cannot-compute-lda-over-an-empty-collection-no-terms
-#print ([itm for itm in dir(doc_lda) if not itm.startswith('__')])
-#print ([itm for itm in dir(doc_lda.obj) if (not itm.startswith('__')) and (not itm.startswith('_'))])
-#doc_lda.obj.print_topics(num_topics=10)
-#print(id2word)
-                                          
-#vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
-#vis"""
+	# Remove Stop Words
+	data_words_nostops = remove_stopwords(data_words)
+	#print(data_words_nostops)
+                        
+        # Form Bigrams
+	data_words_bigrams = make_bigrams(data_words_nostops)
+	#print(data_words_bigrams)
+                        
+	# In the end, we didn't create trigrams. Should have taken the extra time.
+                        
+	# Initialize spacy 'en' model, keeping only tagger component (for efficiency)
+	# python3 -m spacy download en
+	nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
+                        
+	# Do lemmatization keeping only noun, adj, vb, adv
+	data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
+	print(data_lemmatized[:1])
+            
+	# Create Dictionary
+	id2word = corpora.Dictionary(data_lemmatized)
+                        
+	# Create Corpus
+	texts = data_lemmatized
+                        
+	# Term Document Frequency
+	corpus = [id2word.doc2bow(text) for text in texts]
+                        
+	#print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
+	speeches_corpus = dict(id2word)
+	#print(speeches_corpus)
+
+	num_topics = 10
+	#print(corpus)
+	#print(len(corpus))
+	lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=id2word, num_topics=num_topics, random_state=100, update_every=1, chunksize=100, passes=10, alpha='auto', per_word_topics=True)
+	#print(lda_model.print_topics())
+        #doc_lda = lda_model[corpus]
+        #https://stackoverflow.com/questions/40840731/valueerror-cannot-compute-lda-over-an-empty-collection-no-terms
+        #print ([itm for itm in dir(doc_lda) if not itm.startswith('__')])
+        #print ([itm for itm in dir(doc_lda.obj) if (not itm.startswith('__')) and (not itm.startswith('_'))])
+        #doc_lda.obj.print_topics(num_topics=10)
+        #print(id2word)
+
+                                                
+        #vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
+        #vis
 
 
+            
+            
+               
             
             
                         
