@@ -176,10 +176,10 @@ data_words_bigrams = make_bigrams(data_words_nostops)
 # Initialize spacy 'en' model, keeping only tagger component (for efficiency)
 # python3 -m spacy download en
 nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
-                        
+
+print(len(data_words_bigrams))
 # Do lemmatization keeping only noun, adj, vb, adv
-#data_lemmatized = lemmatization(data_words_bigrams[3:800], allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
-data_lemmatized = data_words_bigrams
+data_lemmatized = lemmatization(data_words_bigrams[3:800], allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
             
 # Create Dictionary
 id2word = corpora.Dictionary(data_lemmatized)
