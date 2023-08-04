@@ -139,7 +139,7 @@ def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
     """https://spacy.io/api/annotation"""
     texts_out = []
     for sent in texts:
-        print(sent)
+        #print(sent)
         doc = nlp(" ".join(sent)) 
         texts_out.append([token.lemma_ for token in doc if token.pos_ in allowed_postags])
     return texts_out
@@ -201,16 +201,6 @@ num_topics = 10
 lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=id2word, num_topics=num_topics, random_state=100, update_every=1, chunksize=100, passes=5, alpha='auto', per_word_topics=True)
 print(lda_model.print_topics())
 
-#doc_lda = lda_model[corpus]
-#https://stackoverflow.com/questions/40840731/valueerror-cannot-compute-lda-over-an-empty-collection-no-terms
-#print ([itm for itm in dir(doc_lda) if not itm.startswith('__')])
-#print ([itm for itm in dir(doc_lda.obj) if (not itm.startswith('__')) and (not itm.startswith('_'))])
-#doc_lda.obj.print_topics(num_topics=10)
-#print(id2word)
-
-                                                
-        #vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
-        #vis
 
 
             
