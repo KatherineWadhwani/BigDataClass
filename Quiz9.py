@@ -136,12 +136,12 @@ def make_trigrams(texts):
 	return [trigram_mod[bigram_mod[doc]] for doc in texts]
             
 def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
-	#https://spacy.io/api/annotation
-	texts_out = []
-	for sent in texts:
-		doc = nlp(" ".join(sent)) 
-		texts_out.append([token.lemma_ for token in doc if token.pos_ in allowed_postags])
-		return texts_out
+    """https://spacy.io/api/annotation"""
+    texts_out = []
+    for sent in texts:
+        doc = nlp(" ".join(sent)) 
+        texts_out.append([token.lemma_ for token in doc if token.pos_ in allowed_postags])
+    return texts_out
                                                
 
 colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'ReccomendedIND', 'PositiveFeedbackCount', 'DivisionName', 'DepartmentName', 'ClassName']
@@ -179,7 +179,7 @@ data_words_bigrams = make_bigrams(data_words_nostops)
 nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
                         
 # Do lemmatization keeping only noun, adj, vb, adv
-data_lemmatized = lemmatization(data_words_bigrams)
+data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
 print(data_lemmatized[:1])
             
 # Create Dictionary
