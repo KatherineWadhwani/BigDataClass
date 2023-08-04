@@ -159,7 +159,9 @@ for key in reviewsDict.keys():
 
 speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
 print(speechesDF)
-
+speeches = speechesDF['recNo']
+#data = speechify(speeches)
+print(speeches)
 """content = []
 
 for int in range(len(speechesDF)):
