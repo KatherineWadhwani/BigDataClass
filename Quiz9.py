@@ -120,18 +120,6 @@ def clean_sents(data):
 	data = re.sub('[(.*!@#$%^&*\'";:/?,~`+=|)]', '', str(data))
 	data = data.lower()
 	return data
-
-def speechify(speeches):
-    words = []
-    for speech in speeches:
-        print(speech[0])
-        #contentList = speech.to_list()
-        # print(contentList)
-        #words.extend(contentList[0])
-        # print(speech, len(words), words)
-        #print(speeches)
-    return words
-	
                         
 def sent_to_words(sentence):
 	words = sentence.split(" ")
@@ -159,39 +147,27 @@ def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
 colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'ReccomendedIND', 'PositiveFeedbackCount', 'DivisionName', 'DepartmentName', 'ClassName']
 reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 
-newDict = {}
-reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for row in range (1,len(reviewsDF))}
+for int in len(reviewsDF):
+	if (reviewsDF.loc[int, "ReviewText"] == ""):
+		reviewsDF = reviewsDF.drop(reviewsDF.index[int])
 
-for key in reviewsDict.keys():
-	if (isinstance(reviewsDict[key], float)):
-		print("dropped")
-	else:
-		newDict[key] = reviewsDict[key]
-
-speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
-speeches = speechesDF['ReviewText']
-data = speechify(speeches)
-"""content = []
-
-for int in range(len(speechesDF)):
-	review = clean_sents(speechesDF.loc[int, 'ReviewText'] )
-	data_words = list(sent_to_words(review))
+for review in reviewsDF.ReviewText:
+	review = clean_sents(review)
+	data_words = sent_to_words(review)
 	data_words = [dw for dw in data_words if len(dw)>0]
-	print(data_words[3401:3406])
-
-
-# Build the bigram and trigram models
-bigram = gensim.models.Phrases(content, min_count=5, threshold=100) # higher threshold fewer phrases.
-trigram = gensim.models.Phrases(bigram[content], threshold=100)  
+        
+	# Build the bigram and trigram models
+	bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
+	trigram = gensim.models.Phrases(bigram[data_words], threshold=100)  
                         
-# Faster way to get a sentence clubbed as a trigram/bigram
-bigram_mod = gensim.models.phrases.Phraser(bigram)
-trigram_mod = gensim.models.phrases.Phraser(trigram)
+	# Faster way to get a sentence clubbed as a trigram/bigram
+	bigram_mod = gensim.models.phrases.Phraser(bigram)
+	trigram_mod = gensim.models.phrases.Phraser(trigram)
                         
-# See trigram example
-print(trigram_mod[bigram_mod[data_words[0]]])
+	# See trigram example
+	#print(trigram_mod[bigram_mod[data_words[0]]])
 
-# Remove Stop Words
+	# Remove Stop Words
 	data_words_nostops = remove_stopwords(data_words)
 	#print(data_words_nostops)
                         
@@ -236,7 +212,7 @@ print(trigram_mod[bigram_mod[data_words[0]]])
 
                                                 
         #vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
-        #vis"""
+        #vis
 
 
             
