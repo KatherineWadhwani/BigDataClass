@@ -158,6 +158,7 @@ for key in reviewsDict.keys():
 		newDict[key] = reviewsDict[key]
 
 speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
+print(speechesDF)
 
 """content = []
 
