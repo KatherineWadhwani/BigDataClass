@@ -164,20 +164,28 @@ for key in reviewsDict.keys():
 speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
 print(speechesDF)
 
-for speech in speechesDF:
-    content = speechesDF[speechesDF['recNo'] == speech].'ReviewText'[:1]
-    contentList = content.to_list()
-    print(contentList[0])
+speeches = speechesDF['recNo'][len(speechesDF)]
+data = speechify(speeches)
+
+
+"""speeches = speechesDF['Filename'][-12:]
+print(speeches)
+def speechify(speeches):
+    words = []
+    for speech in speeches:
+        # print(speech)
+        content = speechesDF[speechesDF['Filename'] == speech].content[:2]
+        # print(content)
+        contentList = content.to_list()
+        # print(contentList)
+        words.extend(contentList[0])
+        # print(speech, len(words), words)
+    return words
+# len(speechify(speeches))
 
 
 
 
-"""newDict = {}
-for key in reviewsDict.keys():
-	if (isinstance(reviewsDict[key], float)):
-		print("dropped")
-	else:
-		newDict[key] = reviewsDict[key]
 
 
 for key in newDict.keys():
