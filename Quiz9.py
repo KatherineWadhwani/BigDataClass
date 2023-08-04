@@ -141,7 +141,7 @@ def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
     for sent in texts:
         doc = nlp(" ".join(sent)) 
         texts_out.append([token.lemma_ for token in doc if token.pos_ in allowed_postags])
-	print(token.lemma_)
+        print(token.lemma_)
     return texts_out
                                                
 
