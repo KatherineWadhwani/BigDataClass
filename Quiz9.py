@@ -171,15 +171,14 @@ data_words_nostops = remove_stopwords(data_words)
 # Form Bigrams
 data_words_bigrams = make_bigrams(data_words_nostops)
 #print(data_words_bigrams)
-#above works
                         
 # Initialize spacy 'en' model, keeping only tagger component (for efficiency)
 # python3 -m spacy download en
 nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
 
-print(len(data_words_bigrams))
+#print(len(data_words_bigrams))
 # Do lemmatization keeping only noun, adj, vb, adv
-data_lemmatized = lemmatization(data_words_bigrams[3:800], allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
+data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
             
 # Create Dictionary
 id2word = corpora.Dictionary(data_lemmatized)
@@ -197,7 +196,7 @@ speeches_corpus = dict(id2word)
 num_topics = 10
 #print(corpus)
 #print(len(corpus))
-lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=id2word, num_topics=num_topics, random_state=100, update_every=1, chunksize=100, passes=10, alpha='auto', per_word_topics=True)
+lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=id2word, num_topics=num_topics, random_state=100, update_every=1, chunksize=100, passes=5, alpha='auto', per_word_topics=True)
 print(lda_model.print_topics())
 
 #doc_lda = lda_model[corpus]
