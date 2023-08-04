@@ -154,7 +154,7 @@ for review in reviewsDF.ReviewText:
 	data = [dw for dw in data if len(dw)>0]
 	for datum in data:
 		data_words.append(datum)
-print(data_words)
+#print(data_words)
         
 # Build the bigram and trigram models
 bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
@@ -165,7 +165,7 @@ bigram_mod = gensim.models.phrases.Phraser(bigram)
 trigram_mod = gensim.models.phrases.Phraser(trigram)
                         
 # See trigram example
-#print(trigram_mod[bigram_mod[data_words[0]]])
+print(trigram_mod[bigram_mod[data_words[0]]])
 
 # Remove Stop Words
 data_words_nostops = remove_stopwords(data_words)
