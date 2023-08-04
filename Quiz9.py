@@ -125,7 +125,7 @@ def speechify(speeches):
     words = []
     for speech in speeches:
         # print(speech)
-        content = speechesDF[speechesDF['Filename'] == speech].content[:2]
+        content = speechesDF[speechesDF['recNo'] == speech].content[:2]
         # print(content)
         contentList = content.to_list()
         # print(contentList)
