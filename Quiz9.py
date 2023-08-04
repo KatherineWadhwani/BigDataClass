@@ -120,14 +120,13 @@ def collect (sentences):
 
 def speechify(speeches):
     words = []
-    for speech in speeches:
-        # print(speech)
-        content = speechesDF[speechesDF['recNo'] == speech].ReviewText[:2]
-        # print(content)
-        contentList = content.to_list()
-        # print(contentList)
-        words.extend(contentList[0])
-        # print(speech, len(words), words)
+    # print(speech)
+    content = speechesDF[speechesDF['recNo'] == speech].ReviewText[:2]
+    # print(content)
+    contentList = content.to_list()
+    # print(contentList)
+    words.extend(contentList[0])
+    # print(speech, len(words), words)
     return words
 	
 
@@ -177,9 +176,8 @@ speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
 print(speechesDF)
 
 
-speeches = speechesDF['recNo']
-data = speechify(speeches)
-print(data)
+speeches = speechesDF['ReviewText']
+print(speeches)
 
 """data_words = list(sent_to_words(data))
 data_words = [dw for dw in data_words if len(dw)>0]
