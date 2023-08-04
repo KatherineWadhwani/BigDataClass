@@ -154,13 +154,14 @@ reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 		
 reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for row in range (1,len(reviewsDF))}
 
+newDict = {}
 for key in reviewsDict.keys():
 	if (isinstance(reviewsDict[key], float)):
 		print("dropped")
 	else:
 		newDict[key] = reviewsDict[key]
 
-speechesDF = pd.DataFrame(reviewsDict.items(), columns=['recNo', 'ReviewText'])
+speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
 #print(speechesDF)
 
 
