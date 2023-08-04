@@ -131,7 +131,7 @@ def speechify(speeches):
         # print(contentList)
         words.extend(contentList[0])
         # print(speech, len(words), words)
-	print(speech)
+        print(speech)
     return words
 	
                         
