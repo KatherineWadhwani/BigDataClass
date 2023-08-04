@@ -124,12 +124,9 @@ def clean_sents(data):
 def speechify(speeches):
     words = []
     for speech in speeches:
-        print(speech)
-        #content = speechesDF[speechesDF['recNo'] == speech].ReviewText[:2]
-        # print(content)
-        #contentList = content.to_list()
+        contentList = speech.to_list()
         # print(contentList)
-        #words.extend(contentList[0])
+        words.extend(contentList[0])
         # print(speech, len(words), words)
         #print(speeches)
     return words
