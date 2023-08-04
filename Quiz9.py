@@ -140,7 +140,7 @@ def clean_sents(data):
                         
 def sent_to_words(sentences):
 	for sentence in sentences:
-		yield(gensim.utils.simple_preprocess(str(word).encode('utf-8'), deacc=True))  # deacc=True removes punctuations
+		yield(gensim.utils.simple_preprocess(str(sentence).encode('utf-8'), deacc=True))  # deacc=True removes punctuations
 
 def remove_stopwords(texts):
 	return [[word for word in simple_preprocess(str(doc)) if word not in stop_words] for doc in texts]
