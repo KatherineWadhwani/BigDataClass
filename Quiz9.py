@@ -125,9 +125,9 @@ def speechify(speeches):
     words = []
     for speech in speeches:
         print(speech)
-        contentList = speech.to_list()
+        #contentList = speech.to_list()
         # print(contentList)
-        words.extend(contentList[0])
+        #words.extend(contentList[0])
         # print(speech, len(words), words)
         #print(speeches)
     return words
