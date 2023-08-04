@@ -178,7 +178,7 @@ speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
 print(speechesDF)
 
 
-speeches = speechesDF['recNo'][-12:]
+speeches = speechesDF['recNo']
 data = speechify(speeches)
 
 """speeches = speechesDF['Filename'][-12:]
