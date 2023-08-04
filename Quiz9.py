@@ -165,7 +165,7 @@ bigram_mod = gensim.models.phrases.Phraser(bigram)
 trigram_mod = gensim.models.phrases.Phraser(trigram)
                         
 # See trigram example
-print(trigram_mod[bigram_mod[data_words[0]]])
+print(trigram_mod[bigram_mod[data_words]])
 
 # Remove Stop Words
 data_words_nostops = remove_stopwords(data_words)
