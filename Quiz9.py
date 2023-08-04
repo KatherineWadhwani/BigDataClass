@@ -164,7 +164,7 @@ for key in reviewsDict.keys():
 speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
 print(speechesDF)
 
-speeches = speechesDF['recNo'][len(speechesDF)]
+speeches = speechesDF['recNo'][len(speechesDF - 1)]
 data = speechify(speeches)
 
 
