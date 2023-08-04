@@ -147,10 +147,10 @@ def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
 colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'ReccomendedIND', 'PositiveFeedbackCount', 'DivisionName', 'DepartmentName', 'ClassName']
 reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 
+newDict = {}
 reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for row in range (1,len(reviewsDF))}
 speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
 
-newDict = {}
 for key in reviewsDict.keys():
 	if (isinstance(reviewsDict[key], float)):
 		print("dropped")
