@@ -153,6 +153,12 @@ reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 
 		
 reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for row in range (len(reviewsDF))}
+speechesDF = pd.DataFrame(reviewsDict.items(), columns=['recNo', 'ReviewText'])
+speechesDF[["Filename", "content", "contentLen"]]
+print(speechesDF)
+
+"""speechesDF['content'] = speechesDF.apply(lambda row: collect(row[1:]), axis=1)
+speechesDF['contentLen'] = speechesDF.apply(lambda row: len(collect(row[1:])), axis=1)
 
 newDict = {}
 for key in reviewsDict.keys():
@@ -216,7 +222,7 @@ lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=id2word, num_
 #print(id2word)
                                           
 #vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
-#vis
+#vis"""
 
 
             
