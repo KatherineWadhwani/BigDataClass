@@ -124,6 +124,7 @@ def clean_sents(data):
 def speechify(speeches):
     words = []
     for speech in speeches:
+	print(speech)
         contentList = speech.to_list()
         # print(contentList)
         words.extend(contentList[0])
