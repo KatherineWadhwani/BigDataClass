@@ -120,6 +120,19 @@ def clean_sents(data):
 	data = re.sub('[(.*!@#$%^&*\'";:/?,~`+=|)]', '', str(data))
 	data = data.lower()
 	return data
+
+def speechify(speeches):
+    words = []
+    for speech in speeches:
+        # print(speech)
+        content = speechesDF[speechesDF['Filename'] == speech].content[:2]
+        # print(content)
+        contentList = content.to_list()
+        # print(contentList)
+        words.extend(contentList[0])
+        # print(speech, len(words), words)
+    print(words)
+    return words
 	
                         
 def sent_to_words(sentence):
