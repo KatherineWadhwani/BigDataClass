@@ -154,7 +154,6 @@ reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 		
 reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for row in range (len(reviewsDF))}
 speechesDF = pd.DataFrame(reviewsDict.items(), columns=['recNo', 'ReviewText'])
-speechesDF[["recNo", "ReviewText"]]
 print(speechesDF)
 
 """speechesDF['content'] = speechesDF.apply(lambda row: collect(row[1:]), axis=1)
