@@ -147,12 +147,14 @@ def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
 colnames = ['recNo', 'ClothingID', 'Age', 'Title', 'ReviewText', 'Rating', 'ReccomendedIND', 'PositiveFeedbackCount', 'DivisionName', 'DepartmentName', 'ClassName']
 reviewsDF = pd.read_csv('reviews.csv', names=colnames)
 
-
+data_words = []
 for review in reviewsDF.ReviewText:
 	review = clean_sents(review)
-	data_words = sent_to_words(review)
-	data_words = [dw for dw in data_words if len(dw)>0]
-	print(data_words)
+	data = sent_to_words(review)
+	data = [dw for dw in data if len(dw)>0]
+	for datum in data:
+		data_words.append(datum)
+print(data_words)
         
 # Build the bigram and trigram models
 bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
