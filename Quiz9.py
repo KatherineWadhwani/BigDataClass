@@ -158,6 +158,8 @@ for key in reviewsDict.keys():
 		newDict[key] = reviewsDict[key]
 
 content = []
+
+print(speechesDF)
 for int in range(len(speechesDF)):
 	review = clean_sents(speechesDF.loc[int, 'ReviewText'] )
 	print(speechesDF.loc[int, 'ReviewText'])
