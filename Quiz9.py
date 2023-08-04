@@ -157,13 +157,14 @@ for key in reviewsDict.keys():
 	else:
 		newDict[key] = reviewsDict[key]
 
-
+content = []
 for review in speechesDF.ReviewText:
 	review = clean_sents(review)
 	data_words = sent_to_words(review)
 	data_words = [dw for dw in data_words if len(dw)>0]
-        
-	# Build the bigram and trigram models
+	content.append(data_words)
+print(content)
+	"""# Build the bigram and trigram models
 	bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
 	trigram = gensim.models.Phrases(bigram[data_words], threshold=100)  
                         
@@ -190,7 +191,7 @@ for review in speechesDF.ReviewText:
                         
 	# Do lemmatization keeping only noun, adj, vb, adv
 	data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
-	print(data_lemmatized[:1])
+	#print(data_lemmatized[:1])
             
 	# Create Dictionary
 	id2word = corpora.Dictionary(data_lemmatized)
@@ -219,7 +220,7 @@ for review in speechesDF.ReviewText:
 
                                                 
         #vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
-        #vis
+        #vis"""
 
 
             
