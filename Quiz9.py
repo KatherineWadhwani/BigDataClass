@@ -178,7 +178,7 @@ nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
 
 #print(len(data_words_bigrams))
 # Do lemmatization keeping only noun, adj, vb, adv
-data_lemmatized = lemmatization(data_words_bigrams[0:1000000], allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
+data_lemmatized = lemmatization(data_words_bigrams[0:200000], allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
             
 # Create Dictionary
 id2word = corpora.Dictionary(data_lemmatized)
