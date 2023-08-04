@@ -160,7 +160,7 @@ for key in reviewsDict.keys():
 content = []
 for int in range(len(speechesDF)):
 	review = clean_sents(speechesDF.loc[int, 'ReviewText'] )
-	print(review)
+	print(speechesDF.loc[int, 'ReviewText'])
 	data_words = sent_to_words(review)
 	data_words = [dw for dw in data_words if len(dw)>0]
 	content.append(data_words)
