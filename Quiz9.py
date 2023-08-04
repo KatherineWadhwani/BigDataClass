@@ -163,7 +163,7 @@ trigram = gensim.models.Phrases(bigram[data_words], threshold=100)
 # Faster way to get a sentence clubbed as a trigram/bigram
 bigram_mod = gensim.models.phrases.Phraser(bigram)
 trigram_mod = gensim.models.phrases.Phraser(trigram)
-print(trigram_mod[bigram_mod[data_words[0]]])
+print(trigram_mod[bigram_mod[data_words[6]]])
 
 # Remove Stop Words
 data_words_nostops = remove_stopwords(data_words)
