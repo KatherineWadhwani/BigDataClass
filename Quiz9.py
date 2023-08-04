@@ -163,7 +163,7 @@ trigram = gensim.models.Phrases(bigram[data_words], threshold=100)
 # Faster way to get a sentence clubbed as a trigram/bigram
 bigram_mod = gensim.models.phrases.Phraser(bigram)
 trigram_mod = gensim.models.phrases.Phraser(trigram)
-print(trigram_mod[bigram_mod[data_words[6]]])
+#print(trigram_mod[bigram_mod[data_words[6]]])
 
 # Remove Stop Words
 data_words_nostops = remove_stopwords(data_words)
@@ -178,7 +178,7 @@ nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
                         
 # Do lemmatization keeping only noun, adj, vb, adv
 data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
-#print(data_lemmatized[:1])
+print(data_lemmatized)
             
 # Create Dictionary
 id2word = corpora.Dictionary(data_lemmatized)
