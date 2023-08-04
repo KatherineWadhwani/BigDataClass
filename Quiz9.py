@@ -162,9 +162,9 @@ content = []
 
 for int in range(len(speechesDF)):
 	review = clean_sents(speechesDF.loc[int, 'ReviewText'] )
-	data_words = sent_to_words(review)
+	data_words = list(sent_to_words(review))
 	data_words = [dw for dw in data_words if len(dw)>0]
-	content.append(data_words)
+	print(data_words[3401:3406])
 
 
 # Build the bigram and trigram models
