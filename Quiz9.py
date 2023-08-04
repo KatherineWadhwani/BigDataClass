@@ -138,6 +138,7 @@ def lemmatization(texts, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV']):
     """https://spacy.io/api/annotation"""
     texts_out = []
     for sent in texts:
+	print(sent)
         doc = nlp(" ".join(sent)) 
         texts_out.append([token.lemma_ for token in doc if token.pos_ in allowed_postags])
     return texts_out
