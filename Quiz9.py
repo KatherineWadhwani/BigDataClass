@@ -165,20 +165,20 @@ for int in range(len(speechesDF)):
 	data_words = sent_to_words(review)
 	data_words = [dw for dw in data_words if len(dw)>0]
 	content.append(data_words)
-print(speechesDF.loc[2, 'ReviewText'])
 
-"""# Build the bigram and trigram models
-	bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
-	trigram = gensim.models.Phrases(bigram[data_words], threshold=100)  
-                        
-	# Faster way to get a sentence clubbed as a trigram/bigram
-	bigram_mod = gensim.models.phrases.Phraser(bigram)
-	trigram_mod = gensim.models.phrases.Phraser(trigram)
-                        
-	# See trigram example
-	#print(trigram_mod[bigram_mod[data_words[0]]])
 
-	# Remove Stop Words
+# Build the bigram and trigram models
+bigram = gensim.models.Phrases(content, min_count=5, threshold=100) # higher threshold fewer phrases.
+trigram = gensim.models.Phrases(bigram[content], threshold=100)  
+                        
+# Faster way to get a sentence clubbed as a trigram/bigram
+bigram_mod = gensim.models.phrases.Phraser(bigram)
+trigram_mod = gensim.models.phrases.Phraser(trigram)
+                        
+# See trigram example
+print(trigram_mod[bigram_mod[data_words[0]]])
+
+	"""# Remove Stop Words
 	data_words_nostops = remove_stopwords(data_words)
 	#print(data_words_nostops)
                         
