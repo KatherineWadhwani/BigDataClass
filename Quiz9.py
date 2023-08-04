@@ -156,7 +156,7 @@ reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for
 speechesDF = pd.DataFrame(reviewsDict.items(), columns=['recNo', 'ReviewText'])
 #print(speechesDF)
 
-for speech in len(speechesDF):
+for speech in range(len(speechesDF)):
     content = speechesDF.loc[speech, "ReviewText"][:1]
     contentList = content.to_list()
     print(contentList[0])
