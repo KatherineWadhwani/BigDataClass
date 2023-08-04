@@ -181,27 +181,16 @@ print(speechesDF)
 speeches = speechesDF['recNo']
 data = speechify(speeches)
 
-"""speeches = speechesDF['Filename'][-12:]
-print(speeches)
-def speechify(speeches):
-    words = []
-    for speech in speeches:
-        # print(speech)
-        content = speechesDF[speechesDF['Filename'] == speech].content[:2]
-        # print(content)
-        contentList = content.to_list()
-        # print(contentList)
-        words.extend(contentList[0])
-        # print(speech, len(words), words)
-    return words
-# len(speechify(speeches))
+data_words = list(sent_to_words(data))
+data_words = [dw for dw in data_words if len(dw)>0]
+print(data_words[3401:3406])
 
 
 
 
 
 
-for key in newDict.keys():
+"""for key in newDict.keys():
 	newDict[key] = clean_sents(newDict[key])
 	newDict[key] = sent_to_words(newDict[key])
 	newDict[key] = [dw for dw in data_words if len(dw)>0]
