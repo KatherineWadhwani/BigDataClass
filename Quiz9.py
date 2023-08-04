@@ -162,10 +162,10 @@ content = []
 
 for int in range(len(speechesDF)):
 	review = clean_sents(speechesDF.loc[int, 'ReviewText'] )
-	print(speechesDF.loc[int, 'ReviewText'])
 	data_words = sent_to_words(review)
 	data_words = [dw for dw in data_words if len(dw)>0]
 	content.append(data_words)
+print(speechesDF.loc[2, 'ReviewText'])
 
 """# Build the bigram and trigram models
 	bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100) # higher threshold fewer phrases.
