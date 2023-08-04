@@ -118,6 +118,19 @@ def collect (sentences):
 			speech.extend(fragment)
 			return speech
 
+def speechify(speeches):
+    words = []
+    for speech in speeches:
+        # print(speech)
+        content = speechesDF[speechesDF['recNo'] == speech].content[:2]
+        # print(content)
+        contentList = content.to_list()
+        # print(contentList)
+        words.extend(contentList[0])
+        # print(speech, len(words), words)
+    return words
+	
+
 def clean_sents(data):
 	# Remove new line characters
 	data = re.sub('\s+', ' ', str(data))
@@ -166,7 +179,7 @@ print(speechesDF)
 
 
 speeches = speechesDF['recNo'][-12:]
-print(speeches)
+data = speechify(speeches)
 
 """speeches = speechesDF['Filename'][-12:]
 print(speeches)
