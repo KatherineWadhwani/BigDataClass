@@ -164,9 +164,6 @@ for key in reviewsDict.keys():
 speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
 print(speechesDF)
 
-speeches = speechesDF['recNo'][len(speechesDF - 1)]
-data = speechify(speeches)
-
 
 """speeches = speechesDF['Filename'][-12:]
 print(speeches)
