@@ -37,7 +37,6 @@ spacy.load('en_core_web_sm')
 import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.ERROR)
 import warnings
-%matplotlib inline
 warnings.filterwarnings("ignore",category=DeprecationWarning)
 stop_words = stopwords.words('english')
 
