@@ -156,14 +156,18 @@ reviewsDict = {reviewsDF.loc[row, 'recNo']: reviewsDF.loc[row, 'ReviewText'] for
 speechesDF = pd.DataFrame(reviewsDict.items(), columns=['recNo', 'ReviewText'])
 #print(speechesDF)
 
+for speech in ['1981-Reagan.txt', '1985-Reagan.txt', '2021-Biden.txt']:
+    content = speechesDF[speechesDF['Filename'] == speech].content[:1]
+    contentList = content.to_list()
+    print(contentList[0])
 
-for speech in speechesDF:
+"""for speech in speechesDF:
     content = speechesDF[speechesDF['recNo'] == speech].ReviewText[:1]
     contentList = content.to_list()
     print(contentList)
 
 
-"""newDict = {}
+newDict = {}
 for key in reviewsDict.keys():
 	if (isinstance(reviewsDict[key], float)):
 		print("dropped")
