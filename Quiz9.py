@@ -138,9 +138,8 @@ def clean_sents(data):
 	data = data.lower()
 	return data
                         
-def sent_to_words(sentence):
-	words = sentence.split(" ")
-	for word in words:
+def sent_to_words(sentences):
+	for sentence in sentences:
 		yield(gensim.utils.simple_preprocess(str(word).encode('utf-8'), deacc=True))  # deacc=True removes punctuations
 
 def remove_stopwords(texts):
