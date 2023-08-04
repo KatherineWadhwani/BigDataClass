@@ -160,7 +160,8 @@ speechesDF = pd.DataFrame(reviewsDict.items(), columns=['recNo', 'ReviewText'])
 for speech in speechesDF:
     content = speechesDF[speechesDF['recNo'] == speech].ReviewText[:1]
     contentList = content.to_list()
-    print(contentList[1])
+    print(contentList)
+
 
 """newDict = {}
 for key in reviewsDict.keys():
