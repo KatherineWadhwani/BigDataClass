@@ -160,7 +160,6 @@ speechesDF = pd.DataFrame(newDict.items(), columns=['recNo', 'ReviewText'])
 
 content = []
 
-print(speechesDF)
 for int in range(len(speechesDF)):
 	review = clean_sents(speechesDF.loc[int, 'ReviewText'] )
 	print(speechesDF.loc[int, 'ReviewText'])
