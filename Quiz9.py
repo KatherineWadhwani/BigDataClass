@@ -189,6 +189,7 @@ texts = data_lemmatized
                         
 # Term Document Frequency
 corpus = [id2word.doc2bow(text) for text in texts]
+print(corpus)
                         
 #print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
 speeches_corpus = dict(id2word)
@@ -197,7 +198,7 @@ speeches_corpus = dict(id2word)
 num_topics = 10
 #print(corpus)
 #print(len(corpus))
-lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=id2word, num_topics=num_topics, passes=3, alpha='auto', per_word_topics=True)
+lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=id2word, num_topics=num_topics, random_state=100, update_every=1, chunksize=100, passes=10, alpha='auto', per_word_topics=True)
 print(lda_model.print_topics())
 
 #doc_lda = lda_model[corpus]
