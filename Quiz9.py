@@ -169,7 +169,7 @@ for review in reviewsDF.ReviewText:
 
 	# Remove Stop Words
 	data_words_nostops = remove_stopwords(data_words)
-	#print(data_words_nostops)
+	print(data_words_nostops)
                         
         # Form Bigrams
 	data_words_bigrams = make_bigrams(data_words_nostops)
