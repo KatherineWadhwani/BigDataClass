@@ -178,7 +178,7 @@ nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
 
 #print(len(data_words_bigrams))
 # Do lemmatization keeping only noun, adj, vb, adv
-data_lemmatized = lemmatization(data_words_bigrams, allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
+data_lemmatized = lemmatization(data_words_bigrams[0:10000], allowed_postags=['NOUN', 'ADJ', 'VERB', 'ADV'])
             
 # Create Dictionary
 id2word = corpora.Dictionary(data_lemmatized)
@@ -188,7 +188,6 @@ texts = data_lemmatized
                         
 # Term Document Frequency
 corpus = [id2word.doc2bow(text) for text in texts]
-print(len(corpus))
                         
 #print ([[(id2word[id], freq) for id, freq in cp] for cp in corpus])
 speeches_corpus = dict(id2word)
