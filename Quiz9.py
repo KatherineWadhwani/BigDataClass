@@ -163,6 +163,7 @@ trigram = gensim.models.Phrases(bigram[data_words], threshold=100)
 # Faster way to get a sentence clubbed as a trigram/bigram
 bigram_mod = gensim.models.phrases.Phraser(bigram)
 trigram_mod = gensim.models.phrases.Phraser(trigram)
+print(trigram_mod[bigram_mod[data_words[0]]])
 
 # Remove Stop Words
 data_words_nostops = remove_stopwords(data_words)
@@ -170,7 +171,6 @@ data_words_nostops = remove_stopwords(data_words)
                         
 # Form Bigrams
 data_words_bigrams = make_bigrams(data_words_nostops)
-print(data_words_bigrams)
                         
 # Initialize spacy 'en' model, keeping only tagger component (for efficiency)
 # python3 -m spacy download en
